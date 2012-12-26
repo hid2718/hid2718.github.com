@@ -1,0 +1,958 @@
+<html><head>
+	<title>
+	  F-Script で Cocoa クラスを創る - Creating Cocoa Classes with F-Script
+	</title>
+	  <!-- Creating Cocoa Classes with F-Script -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
+	<link rel="stylesheet" type="text/css" href="CreatingCocoaClassesWithFScript-index-ja_files/documentation.css" media="all">
+	
+  </head>
+  <body bgcolor="#FFFFFF">
+	<br>
+	<h1 align="center">
+	  F-Script で Cocoa クラスを創る
+	  <!-- Creating Cocoa Classes with F-Script -->
+	</h1>
+	<p>
+	  <font color="#326fa3">
+		2010年 8月 改訂
+		<!-- Revised August 2010 -->
+	  </font>
+	</p>
+	
+	
+	<table style="border: 1px solid #C9D1D7; width:38em" bgcolor="whitesmoke" cellpadding="5">
+	<!-- <table style="border: 1px solid #C9D1D7; width:43em" bgcolor="whitesmoke" cellpadding="5"> -->
+	  <tbody><tr>
+		  <td align="left">
+			<b>
+			  記事一覧
+			  <!-- Articles in this series -->
+			</b><br>
+			<br>
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  基 礎
+			  <!-- Fundamentals -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/ExploringCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa 探検
+				</a>
+				<a href="http://www.fscript.org/documentation/ExploringCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/LearnFScriptIn20Minutes-index-ja.html">
+				  F-Script を20分で学び、Core Image で遊んでみよう
+				</a>
+				<a href="http://www.fscript.org/documentation/LearnFScriptIn20Minutes/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/ScriptingCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa スクリプティング
+				</a>
+				<a href="http://www.fscript.org/documentation/ScriptingCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/CreatingCocoaClassesWithFScript-index-ja.html">
+				  F-Script で Cocoa クラスを創る
+				</a>
+				<a href="http://www.fscript.org/documentation/CreatingCocoaClassesWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/SystemWideScriptingWithFScript-index-ja.html">
+				  F-Script で Mac の様々なアプリケーションを操作する
+				</a>
+				<a href="http://www.fscript.org/documentation/SystemWideScriptingWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/EmbeddingFScriptIntoCocoa-index-ja.html">
+				  Cocoa アプリケーションに F-Script を埋め込む
+				</a>
+				<a href="http://www.fscript.org/documentation/EmbeddingFScriptIntoCocoa/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/AccessingMacOSXFrameworksWithFScript-index-ja.html">
+				  F-Script で Mac OS X のフレームワーク群にアクセスする
+				</a>
+				<a href="http://www.fscript.org/documentation/AccessingMacOSXFrameworksWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+			
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  その他
+			  <!-- Miscellaneous -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/GoogleChartAPIFunWithCocoaAndFScript-index-ja.html">
+				  Cocoa と F-Script で Google Chart API をいじってみよう
+				  </a>
+				  <a href="http://www.fscript.org/documentation/GoogleChartAPIFunWithCocoaAndFScript/index.htm">
+				  ［原文］
+				  </a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/TheGameOfReverseInFScript-index-ja.html">
+				  F-Script 版 Reverse ゲーム
+				</a>
+				<a href="http://www.fscript.org/documentation/TheGameOfReverseInFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+		  </td>
+		</tr>
+	</tbody></table>
+
+<h2>はじめに</h2>
+<!-- Introduction -->
+<p>
+  <a href="http://www.fscript.org/">F-Script</a> には、動作中に Cocoa クラスを動的に生成できる便利な構文 がある。
+  この機能は、洗練されたプログラムを開発する為ばかりではなく、即座に実験したり、プロトタイプを作ったり、Cocoa を対話的に使ってみる為にも役立つ。
+  F-Script コンソールにクラス定義をタイプして、リターンキーを押せば、すぐにその新しいクラスを動かすことができる。
+  この記事では、この機能について手短に紹介しよう。
+  <!--
+	  <a href="http://www.fscript.org/">F-Script</a> provides a handy syntax for dynamically creating Cocoa classes on the fly.
+	  This is useful for quickly experimenting, prototyping and using Cocoa interactively, as well as for developing sophisticated programs.
+	  You can type a class definition in the F-script console, hit return and immediately start playing with your new class.
+	  This article provides a quick introduction to this feature.
+	  -->
+</p>
+
+<h2>単純なクラス</h2>
+<!-- <h2>A simple class</h2> -->
+
+<p>
+  何かクラスを定義する為には、それに名前を付け、そのスーパークラスを指定する必要がある。
+  では、<a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html">NSObject</a> のサブクラスとして、
+  <code>Buddy</code> クラスを定義する例を示そう。
+  以下のコードを F-Script コンソールにタイプすれば、<code>Buddy</code> クラスを動的に生成することができる：
+  <!--
+	  In order to define a class, we must give it a name and specify a superclass.
+	  Here is an example where we define <code>Buddy</code> as a subclass of
+	  <a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html">NSObject</a>.
+	  You can type this code in F-Script and get the <code>Buddy</code> class dynamically created:
+	  -->
+</p>
+
+<pre class="codebox"><code><span class="signature">Buddy : NSObject</span> {}</code>
+</pre> 
+
+<p>
+  この定義は非常に単純だが、このままではあまり役に立たない。
+  この新しいクラスには、（そのスーパークラスである <code>NSObject</code> から何がしかを継承しているとはいえ）インスタンス変数やメソッドが何も定義されていないからだ。
+  <!--
+	  As is, this definition is very simple, but not very useful:
+	  our new class doesn't define any instance variable or method (though it inherits some from <code>NSObject</code>, its superclass).
+	-->
+</p>
+
+<h2>クラスの再定義</h2>
+<!-- <h2>Class redefinition</h2> -->
+
+<p>
+  幸いなことに、F-Script では、既存のクラスを動的に再定義することができる。
+  今度は、クラスの初期化メソッドや description メソッドを追加するとともに、いくつかのインスタンス変数（<code>firstName</code> と <code>lastName</code> にしよう）も指定してみよう：
+  <!--
+	  Fortunately, we can dynamically <i>redefine</i> our class.
+	  This time, we will specify some instance variables (say <code>firstName</code> and <code>lastName</code>) along with an initialization method and a description method:
+	-->
+</p>
+
+<pre class="codebox"><code><span class="signature">Buddy : NSObject</span>
+{
+   <span class="identifier">firstName</span> <span class="identifier">lastName</span>
+ 
+   <span class="signature">- initWithFirstName:first lastName:last</span>
+   {
+      <span class="identifier">self</span> := <span class="identifier">super</span> <span class="selector">init</span>.
+      <span class="identifier">self</span> <span class="selector">~~</span> <span class="literal">nil</span> <span class="selector">ifTrue:</span>
+      [
+         <span class="identifier">firstName</span> := <span class="identifier">first</span>.
+         <span class="identifier">lastName</span> := <span class="identifier">last</span>
+      ].
+      ^ <span class="identifier">self</span>
+   }
+
+   <span class="signature">- description</span>
+   {
+      ^ <span class="string">'Hello, I am your buddy '</span> <span class="selector">++</span> <span class="identifier">firstName</span> <span class="selector">++</span> <span class="string">' '</span> <span class="selector">++</span> <span class="identifier">lastName</span>  
+   }
+}
+</code></pre>
+
+<p>
+  このクラス定義には、インスタンス変数の並びと、それに続くメソッドの定義が含まれている。 <code>self</code> や <code>super</code> の意味は、Objective-C や Smalltalk の場合と同じである。
+  カレット (<code>^</code>) は、リターン命令である。
+  <!--
+	  The class definition contains the list of instance variables, followed by method definitions.
+	  <code>self</code> and <code>super</code> have the same meaning as in Objective-C and Smalltalk.
+	  The caret (<code>^</code>) is the return instruction.
+	  -->
+</p>
+
+<h2>Buddy クラスを使ってみる</h2>
+<!-- <h2>Using the Buddy class</h2> -->
+
+<p>
+  では今創ったクラスを動かしてみよう。このクラスをインスタンス化すると生成される新たなインスタンスを、変数に代入して評価するのだ。
+  F-Script コンソールを使って対話的に評価するにはこうすればよい：
+  <!--
+	  Let's play with our class.
+	  We will instantiate it and assign the newly created instance to a variable that we will then evaluate.
+	  The interactive session in the F-Script console looks like this:
+	-->
+</p>
+
+<pre class="codebox"><code>&gt; <span class="identifier">john</span> := <span class="identifier">Buddy</span> <span class="selector">alloc</span> <span class="selector">initWithFirstName:</span><span class="string">'John'</span> <span class="selector">lastName:</span><span class="string">'Doe'</span>
+	
+&gt; <span class="identifier">john</span>
+
+<span class="result">Hello, I am your buddy John Doe</span>
+</code></pre>
+
+
+<h2>クラス メソッド</h2>
+<!-- <h2>Class methods</h2> -->
+
+<p>
+  Objective-C と同様、インスタンスメソッドの名前の先頭にはマイナス記号が付き、クラスメソッドの名前にはプラス記号が付く。
+  例えば、<code>Buddy</code> クラスに、次のようなクラスメソッドを追加することができる：
+  <!--
+	  As in Objective-C, the name of an instance methods is preceded by a minus sign and the name of a class methods is marked with a plus sign. 
+	  For example we can add the following class method to our <code>Buddy</code> class:
+	-->
+</p><p>
+
+</p><pre class="codebox"><code><span class="signature">+ buddyWithFirstName:first lastName:last</span>
+{
+   ^ <span class="identifier">self</span> <span class="selector">alloc</span> <span class="selector">initWithFirstName:</span><span class="identifier">first</span> <span class="selector">lastName:</span><span class="identifier">last</span> 
+}
+</code></pre>
+
+<p>
+  すると、次の様にそれを使うことができる。
+  <!--
+	  We can then use it as follows:
+	-->
+</p><pre class="codebox"><code>&gt; <span class="identifier">mary</span> := <span class="identifier">Buddy</span> <span class="selector">buddyWithFirstName:</span><span class="string">'Mary'</span> <span class="selector">lastName:</span><span class="string">'Doe'</span>
+
+&gt; <span class="identifier">mary</span>
+
+<span class="result">Hello, I am your buddy Mary Doe</span>
+</code></pre>
+
+<h2>メソッド内のローカル変数</h2>
+<!-- <h2>Local variables in methods</h2> -->
+
+<p>
+  メソッド内のローカル変数は、縦棒で挟み、スペースで区切って定義する。
+  例えば、<code>|foo bar|</code> は foo と bar という名前の二つのローカル変数を定義する。
+  これらのローカル変数は、自動的に nil に初期化される。
+  <code>description</code> メソッドを書き換えて、一時的な変数としてのローカル変数の使い方を示そう。
+  <!--
+	  Local variables in methods are defined enclosed by vertical bars and separated by spaces.
+	  For example, <code>|foo bar|</code> defines two local variables named foo and bar.
+	  Such variables are automatically initialized to nil.
+	  We can rewrite our <code>description</code> method to show the use of a temporary local variable:
+	-->
+</p>
+
+<pre class="codebox"><code><span class="signature">- description</span>
+{
+   |<span class="identifier">fullName</span>|
+   <span class="identifier">fullName</span> := <span class="identifier">firstName</span> <span class="selector">++</span> <span class="string">' '</span> <span class="selector">++</span> <span class="identifier">lastName</span>.
+   ^ <span class="string">'Hello, I am your buddy '</span> <span class="selector">++</span> <span class="identifier">fullName</span> 
+}
+</code></pre>
+
+<h2>ブラウズする</h2>
+<!-- <h2>Browsing</h2> -->
+
+<p>
+  F-Script で新しく定義されたクラスは、自動的に Cocoa ランタイムに登録される為、このクラスに対して、標準的なツール類が全て利用できるのだ。
+  例えば、F-Script コンソールに <code><span style="color:#6698FF;">sys</span> <span style="color:#307D7E;">browse:</span><span style="color:#6698FF;">john</span></code> と
+  入力すれば、グラフィカルなオブジェクトブラウザが開いて、先ほど創ったインスタンスに関する情報を表示するだろう。
+  <!--
+	  Since our newly defined class is automatically registered in the Cocoa runtime, we can use it with all our standard tools.
+	  For instance, entering <code><span style="color:#6698FF;">sys</span> <span style="color:#307D7E;">browse:</span><span style="color:#6698FF;">john</span></code>
+	  in F-Script will open the graphical object browser on the instance we created earlier.
+	-->
+</p>
+
+		<img src="CreatingCocoaClassesWithFScript-index-ja_files/fig1.png">
+		<p class="legend">
+		  図１. Buddy クラスのインスタンスをブラウズする
+		  <!-- Figure1. Browsing an instance of the Buddy class. -->
+		</p>
+
+<p>
+  クラス オブジェクトをブラウズすれば（例えば、<code><span style="color:#6698FF;">sys</span> <span style="color:#307D7E;">browse:</span><span style="color:#6698FF;">Buddy
+  </span></code> と入力する）、通常通り、クラスメソッドが表示される。
+  <!--
+	  As usual, class methods will appear when browsing class objects (e.g. typing <code><span style="color:#6698FF;">sys</span> <span style="color:#307D7E;">browse:
+	  </span><span style="color:#6698FF;">Buddy</span></code>).
+  -->
+</p>
+
+		<img src="CreatingCocoaClassesWithFScript-index-ja_files/fig2.png">
+		<p class="legend">
+		  図２. Buddy クラスオブジェクトをブラウズする
+		  <!-- Figure 2. Browsing the Buddy class object. -->
+		</p>
+
+
+<h2>カテゴリー</h2>
+<!-- <h2>Categories</h2> -->
+
+<p>
+  一から新しいクラスを定義したり再定義したい訳ではなく、時には、既存のクラスに新しいメソッドを追加したいだけの場合もある。
+  この機能は、Objective-C のカテゴリーに似ているが、F−Script では、実行時に動的に使うことができるのだ。
+  この機能は、別々に開発されたオブジェクト指向フレームワークを一緒に動かすような場合に有効だが、同様に、何かを試作したり、新しい設計で実験したりする場合にも、非常に役立つ。
+  しかも、この機能は、直接 Cocoa クラスを定義できる F-Script の能力の自然な拡張になっている。
+  <!--
+	  Sometimes, we don't want to define or redefine a class from scratch, but just incrementally add methods to an existing class.
+	  This is similar to Objective-C categories, but works dynamically at run-time.
+	  This is quite useful for prototyping stuff and experimenting with new designs, as well as for making object-oriented frameworks developed independently work together.
+	  Besides, it is a natural extension of the ability to define Cocoa classes directly in F-Script.
+	-->
+</p>
+
+<p>
+  Objective-C ランタイムに登録済みのクラスなら、その実装言語（Objective-C, F-Script 等々）が何であれ、全てのクラスに新たな仕掛けを教え込めるのだ。
+  その構文は簡単だ：クラス名の後に、一対の中括弧を置いて、その中にメソッド定義を書けば良い。
+  もしも、追加したメソッドが、既にクラス内に存在していた場合、それは新しいメソッドに置き換えられる。
+  <!--
+	  You can teach new tricks to any class registered in the Objective-C runtime, regardless of its original implementation language (Objective-C, F-Script or other).
+	  The syntax is straightforward: class name followed by new methods inside a pair of curly braces.
+	  If a method being added already exists in the class, it will be replaced by the new method.
+	-->
+</p>
+
+<p>
+  例えば、こうすれば、NSObject クラスに <code>print</code> メソッドを追加できる：
+  <!--
+	  For example, here is how we can add a <code>print</code> method the NSObject class:
+	-->
+</p>
+
+<pre class="codebox"><code><span class="signature">NSObject</span>
+{
+   <span class="signature">- (void)print</span>
+   {
+       <span class="comment">"レシーバの description を標準出力に印字する。"</span> <!-- <span class="comment">"Print the receiver's description on standard output."</span> -->
+       <span class="identifier">stdout</span> <span class="selector">print:</span><span class="identifier">self</span> <span class="selector">description</span>
+   }
+}
+</code></pre>
+
+<p>
+  もちろん、クラスメソッドも同様に追加できる。例えば、次のコードで NSNumber クラスに <code>pi</code> メソッドを追加することができる。
+  <!--
+	  Of course, this also works for class methods. For example, the following code adds a <code>pi</code> method to the NSNumber class:
+	-->
+</p>
+
+<pre class="codebox"><code><span class="signature">NSNumber</span>
+{
+   <span class="signature">+ pi</span>
+   {
+       ^ <span class="literal">3.141592653589793</span>
+   }
+}
+</code></pre>
+
+<p>
+  次の例は、これまでよりちょっとだけ高級だが、NSArray クラスに、（ <code>collect:</code>, <code>inject:into:</code>, <code>groupedBy:</code> 及び、<code>select:</code> という名前の ）
+  一般的な Smalltalk コレクション メソッドを、いくつか追加する。
+  <!--
+	  The following example, a little bit more sophisticated, adds some common Smalltalk collection methods
+	  (namely <code>collect:</code>, <code>inject:into:</code>, <code>groupedBy:</code> and <code>select:</code>) to the NSArray class:
+	-->
+</p>
+
+<pre class="codebox"><code><span class="signature">NSArray</span> 
+{
+   <span class="signature">- collect:transformer</span>
+   {
+       <span class="comment">"レシーバの各要素を引数にして、transformer （１引数のブロック）を
+	評価して、その結果を集めた新しい配列を返す"</span>
+	   <!--
+		   <span class="comment">"Answer a new NSArray constructed by gathering the results of
+			 evaluating transformer (a block with one parameter) with each 
+			 element of the receiver."</span>
+		   -->
+       ^ <span class="identifier">transformer</span> <span class="selector">value:@</span><span class="identifier">self</span>
+   }
+
+   <span class="signature">- groupedBy:criteria</span>
+   {   
+       <span class="comment">"配列の全ての要素を引数にして、criteria（１引数のブロック）を評価
+	した結果をキーとして、その各キーの値がそのキーに評価される 要素の
+	配列になっている NSDictionary オブジェクトを返す。
+	例えば、
+	{'Hello', 'guys', 'I', 'enjoy', 'programming', 'with', 'style'}
+	groupedBy:#length　は、
+	以下のキー／値アソシエーションを要素とするディクショナリーを返す:
+           1 -&gt; {'I'},
+           4 -&gt; {'guys', 'with'},
+           5 -&gt; {'hello', 'enjoy', 'style'},
+          11 -&gt; {'programming'}"</span>
+	   <!--
+       <span class="comment">"Answer an NSDictionary whose keys are the result of evaluating 
+        criteria (a block with one parameter) for all elements in the
+        collection, and the value for each key is the collection of 
+        elements that evaluated to that key. For example
+          {'Hello', 'guys', 'I', 'enjoy', 'programming', 'with', 'style'} 
+          groupedBy:#length
+        returns a dictionary with the following key/value associations:
+           1 -&gt; {'I'},
+           4 -&gt; {'guys', 'with'},
+           5 -&gt; {'hello', 'enjoy', 'style'},
+          11 -&gt; {'programming'}"</span>
+	   -->
+       | <span class="identifier">result</span> |
+       <span class="identifier">result</span> := #{}.
+
+       <span class="identifier">self</span> <span class="selector">do:</span>[:<span class="identifier">each</span>| 
+           | <span class="identifier">key</span> <span class="identifier">group</span> |
+           <span class="identifier">key</span> := <span class="identifier">criteria</span> <span class="selector">value:</span><span class="identifier">each</span>.
+           <span class="identifier">group</span> := <span class="identifier">result</span> <span class="selector">at:</span><span class="identifier">key</span>.
+           <span class="identifier">group</span> <span class="selector">==</span> <span class="literal">nil</span> <span class="selector">ifTrue:</span>
+           [
+               <span class="identifier">group</span> := {}.
+               <span class="identifier">result</span> <span class="selector">at:</span><span class="identifier">key</span> <span class="selector">put:</span><span class="identifier">group</span>.
+           ].
+           <span class="identifier">group</span> <span class="selector">addObject:</span><span class="identifier">each</span>.
+       ].
+
+       ^ <span class="identifier">result</span>
+   }
+ 
+   <span class="signature">- inject:initialValue into:operation</span>
+   {
+       <span class="comment">"前回の評価結果とレシーバの各要素を二つの引数に使って、operation
+	（２引数のブロック）を評価した最終の結果を返す。
+	operation の最初の評価は、第一引数として initialValue を使い、
+	第二引数として、レシーバの最初の要素を使って実行される。
+	例えば、配列 anArray の要素の値の総和を取るには、こう使う:
+            anArray inject:0 into:#+ "</span>
+	   <!--
+       <span class="comment">"Answer the final result of evaluating operation (a block with
+        two parameters) using the previous evaluation result and each 
+        element of the receiver as the parameters. The first evaluation
+        of operation is performed with initialValue as the first 
+        parameter, and the first element of the receiver as the second 
+        parameter. For instance, to sum the numeric elements of an  
+        array, use:
+            anArray inject:0 into:#+ "</span>
+	   -->
+       | <span class="identifier">nextValue</span> |
+       <span class="identifier">nextValue</span> := <span class="identifier">initialValue</span>.
+       <span class="identifier">self</span> <span class="selector">do:</span>[:<span class="identifier">each</span>| 
+           <span class="identifier">nextValue</span> := <span class="identifier">operation</span> <span class="selector">value:</span><span class="identifier">nextValue</span> <span class="selector">value:</span><span class="identifier">each</span>
+       ].
+       ^ <span class="identifier">nextValue</span>
+   }
+
+   <span class="signature">- select:discriminator</span>
+   {
+       <span class="comment">"discriminator（２引数のブロック）が true に評価されるレシーバの
+	要素を含む新しい配列を返す。discriminator は、レシーバの各要素を
+	引数として、評価される。
+	discriminator が true に評価される要素が、新配列に追加される。"</span>
+	   <!--
+       <span class="comment">"Answer a new NSArray which contains the elements in the 
+        receiver which cause discriminator (a block with one parameter)
+        to evaluate to true. For each element of the receiver, 
+        discriminator is evaluated with the element as the parameter. 
+        Each element which causes discriminator to evaluate to true is 
+        added to the new array."</span>
+	   -->
+       ^ <span class="identifier">self</span> <span class="selector">where:</span>(<span class="identifier">discriminator</span> <span class="selector">value:@</span><span class="identifier">self</span>)
+   }
+}
+</code></pre>
+
+
+<h2>クラス インスタンス変数</h2>
+<!-- <h2>Class instance variables</h2> -->
+
+<p>
+  インスタンス変数に加えて、クラスインスタンス変数を定義することもできる。
+  クラスインスタンス変数は、クラスにとって、インスタンスにとってのインスタンス変数に当たるものだ（静かに息をして、この文をもう一度読んでみよう）。
+  それは、クラスオブジェクトにとってのプライベートデータを表すものなのだ。
+  この変数にアクセスできるのは、クラスメソッドだけである。
+  クラスや、そのサブクラスを定義すると、それら自身の為の記憶領域が確保される。<br>
+  クラスインスタンス変数を定義する為には、その変数名の後に「 <code>(class instance variable)</code> 」という注釈を付けることになっている。
+  次の例では、自分自身に何回 <code>alloc</code> メッセージが送られたかを憶えているクラス を定義する為に、クラスインスタンス変数を使っている：
+  <!--
+	  In addition to instance variables, we can also define class instance variables.
+	  Class instance variables are to classes what instance variables are to instances (breathe calmly and read this sentence again).
+	  They represent private data associated with class objects.
+	  They can only be accessed in class methods.
+	  The defining class and each subclass get their own storage.<br>
+	  To define a class instance variable, we put the annotation "<code>(class instance variable)</code>" after its name.
+	  In the following example, we use a class instance variable to define a class that keeps track of how many times it has been sent an <code>alloc</code> message:
+	-->
+</p>
+
+<pre class="codebox"><code><span class="signature">MyClass : NSObject</span>
+{
+   <span class="comment">"アロケーションしたことを覚えているクラスインスタンス変数を定義する"<!-- "Define the class instance variable that will keep track of allocations" --></span>
+   <span class="identifier">allocationCount</span> (class instance variable)
+
+   <span class="comment">"+initialize メソッドは、クラスインスタンス変数を初期化するのに便利"<!-- "The +initialize method is handy to initialize class instance variables" --></span>
+   <span class="signature">+ (void)initialize</span>
+   {
+      <span class="identifier">allocationCount</span> := <span class="literal">0</span>
+   }
+
+   <span class="comment">"アロケーションを実行する"<!-- "Perform the allocation" --></span>
+   <span class="signature">+ alloc</span>
+   {
+      <span class="identifier">allocationCount</span> := <span class="identifier">allocationCount</span> <span class="selector">+</span> <span class="literal">1</span>.
+      ^ <span class="identifier">super</span> <span class="selector">alloc</span> 
+   }
+
+   <span class="comment">"クラスが、今までに何回 alloc メッセージを受け取ったかを返す"<!-- "Return how many times the class has been sent an alloc message" --></span>
+   <span class="signature">+ allocationCount</span>
+   {
+      ^ <span class="identifier">allocationCount</span>
+   }
+}
+</code></pre>
+
+<h2>さらにメソッドについて</h2>
+<!-- <h2>More on methods</h2> -->
+
+<p>
+  F-Script でメソッドを定義すると、それは自動的に Objective-C のランタイムに登録される。
+  しかも、この新しいメソッドは、ランタイムから見ると、他の Objective-C メソッドと全く同じ様に見えるのだ。
+  とりわけ、これは、このメソッドが Objective-C コードから呼び出されることもあり得ることを意味する。
+  <!--
+	  When we define a method, it gets automatically registered in the Objective-C runtime.
+	  Indeed, from the point of view of the runtime, the new method is just like any other Objective-C method.
+	  Among other things, this means that it can be invoked from Objective-C code.  
+	-->
+</p>
+
+<p>
+  この事実は、F-Script の構文にも現れている。F-Script のメソッドは、外から見る限り Objective-C メソッドと見分けがつかない。
+  <!--
+	  This also manifests in the syntax of F-Script itself.
+	  From the outside, nothing looks more like an Objective-C method than a F-Script method:
+	-->
+</p>
+
+<p>
+<b>Objective-C メソッド</b>
+<!-- <b>Objective-C method</b> -->
+
+</p><pre class="codebox"><code><span class="signature">- (float) doSomethingWithFoo:(int)x bar:(Bar *)y</span>
+{
+  ... Objective-C code ...
+} 
+</code></pre>
+<p></p>
+
+<p>
+<b>F-Script メソッド</b>
+<!-- <b>F-Script method</b> -->
+
+</p><pre class="codebox"><code><span class="signature">- (float) doSomethingWithFoo:(int)x bar:(Bar *)y</span>
+{
+  ... F-Script code ...
+} 
+</code></pre>
+<p></p>
+
+<p>
+  上の例では、メソッド定義の形式に明示的な型付けを利用している。
+  戻り値や引数としてオブジェクトではない値を使うメソッドを呼び出す形でコールバックしてくる Objective-C コードに、F-Script のオブジェクトを渡したい時、この形式が特に役立つ。
+  まさにこの場合、F-Script で定義されるメソッドであっても、起動された時にその引数や戻り値を正しく処理する為には、それらの型が何なのかを知らなければならないのだ。<br>
+  <br>
+  もちろん、F-Script は純粋なオブジェクト言語であり、引数で渡ってくる実際の値は、対応するオブジェクトに自動的に置き換えられてから受け取られ、戻り値のオブジェクトも、
+  メソッド定義で呼び出し先に約束されているデータ型に、自動的に置き換えられてから返される ので、メソッド内部の F-Script コードは、オブジェクトを扱うだけで良い。
+  <!--
+	  In the example above, we make use of explicit typing in the method signature.
+	  This is particularly useful when we want to hand out a F-Script object to some Objective-C code
+	  that call us back by invoking a method taking or returning non-object values.
+	  Indeed, the method we define must know what are the types of its arguments and return value in order to handle them correctly when invoked.<br>
+	  <br>
+	  Of course, since F-Script is a pure object language, actual values passed as arguments are automatically mapped to objects,
+	  and the returned object is automatically mapped to the data type promised to the caller by the signature.
+	  The F-Script code inside our methods only has to deal with objects.    
+	  -->
+</p>
+
+<p>
+  現在サポートされている型の一覧を以下に示す。
+  <!--
+	  Here is a list of types currently supported: 
+	  -->
+  <code></code>
+</p>
+
+<ul>
+  <code>
+  <li> id </li>
+  <li> Class </li>
+  <li> SEL </li>
+  <li> BOOL </li>
+  <li> _Bool </li>
+  <li> char </li>
+  <li> unsigned char </li>
+  <li> short </li>
+  <li> unsigned short </li>
+  <li> int </li>
+  <li> unsigned int </li>
+  <li> long </li>
+  <li> unsigned long </li>
+  <li> long long </li>
+  <li> unsigned long long</li>
+  <li> NSInteger </li>
+  <li> NSUInteger</li>
+  <li> float </li>
+  <li> double </li>
+  <li> CGFloat </li>
+  <li> NSRange</li>
+  <li> NSPoint </li>
+  <li> NSRect </li>
+  <li> NSSize </li>
+  <li> CGPoint </li>
+  <li> CGRect </li>
+  <li> CGSize </li>
+  <li> CGAffineTransform </li>
+  <li> void * </li>
+  </code>
+</ul>
+<code>
+</code>
+
+<p>
+   Objective-C の様に、クラス名の後に <code>*</code> が付いたオブジェクト型（ 例えば <code>NSString *</code> ）も使うことができる。
+   ポインタを指定する為に、型の後ろに必要な数だけ <code>*</code> を置いてよい（ 例えば <code>unsigned int **</code> ）。
+   最後に、メソッドが何も返さないことを示す為には <code>void</code> が使われる。<br>
+   <br>
+   明示的に型が指定されていなければ、デフォルトとして、Objective-C と同様 <code>id</code> 型が仮定される。
+  <!--
+	  We can also use a class name followed by a <code>*</code>, as in Objective-C (e.g. <code>NSString *</code>).
+	  To specify pointers we can put as many <code>*</code> as needed after a type (e.g. <code>unsigned int **</code>).
+	  Finally, we use <code>void</code> to indicate that a method returns nothing.<br>
+	  <br>
+	  By default, in the absence of an explicit type, <code>id</code> is assumed, as in Objective-C.
+	  -->
+</p>
+
+<p>
+  （クラスを再定義したり、カテゴリーを使って）既存のメソッドを新しいものに置き換える場合は、新しいメソッドの記述は、既存のメソッドの記述と互換性がなければならない
+  （もしも互換性がない場合、プログラミングエラーを知らせる例外が発生する）。
+  つまり、それらは、戻り値の型と引数の型がそれぞれ同一でなければならないということだ。
+  全てのオブジェクト型は、同類だと見なされることに注意しよう。例えば、<code>NSString *</code> と宣言されている引数が、
+  新しいメソッドでは <code>NSNumber *</code> と宣言されていたとしてもエラーにならない。
+  <!--
+	  If you dynamically replace an existing method by a new one (by redefining a class or by using a category),
+	  the signature of the new method must be compatible with the signature of the existing one
+	  (an exception signaling a programming error will be raised if this is not the case).
+	  That is, they must have the same return type and argument types.
+	  Note that all object types are considered similar;
+	  for example, an argument declared as an <code>NSString *</code> can be declared as an <code>NSNumber *</code> in the new signature.
+	  -->
+</p>
+
+<h2>例題：Rectangle クラス</h2>
+<!-- <h2>Example: The Rectangle class</h2> -->
+
+<p>
+  Rectangle クラスというものを定義してみよう。このインスタンスは、ある色に初期化して、それ自身を描画させることができる。
+  この例題では、Objective-C クラス（ここでは 
+NSObject）のサブクラスを作り、インスタンス変数（color）やクラスメソッド、そして二つのインスタンスメソッドを定義して動かすまでを、実
+際にやってお見せしよう。  これによって、ネイティヴな、従って F-Script や Objective-C から利用可能な Cocoa 
+クラスが動的に生成される。
+  <!--
+	  We define a Rectangle class.
+	  A rectangle can be initialized with a color and asked to draw itself.
+	  This example demonstrates subclassing an Objective-C class (here, NSObject), defining an instance variable (color), a class method and two instance methods.
+	  This dynamically creates a native Cocoa class that can then be used from F-Script and Objective-C. 
+	-->
+</p>
+
+<pre class="codebox"><code><span class="signature">Rectangle : NSObject</span>
+{
+   <span class="identifier">color</span>
+
+   <span class="signature">+ rectangleWithColor:aColor</span>
+   {
+      ^ <span class="identifier">self</span> <span class="selector">alloc</span> <span class="selector">initWithColor:</span><span class="identifier">aColor</span>
+   }
+   
+   <span class="signature">- (void)draw</span>
+   {
+      <span class="identifier">color</span> <span class="selector">set</span>.
+      (<span class="identifier">NSBezierPath</span> <span class="selector">bezierPathWithRect:</span>(<span class="literal">400</span><span class="selector">&lt;&gt;</span><span class="literal">100</span> <span class="selector">extent:</span><span class="literal">100</span><span class="selector">&lt;&gt;</span><span class="literal">100</span>)) <span class="selector">fill</span>
+   }
+ 
+   <span class="signature">- initWithColor:aColor</span>
+   {
+      <span class="identifier">self</span> := <span class="identifier">super</span> <span class="selector">init</span>.
+      <span class="identifier">self</span> <span class="selector">~~</span> <span class="literal">nil</span> <span class="selector">ifTrue:</span>
+      [
+         <span class="identifier">color</span> := <span class="identifier">aColor</span>
+      ].
+      ^ <span class="identifier">self</span>
+   }
+}
+</code></pre>
+
+<p>
+  これで、この Rectangle クラスをインスタンス化して、それを描画することができる。
+  <!--
+	  We can then instantiate a rectangle and draw it:
+	  -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">r</span> := <span class="identifier">Rectangle</span> <span class="selector">rectangleWithColor:</span><span class="identifier">NSColor</span> <span class="selector">magentaColor</span>.
+
+<span class="identifier">r</span> <span class="selector">draw</span>
+</code></pre>
+
+<p>
+  これを実行すると、F-Script コンソールの表示は以下の様になるだろう。<br>
+  <!--
+	  Here is what it looks like in the F-Script console:
+	  -->
+</p>
+<p style="text-align:left; font-size:x-small">
+  <font color="gray">
+  ［訳注］： 図３の様に、クラス定義とインスタンス化を続けて入力してから実行する場合は、クラス定義文の最後のピリオドを忘れずに !
+  </font>
+</p>
+
+		<img src="CreatingCocoaClassesWithFScript-index-ja_files/fig3.png">
+		<p class="legend">
+		  図３. Rectangle クラスを定義して使ってみる
+		  <!--
+			  Figure 3. Defining and using the Rectangle class.
+			-->
+		</p>
+
+
+<h2>例題：意識の拡大</h2>
+<!-- <h2>Example: Expansion of consiousness</h2> -->
+
+<p>
+  次のプログラムでは、NSView クラスのサブクラス化について解説しよう。
+  このプログラムは、様々な色で明滅して サイケデリックな効果を引き起すことができる円 を表示する。
+  これが、そのアプリケーションのスクリーンショットである。
+  <!--
+	  The following program illustrates subclassing the NSView class.
+	  It displays a circle that can generate psychedelic effects by displaying flashes of colors.
+	  Here is a screenshot of the application:
+	  -->
+</p>
+
+		<img src="CreatingCocoaClassesWithFScript-index-ja_files/fig4.png">
+		<p class="legend">
+		  図４. 動作中の PsychedelicCircleView
+		  <!--
+			  Figure 4. A PsychedelicCircleView in action.
+			-->
+		</p> 
+
+<p>
+  このプログラムの中心となる部品は、<code>PsychedelicCircleView</code>
+  という名前の <code><a href="http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/NSView_Class/Reference/NSView.html">NSView</a></code> の
+  サブクラスだ。このグラフィカル部品は、円のアニメーション表示と、ユーザーにサイケデリックプロセスを開始させたり停止させたりする為のマウスイベント処理を受け持つ。
+  その実現の為に、このクラスは、そういう場合の標準メソッド <code>drawRect:</code> と <code>mouseDown:</code> を実装している。
+  <!--
+	  The main component of the program is <code>PsychedelicCircleView</code>,
+	  a subclass of <code><a href="http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/NSView_Class/Reference/NSView.html">NSView</a></code>.
+	  This graphical component takes care of displaying the animated circle and handles mouse events, allowing the user to start and stop the psychedelic process.
+	  To that end, it implements the standards <code>drawRect:</code> and <code>mouseDown:</code> methods.
+	  -->
+</p>
+<p></p>
+<p>
+  この NSView のサブクラスのソースコードは、以下に示す通りである。
+  これを実行する為には、このソースコードを、F-Script コンソールにコピー／ペーストするだけでよい。
+  それから、この部品を画面に表示する為の（このずっと下の方にある）コードも、コピー／ペーストして欲しい。 
+  <!--
+	  Below is the code for our NSView's subclass.
+	  To execute it, all you have to do is to copy/paste it in the F-Script console.
+	  Then copy/paste the code in charge of putting the component on screen (provided further below).  
+	-->
+</p>
+
+<pre class="codebox"><code><span class="comment">"Cocoa の NSView のサブクラスとして PsychedelicCircleView クラスを定義する"<!-- "Define the PsychedelicCircleView class, a subclass of Cocoa's NSView" --></span>
+<span class="signature">PsychedelicCircleView : NSView</span>
+{
+   <span class="comment">"インスタンス変数"<!-- "Instance variables" --></span> 
+   <span class="identifier">timer</span>       <span class="comment">"ビューをアニメートする為に使われる NSTimer オブジェクト"<!-- "A NSTimer object used to animate the view" --></span> 
+   <span class="identifier">message</span>     <span class="comment">"表示用メッセージ"<!-- "The message to display" --></span> 
+   <span class="identifier">attributes</span>  <span class="comment">"表示用アトリビュートを保持する辞書"<!-- "A dictionary holding drawing attributes" --></span> 
+
+   <span class="comment">"明示的初期化メソッドを定義する"<!-- "Define the designated initializer" --></span>
+   <span class="signature">- initWithFrame:(NSRect)frame</span>
+   {
+      <span class="identifier">self</span> := <span class="identifier">super</span> <span class="selector">initWithFrame:</span><span class="identifier">frame</span>.
+      <span class="identifier">self</span> <span class="selector">~~</span> <span class="literal">nil</span> <span class="selector">ifTrue:</span>
+      [
+         |<span class="identifier">font</span>| <span class="comment">"フォントオブジェクトを保持するインスタンス変数"<!-- "A local variable to hold the font object" --></span>
+
+         <span class="comment">"使用するフォントを決定する：可能なら Synchro LET を使い、無ければ デフォルトユーザーフォント を使う"<!-- "Determine the font to use. We use Synchro LET if available, the default user font otherwise" --></span>
+         <span class="identifier">font</span> := <span class="identifier">NSFont</span> <span class="selector">fontWithName:</span><span class="string">'Synchro LET'</span> <span class="selector">size:</span><span class="literal">40</span>.
+         <span class="identifier">font</span> <span class="selector">==</span> <span class="literal">nil</span> <span class="selector">ifTrue:</span>[ <span class="identifier">font</span> := <span class="identifier">NSFont</span> <span class="selector">userFontOfSize:</span><span class="literal">40</span> ].
+         
+         <span class="comment">"メッセージ表示用のアトリビュート辞書を初期化する"<!-- "Initialize the attributes dictionary used to draw the message" --></span>
+         <span class="identifier">attributes</span> := #{<span class="identifier">NSFontAttributeName</span> <span class="selector">-&gt;</span> <span class="identifier">font</span>}.
+
+         <span class="comment">"表示用メッセージを初期化する"<!-- "Initialize the message to display" --></span>
+         <span class="identifier">message</span> := <span class="string">'       Click to start/stop\nexpansion of consciousness'</span>.
+      ].
+      ^ <span class="identifier">self</span>
+   }
+
+   <span class="comment">"ビューに表示する為に Cocoa が呼び出すメソッドを定義する"<!-- "Define the method invoked by Cocoa to draw the view" --></span>
+   <span class="signature">- (void) drawRect:(NSRect)aRect</span>
+   {
+      <span class="comment">"ローカル変数を定義する"<!-- "Define local variables" --></span>
+      |<span class="identifier">red</span> <span class="identifier">green</span> <span class="identifier">blue</span> <span class="identifier">size</span> <span class="identifier">x</span> <span class="identifier">y</span>|  
+
+     <span class="comment">"色の３成分の指定に使う乱数を生成する"<!-- "Generate random values for color components" --></span>
+      <span class="identifier">red</span>   := <span class="literal">10</span> <span class="selector">random</span> <span class="selector">/</span> <span class="literal">9</span>.
+      <span class="identifier">green</span> := <span class="literal">10</span> <span class="selector">random</span> <span class="selector">/</span> <span class="literal">9</span>.
+      <span class="identifier">blue</span>  := <span class="literal">10</span> <span class="selector">random</span> <span class="selector">/</span> <span class="literal">9</span>.
+   
+      <span class="comment">"色を設定して円を描く"<!-- "Set the color and draw the circle" --></span>
+      (<span class="identifier">NSColor</span> <span class="selector">colorWithCalibratedRed:</span><span class="identifier">red</span> <span class="selector">green:</span><span class="identifier">green</span><span class="selector"> blue:</span><span class="identifier">blue</span> <span class="selector">alpha:</span><span class="literal">1</span>) <span class="selector">set</span>.
+      (<span class="identifier">NSBezierPath</span> <span class="selector">bezierPathWithOvalInRect:</span><span class="identifier">self</span> <span class="selector">bounds</span>) <span class="selector">fill</span>.
+
+      <span class="comment">"サイケデリックモードがアクティブでなければ、メッセージを表示する"<!-- "If the psychedelic mode is not active, draw a message" --></span>  
+      <span class="identifier">timer</span> <span class="selector">==</span> <span class="literal">nil</span> <span class="selector">ifTrue:</span>
+      [
+         <span class="comment">"メッセージを中央に表示させる為に、その座標を計算する"<!-- "Compute coordinates of the message in order to have it centered" --></span>
+         <span class="identifier">size</span> := <span class="identifier">message</span> <span class="selector">sizeWithAttributes:</span><span class="identifier">attributes</span>.
+         <span class="identifier">x</span> := <span class="identifier">self</span> <span class="selector">bounds</span> <span class="selector">extent</span> <span class="selector">x</span> <span class="selector">/</span> <span class="literal">2</span> <span class="selector">-</span> (<span class="identifier">size</span> <span class="selector">width</span>  <span class="selector">/</span> <span class="literal">2</span>).
+         <span class="identifier">y</span> := <span class="identifier">self</span> <span class="selector">bounds</span> <span class="selector">extent</span> <span class="selector">y</span> <span class="selector">/</span> <span class="literal">2</span> <span class="selector">-</span> (<span class="identifier">size</span> <span class="selector">height</span> <span class="selector">/</span> <span class="literal">2</span>).
+      
+         <span class="comment">"メッセージを描く"<!-- "Draw the message" --></span>
+         <span class="identifier">message</span> <span class="selector">drawAtPoint:</span><span class="identifier">x</span><span class="selector">&lt;&gt;</span><span class="identifier">y</span> <span class="selector">withAttributes:</span><span class="identifier">attributes</span>.
+      ].
+   }
+
+   <span class="comment">"ビューがクリックされた時に Cocoa が呼び出すメソッドを定義する"<!-- "Define the method invoked by Cocoa when the view is clicked" --></span>
+   <span class="signature">- (void) mouseDown:(NSEvent *)theEvent</span>
+   {
+      <span class="identifier">timer</span> <span class="selector">==</span> <span class="literal">nil</span> <span class="selector">ifTrue:</span>
+      [
+         <span class="comment">"サイケデリックプロセスを動かす為の NSTimer オブジェクトを生成する"<!-- "Create a NSTimer object to put the psychedelic process in motion" --></span>
+         <span class="identifier">timer</span> := <span class="identifier">NSTimer</span> <span class="selector">scheduledTimerWithTimeInterval:</span><span class="literal">0.01</span>
+		                                  <span class="selector">target:</span>[<span class="identifier">self</span> <span class="selector">setNeedsDisplay:</span><span class="literal">YES</span>]
+	                                        <span class="selector">selector:</span><span class="literal">#value</span>
+                                                <span class="selector">userInfo:</span><span class="literal">nil</span>
+                                                 <span class="selector">repeats:</span><span class="literal">YES</span>
+      ]
+      <span class="selector">ifFalse:</span>
+      [
+         <span class="comment">"サイケデリックプロセスを停止する"<!-- "Stop the psychedelic process" --></span>
+         <span class="identifier">timer</span> <span class="selector">invalidate</span>.
+         <span class="identifier">timer</span> := <span class="literal">nil</span>.
+         <span class="identifier">self</span> <span class="selector">setNeedsDisplay:</span><span class="literal">YES</span>.
+      ]     
+   }
+}.
+</code></pre>
+
+<p>
+  さあこれで、ビュークラスが定義できたので、これをウィンドウの中に配置して動かしてみよう：
+  <!--
+	  Now that our view class is defined, we can put it in a window and play with it:
+	-->
+</p>
+
+<pre class="codebox"><code><span class="comment">"ウィンドウをインスタンス化して、必要な設定を行う"<!-- "Instantiate and configure a window" --></span>
+<span class="identifier">window</span> := <span class="identifier">NSWindow</span> <span class="selector">alloc</span> <span class="selector">initWithContentRect:</span>(<span class="literal">0</span><span class="selector">&lt;&gt;</span><span class="literal">0</span> <span class="selector">extent:</span><span class="literal">700</span><span class="selector">&lt;&gt;</span><span class="literal">700</span>)
+                                   <span class="selector">styleMask:</span><span class="identifier">NSTitledWindowMask</span> <span class="selector">+</span>
+                                             <span class="identifier">NSClosableWindowMask</span> <span class="selector">+</span>
+                                             <span class="identifier">NSMiniaturizableWindowMask</span> <span class="selector">+</span>
+                                             <span class="identifier">NSResizableWindowMask</span>
+                                     <span class="selector">backing:</span><span class="identifier">NSBackingStoreBuffered</span>
+                                       <span class="selector">defer:</span><span class="literal">NO</span>.
+
+<span class="identifier">window</span> <span class="selector">setBackgroundColor:</span><span class="identifier">NSColor</span> <span class="selector">blackColor</span>; <span class="selector">setReleasedWhenClosed:</span><span class="literal">NO</span>; <span class="selector">setTitle:</span><span class="string">'Psychedelic Circle'</span>; <span class="selector">center</span>.
+
+<span class="comment">"サイケデリックサークルをインスタンス化して、必要な設定をする"<!-- "Instantiate and configure a psychedelic circle" --></span>
+<span class="identifier">circle</span> := <span class="identifier">PsychedelicCircleView</span> <span class="selector">alloc</span> <span class="selector">initWithFrame:</span><span class="identifier">window</span> <span class="selector">contentView</span> <span class="selector">bounds</span>.
+<span class="identifier">circle</span> <span class="selector">setAutoresizingMask:</span><span class="identifier">NSViewWidthSizable</span> <span class="selector">+</span> <span class="identifier">NSViewHeightSizable</span>.
+
+<span class="comment">"サークルビューをウィンドウの中に配置する"<!-- "Put the circle view in the window" --></span>
+<span class="identifier">window</span> <span class="selector">contentView</span> <span class="selector">addSubview:</span><span class="identifier">circle</span>.
+
+<span class="comment">"ウィンドウを画面に表示する"<!-- "Put the window onscreen" --></span>
+<span class="identifier">window</span> <span class="selector">makeKeyAndOrderFront:</span><span class="literal">nil</span>.
+</code></pre>
+
+<p>
+  上のコードは、ウィンドウを開いて、サイケデリックサークルを表示するはずだ。
+  <!--
+	  The code above should open a window and display the psychedelic circle.
+	-->
+</p>
+
+<p>
+  さて、<b>動作中のクラスを再定義する</b> 実験をしてみる良い機会だ。
+  サイケデリックな円が明滅している最中に、プログラムを変更して、すぐにその変更の効果を見ることができるのだ。
+  例えば、<code>drawRect:</code> メソッドの中の <code>bezierPathWithOvalInRect:</code> 呼出しを <code>bezierPathWithRect:</code> 呼出しに置き換えてみよう。
+  すると、これまで見えていた明滅する円が、明滅する四角形に変化したことに気付くだろう。
+  <!--
+	  This is a good opportunity to experiment with <b>live class redefinition</b>.
+	  While the psychedelic circle is flashing, you can modify the program and see your modifications take effect immediately.
+	  For example, in the <code>drawRect:</code> method, replace the call to <code>bezierPathWithOvalInRect:</code> by a call to <code>bezierPathWithRect:</code>.
+	  Now, if you look at the flashing circle, you'll notice that it has turned into a flashing rectangle.
+	-->
+</p>
+
+<p>
+  この記事を書いている時点では、このプログラムの全てのユーザー（つまり、僕と僕の猫だ）が、このサイケデリックサークルを見たことで意識の拡大を経験している訳ではないことに注意されたい。
+  実は、全ユーザーの 50% は、このプログラムで拡大したのは頭痛だけだ と断言している。他の 50% は、いつもそうなのだが、これを見ると必ず、奇妙な声をあげながら、蠅を捕まえようとする。
+  <!--
+	  Note that, at the time of this writing,
+	  all the users of this program (i.e. me and my cat) are not experiencing an expansion of their consciousness by looking at the psychedelic circle.
+	  In fact, 50% of the users declare that the only thing this program expands is their headaches.
+	  The other 50% try compulsively to catch flies while producing strange sounds, just as usual.
+	-->
+</p>
+
+<br>
+	<p style="text-align:center; font-size:x-small">
+	  <font color="slategray">Copyright © 2009-2010 Philippe Mougin</font>
+	  <br>
+	  <font color="slategray">Translation-ja © 2012 Hideo Haga ［日本語版］</font>
+	</p>
+	<br>
+	<script src="CreatingCocoaClassesWithFScript-index-ja_files/urchin.js" type="text/javascript">
+	</script>
+	<script type="text/javascript">
+	  _uacct = "UA-278325-1";
+	  urchinTracker();
+	</script>	
+  
+
+</body></html>
