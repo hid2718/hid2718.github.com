@@ -124,8 +124,8 @@
 <!-- Introduction -->
 
 <p>
-  F-Script.app は、スタンドアロンの F-Script 環境だが、数多くの Mac OS X フレームワークが自動的にリンクされている。
-  そのため、F-Script さえあれば、それ以上何ら特別な設定をすることなく、Mac OS X の能力を素早く調べたり、これらのフレームワークを直接使ったりすることができるのだ。これは便利だ。
+  F-Script.app は、スタンドアロンの F-Script 環境なのだが、起動した時点で既に、数多くの Mac OS X フレームワークが自動的にリンクされている。
+  そのため、F-Script さえあれば、それ以上何ら特別な設定をすることなく、Mac OS X の能力を素早く調べたり、これらのフレームワークを直接使ったりすることができて、とても便利で役に立つ。
   <!--
       F-Script.app, the standalone F-Script environment, is automatically linked with a number of Mac OS X frameworks.
       This is convenient for quickly exploring Mac OS X's capabilities and directly using the frameworks without any further configuration.
@@ -140,7 +140,7 @@
 <p>
   その使い方を具体的に示す為に、最近 Mac OS X の標準フレームワークに追加された <a href="http://developer.apple.com/graphicsimaging/imagekit/">Image Kit</a> に
   アクセスしてみることにしよう。
-  F-Script.app を起動して、以下のコードを、直接入力して欲しい：
+  F-Script.app を起動して、以下のコードを、コンソールに直接入力すれば良い：
   <!--
       We will illustrate this by accessing the <a href="http://developer.apple.com/graphicsimaging/imagekit/">Image Kit</a>,
       a recent addition to the standard Mac OS X frameworks.
@@ -153,7 +153,7 @@
 
 <p>
   Image Kit のコンポーネントの一つ <code><a href="http://developer.apple.com/documentation/GraphicsImaging/Reference/IKImagePicker_Class/index.html">IKPictureTaker</a></code> の
-  パネルが最前面に現れるが、ユーザーはこれを使って、とりわけ、ファイルシステム上の画像ファイルをブラウズしたり、（iSight 内蔵の）デジタルカメラで、スナップショットを撮ったりすることができる。
+  パネルが最前面に現れるが、これを使うと、とりわけ、ファイルシステム上の画像ファイルをブラウズしたり、（iSight 内蔵の）デジタルカメラで、スナップショットを撮ったりすることができるのだ。
   <!--
       It will activate the <code><a href="http://developer.apple.com/documentation/GraphicsImaging/Reference/IKImagePicker_Class/index.html">IKPictureTaker</a></code> panel,
       a component of Image Kit with which users can, among other things,
@@ -164,7 +164,7 @@
 <img src="AccessingMacOSXFrameworksWithFScript-index-ja_files/fig1.png">
 
 <p>
-  そうして一度欲しい画像を入手したら、F-Script コンソールに以下の命令を入力すれば、pictureTaker からその画像オブジェクト
+  こうして一度欲しい画像を入手してしまえば、F-Script コンソールに以下の命令を入力すれば、pictureTaker からその画像オブジェクト
   （<code><a href="http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/NSImage_Class/index.html">NSImage</a></code> のインスタンス）を
   受け取ることができる：
   <!--
@@ -193,7 +193,7 @@
 </h2>
 
 <p>
-  自動的に F-Script.app にリンクされるフレームワークの一覧を、以下の表に示す：
+  F-Script.app に自動的にリンクされるフレームワークの一覧を、以下の表に示そう：
   <!--
       The following table lists the frameworks that are automatically liked with F-Script.app:
     -->
@@ -290,7 +290,7 @@
 </h2>
 
 <p>
-  標準的な Cocoa のテクニックを使えば、読者の作ったものも含め、その他のフレームワークやバンドルを動的にロードすることができる。
+  標準的な Cocoa のテクニックを使えば、読者の作ったものも含めて、その他のフレームワークやバンドルを動的にロードすることができる。
   <a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSBundle_Class/Reference/Reference.html">NSBundle</a> クラスを使うと便利である。
   例えば、次のコードは、Mac OS X デベロッパーツールと一緒にインストールされるフレームワークの一つ SenTesting Kit をロードする： 
   <!--
@@ -318,13 +318,9 @@
 </p>
 
 <p>
-  対象のバンドルは、自動ガベージコレクションモードだけで動作するのか、それとも、参照カウンタモードだけで動作するのか、それを確かめる必要がある。
-  F-Script がそれに応じた正しいモードで動いていなければ、そのバンドルはロードされないだろう。
-  F-Script のメモリ管理モードは、そのリファレンスパネルから設定することができる。
-  <!--
-  ロードしたいバンドルが動くのは、自動ガベジコレクションモードだけなのか、それとも、参照カウンタモードだけなのかに応じて、F-Script が正しいモードで動いていることを確かめる必要がある。
-  さもなければ、そのバンドルはロードされないだろう。F-Script のメモリ管理モードは、F-Script 自身のリファレンスパネルから設定することができる。
-    -->
+  ロードしたいバンドルは、自動ガベージコレクションモードでしか動作しないかもしれないし、参照カウンタモードでしか動作しないかもしれない。
+  F-Script がそれに応じた正しいモードで動いていることを確認する必要がある。さもなければ、そのバンドルはロードされないだろう。
+  F-Script のリファレンスパネルを使えば、そのメモリ管理モードを設定することができる。
   <!--
       If your bundle requires running with automatic garbage collection only or in reference counting mode only,
       you must make sure F-Script is running in the correct mode, or your bundle won't load.
@@ -361,7 +357,7 @@
 <p>
   追加したいフレームワークやバンドルを F-Script リポジトリの中に置けば、F-Script の起動時に、それらを自動的にロードすることができる。
   このリポジトリは、F-Script が初めて起動された時に F-Script.app によって創られる。
-  このリポジトリは、デフォルトでは <code>~/Library/Application Support/F-Script</code>（<code>~</code> はホームディレクトリ）にあるだろう。
+  このリポジトリは、デフォルトでは <code>~/Library/Application Support/F-Script</code>（<code>~</code> はホームディレクトリ）にあるはずだ。
   バンドルやフレームワークを <code>~/Library/Application Support/F-Script/classes</code> ディレクトリに置けば、F-Script.app に、それらを自動的にロードさせることができる。
   <!--
       You can have F-Script automatically load additional frameworks or bundles at launch time by putting them in the F-Script repository.
@@ -372,7 +368,7 @@
 </p>
 
 <p>
-  こうする代わりに、ファイルシステムの中で、それらのフレームワークやバンドルを指すシンボリックリンクを創るだけにしても良い。例えば、F-Script リポジトリから SenTesting Kit へのリンクを創るには、
+  こうする代わりに、ファイルシステムの中に、それらのフレームワークやバンドルを指すシンボリックリンクを創るだけにしても良い。例えば、F-Script リポジトリから SenTesting Kit へのリンクを創るには、
   次の F-Script コードを実行すれば良い。
   <!--
       Alternatively, you can just create symbolic links, in the file system, pointing to the frameworks and bundles.
@@ -421,7 +417,7 @@
 <p>
   Mac OS X の Objective-C ベースのフレームワークで定義されたほとんどの定数や列挙子は、F-Script でも、それらのシンボリック形式のまま直接利用できるが、
   現時点では、F-Script は動的に新しい定数を見つけ出すことはしないので、もし（たぶん、動的にロードしたフレームワークで定義されている）使いたい定数が、F-Script 内で、
-  シンボリック形式では提供されていなければ、直接その本来の値に立ち返るべきである。
+  シンボリック形式では提供されていなければ、直接その本来の値に立ち返るしかない。
   通常、対象のフレームワークの、公開されたヘッダーファイルを見れば、定数の定義が見つかるはずだ。
   <!--
       Most constants and enums defined in the Objective-C-based frameworks of Mac OS X are directly available in F-Script in their symbolic form. 
