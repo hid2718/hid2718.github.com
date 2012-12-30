@@ -1,4 +1,5 @@
 hid2718.github.com
 ==================
 
-GitHub User Page
+This is hid2718's GitHub User Page Home.
+
