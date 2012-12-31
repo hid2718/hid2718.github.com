@@ -338,21 +338,21 @@
 	      -->
 	</li><br>
       <li>Cocoa のクラスをコードの中で直接参照している：
-	<code>NSWindow</code>,<code>NSForm</code>,<code>NSButton</code>, そして、<code>NSBox</code>は、Cocoa のクラスである。
+	<code>NSWindow</code>、<code>NSForm</code>、<code>NSButton</code> そして、<code>NSBox</code> は、Cocoa のクラスである。
 	<!--
 	    <li>We directly reference the Cocoa classes in the code:
 	      <code>NSWindow</code>,<code>NSForm</code>,<code>NSButton</code>, and <code>NSBox</code>are Cocoa classes.
 	      -->
       </li><br>
       <li>Cocoa 定数も直接参照している：
-	<code>NSTitledWindowMask</code>,<code>NSClosableWindowMask</code>, や <code>NSRoundedBezelStyle</code> は、Cocoa で定義されているシンボル名である。
+	<code>NSTitledWindowMask</code>、<code>NSClosableWindowMask</code> や <code>NSRoundedBezelStyle</code> は、Cocoa で定義されているシンボル名である。
 	<!--
 	    <li>We directly reference Cocoa constants: constants such as
 	      <code>NSTitledWindowMask</code>,<code>NSClosableWindowMask</code>, or <code>NSRoundedBezelStyle</code> are symbolic names defined by Cocoa.
 	      -->
       </li><br>
       <li>Cocoa API を直接使っている：
-	<code>alloc</code>,<code>initWithFrame:</code>,<code>setTitle:</code>, 等々のようなメソッドは、Cocoa フレームワークの一部である。
+	<code>alloc</code>、<code>initWithFrame:</code>、<code>setTitle:</code> 等々のようなメソッドは、Cocoa フレームワークの一部である。
 	<!--
 	    <li>We directly use the Cocoa API.
 	      Methods such as <code>alloc</code>,<code>initWithFrame:</code>,<code>setTitle:</code>,
@@ -360,7 +360,7 @@
 	      -->
       </li><br>
       <li>Cocoa のメソッドに、引数として F-Script オブジェクトを渡すことができる。そして逆に、その呼び出し結果から、Cocoa オブジェクトを入手して、更に F-Script でそれらを使うことができる。
-	ご承知の通り、この種の統合を提供するには、しばしば何かしら取り扱いの難しいブリッジ技術を使う必要が出てくるものだが、F-Script の場合、この点に関してはずっと単純だ。
+	ご承知のように、この種の統合を提供するには、しばしば何かしら取り扱いの難しいブリッジ技術を使う必要が出てくるものだ。しかし F-Script の場合、この点に関してはずっと単純だ。
 	というのは、ブリッジすべきものが何もないからだ：F-Script のオブジェクトモデルは Cocoa そのものなのである。
 	<!--
 	    We can pass F-Script objects as arguments to Cocoa methods. 
@@ -692,7 +692,7 @@
   これまで Cocoa スクリプティングとはどのようなものかを見てきた。
   明らかに、この記事では、Cocoa の例外の扱い方、インタフェースビルダーとの統合の方法、カスタム Objective-C クラスの使い方や、
   非オブジェクト型が、F-Script オブジェクトにどのようにマッピングされるのか、等々、まだ議論されていないテーマがたくさんある。
-  しかし、読者は、それらのどの側面においても、統合のレベルは非常に高いことを期待して良い。
+  しかし、読者は、それらのどの側面においても、統合のレベルは非常に高いものであることを期待して良い。
   <!--
       We have seen what scripting Cocoa with F-Script involves.
       Clearly, many subjects have not been tackled in this article,
