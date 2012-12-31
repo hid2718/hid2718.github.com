@@ -138,11 +138,11 @@
 	-->
     </p>
     <p>
-      この記事では、Cocoa スクリプティングとはどのようなものか、その感触をお伝えしたい。また、どんなレベルの統合が期待できるかについても示したい。
+      この記事では、Cocoa スクリプティングとはどのようなものか、その感触をお伝えしたい。また、どんなレベルの統合が期待できるのかについても示したい。
       我々は、Cocoa 専用のオープンソーススクリプト言語 F-Script を使って、小さなグラフィカルアプリケーションを創る。
-      グラフィカルユーザーインタフェースを作る為の Cocoa オブジェクトフレームワークである Application Kit を相手に、F-Script を使って直接プログラムするのだ。
-      この種のアプリケーションならインタフェースビルダーを使って作れるという人もいるだろうが、
-      この記事では、Cocoa スクリプティングを解説する為に、Application Kit をプログラム的に使っていくということに注意されたい。
+      グラフィカルユーザーインタフェースを作る為の Cocoa オブジェクトフレームワークである Application Kit に正面から向き合い、F-Script を使って直接プログラムするのだ。
+      この種のアプリケーションはインタフェースビルダーを使って作ることもできるが、
+      この記事では、Cocoa スクリプティングを解説する為に、Application Kit をプログラム的に使っていくので注意されたい。
     <!--
       In this article I want to give you a taste of Cocoa scripting, and to show you the level of integration that you can expect.
       We will use F-Script, an open source scripting language for Cocoa, to build a little graphical application.
@@ -251,10 +251,10 @@
 	-->
     </h2>
     <p>
-      以下のスクリプトを F-Script シェルに入力するには、単にコピー／ペーストするだけでも良いが、命令を一つ一つ手で入力することもできる：
-      そうすれば、このカレンシーコンバータを、隅から隅まで理解することだろう。
-      もちろん、スクリプト中のさまざまな引数の値を変更したり、命令をいくつか省いたりして何が起こるか見てみることもできる。
-      カレンシーコンバータを作り上げた後で、各オブジェクトを対話的に操作することすらできるのだ。
+      以下のスクリプトを F-Script シェルに入力するには、単にコピー／ペーストすれば良いのだが、命令を少しずつ入力して行くこともできる：
+      そうすれば、このカレンシーコンバータのユーザーインタフェースが、少しずつ姿を現してくる様子が分るだろう。
+      もちろん、スクリプト中のさまざまな引数の値を変更してみたり、命令をいくつか省いてみたりして、何が起こるか見てみることもできる。
+      カレンシーコンバータを作り上げてしまった後で、各オブジェクトを対話的に操作することさえできるのだ。
       <!--
 	  The following script can be entered into the F-Script shell using a simple copy/paste.
 	  You can also enter the intructions step by step: you will then see the currency converter interface appearing bit by bit.
@@ -321,13 +321,13 @@
 </code></pre>
 <!-- ------------------------------------------------------------------------------------------------------------------------ -->
     <p>
-      いくつかの興味深い事柄を、大急ぎで書き留めておこう。
+      いくつかの興味深い事柄を、以下に書き留めておこう：
       <!--
 	  We note several interesting things straight away:
 	-->
     </p>
     <ul>
-      <li>オブジェクトへのメッセージ送信の構文は、Objective-C の構文に似ているが、メッセージ送信の初めと終わりの印である
+      <li>オブジェクトへのメッセージ送信の構文は、Objective-C の構文によく似ているが、メッセージ送信の初めと終わりの印である
 	<code>[</code> と <code>]</code> は使わない。
 	この類似は驚くべきことではない。というのは、Objective-C のメッセージ送信の構文は、Smalltalk から借りてきたものだからだ。
 	<!--
@@ -337,15 +337,15 @@
 	      This similarity doesn't come as a surprise because Objective-C syntax for message sending is borrowed from Smalltalk.
 	      -->
 	</li><br>
-      <li>このコードの中で、Cocoa クラスを直接参照している：
-	<code>NSWindow</code>,<code>NSForm</code>,<code>NSButton</code>, そして、<code>NSBox</code>は Cocoa クラスである。
+      <li>Cocoa のクラスをコードの中で直接参照している：
+	<code>NSWindow</code>,<code>NSForm</code>,<code>NSButton</code>, そして、<code>NSBox</code>は、Cocoa のクラスである。
 	<!--
 	    <li>We directly reference the Cocoa classes in the code:
 	      <code>NSWindow</code>,<code>NSForm</code>,<code>NSButton</code>, and <code>NSBox</code>are Cocoa classes.
 	      -->
       </li><br>
       <li>Cocoa 定数も直接参照している：
-	<code>NSTitledWindowMask</code>,<code>NSClosableWindowMask</code>, や <code>NSRoundedBezelStyle</code> のようなシンボル名は、Cocoa で定義された定数である。
+	<code>NSTitledWindowMask</code>,<code>NSClosableWindowMask</code>, や <code>NSRoundedBezelStyle</code> は、Cocoa で定義されているシンボル名である。
 	<!--
 	    <li>We directly reference Cocoa constants: constants such as
 	      <code>NSTitledWindowMask</code>,<code>NSClosableWindowMask</code>, or <code>NSRoundedBezelStyle</code> are symbolic names defined by Cocoa.
@@ -359,9 +359,9 @@
 	      and so on are part of the Cocoa frameworks.
 	      -->
       </li><br>
-      <li>Cocoa のメソッドに、引数として F-Script オブジェクトを渡すことができる。その代わりとして、その呼び出しの結果から、Cocoa オブジェクトを入手して、更に F-Script でそれらを使うことができる。
-	ご存知かも知れないが、この種類の統合を提供するには、しばしば何かしらの微妙なブリッジ技術を使う必要が出てくる。F-Script の場合、この点に関しては物事は大変シンプルだ。というのは、
-	ブリッジすべきものが何もないからだ：F-Script のオブジェクトモデルは Cocoa そのものなのだ。
+      <li>Cocoa のメソッドに、引数として F-Script オブジェクトを渡すことができる。そして逆に、その呼び出し結果から、Cocoa オブジェクトを入手して、更に F-Script でそれらを使うことができる。
+	ご承知の通り、この種の統合を提供するには、しばしば何かしら取り扱いの難しいブリッジ技術を使う必要が出てくるものだが、F-Script の場合、この点に関してはずっと単純だ。
+	というのは、ブリッジすべきものが何もないからだ：F-Script のオブジェクトモデルは Cocoa そのものなのである。
 	<!--
 	    We can pass F-Script objects as arguments to Cocoa methods. 
 	    Alternatively, we can get Cocoa objects from these calls and further use them from F-Script.
@@ -387,7 +387,7 @@
     <p>
        <code>[...]</code> という記法は、後で実行可能なひと纏まりのコードを表す Block クラスのオブジェクトを生成する。
        （Block は F-Script framework で提供される Objective-C クラスである）
-       上のブロックの中では、ユーザーインタフェースオブジェクトの持つフィールドの値を取り出して、計算（単純なかけ算を含む）を実行して、或る UI 要素に、その結果を置いているだけである。
+       上のブロックの中では、ユーザーインタフェースオブジェクトの持つフィールドの値を取り出して、計算（単純なかけ算を含む）を実行して、ある UI 要素に、その結果を置いているだけである。
       <!--
 	  The <code>[...]</code> notation creates an object of class Block which represents a block of code that can be executed later
 	  (Block is an Objective-C class provided by the F-Script framework).
@@ -413,10 +413,10 @@
 	-->
     </h2>
     <p>
-      カレンシーコンバータの第二版を以下に示す。
+      カレンシーコンバータの第二版を以下に示そう。
       このスクリプトは、以前のものより短くなっているが、それは、第一版では単純化の為に使うのを避けた F-Script の賢い機能をいくつか使っているからだ。
       また、（コード自体に語らせることにして）いくつかのコメントを削除して、ほんの少しだがプログラムを再編成してもいる：
-      今度は、ユーザーインタフェースは、画面に出す前に全てを作り上げ、必要な設定も全て済ませている。
+      今度は、事前にユーザーインタフェースを全て作り上げ、必要な設定も全て済ませてから、画面に表示させている。
       <!--
 	  Below is the second version of the currency converter.
 	  This script is shorter because we use some neat F-Script features that we avoided in the first version for simplicity's sake.
@@ -484,7 +484,7 @@
   この命令が、まさにその場合で、ここでは、フォームに対して、入力項目のリスト全体を一度に追加している。
   ここでは、潜在的に複雑な一群のメッセージ送信を指定できる様にしてくれる「メッセージングパターン」記法（「<code>@</code>」で表される）を使っている。
   メッセージングパターンは、ふつう、一つまたは複数のオブジェクトコレクションを含んでいる。
-  この例では、「<code>{</code>」と「<code>}</code>」で表される文字列配列を使っている。この命令は、実行されると、以下の三つのメッセージ送信が生成されるきっかけとなる：
+  この例では、「<code>{</code>」と「<code>}</code>」で表される文字列配列を使っている。この命令を実行すると、それをきっかけに、以下の三つのメッセージ送信が生成される：
   <!--
       One of the innovative features of F-Script is that it allows us to manipulate entire groups of objects at once,
       even with methods that have not been specifically designed to support objects collections 
@@ -561,7 +561,7 @@
 
 <p>
   現状のままでは、我々のスクリプトには、全くモジュラー性がない：
-  それは、実行する為に F-Script コンソールにペーストした、グローバル変数を使った、命令の寄せ集めに過ぎない。
+  それは、実行する為に F-Script コンソールにペーストした、グローバル変数を使った命令の寄せ集めに過ぎない。
   次のバージョンでは、モジュラー性を導入する：
   <!--
       As it stands, our script is not very modular:
@@ -639,7 +639,7 @@
 </p>
 
 <p>
-  さあ、今度は、必要な引数を与えるのを忘れずに「value」メッッセージを送ることで、スクリプトを起動することができるのだ。
+  さあ、今度は、必要な引数を忘れずに与えて「value」メッセージを送信すれば、スクリプトを起動することができる。
   例えば：
   <!--
       We can now invoke our script by sending it a "value" message, without forgetting to provide the required argument. For instance:
@@ -650,16 +650,16 @@
 </code></pre>
 
 <p>
-  これを起動する度毎に、新しく、全機能を備えたカレンシーコンバータが創られて、画面に表示される。
+  これを起動する度に、新しく、全機能を備えたカレンシーコンバータが創られて、画面に表示される。
   <!--
       Each time we invoke it, a new, fully functional currency converter is created and displayed on screen.
     -->
 </p>
 
 <p>
-  我々のスクリプトは、今やブロックオブジェクトなのであるから、それを他のどんなオブジェクトとも同じ様に扱うことができる：
+  我々のスクリプトは、今やブロックオブジェクトなのであるから、それを他のあらゆるオブジェクトと同じ様に扱うことができるのである：
   コレクションの要素にもできるし、引数として、メソッドに渡すこともできるし、ディスク上にアーカイブすることもできる、等々。
-  また、特に、ブロックに関連した設備もある。グラフィカルコードエディタは、その一つだ。
+  特にブロックを扱うために備えられたツールがいくつかあるが、グラフィカルコードエディタは、その一つだ。
   このブロックに、<code>inspect</code> メッセージを送れば、それを開くことができる。
   <!--
       Since our script is now a block object, we can manipulate it like any other object:
@@ -691,8 +691,8 @@
 <p>
   これまで Cocoa スクリプティングとはどのようなものかを見てきた。
   明らかに、この記事では、Cocoa の例外の扱い方、インタフェースビルダーとの統合の方法、カスタム Objective-C クラスの使い方や、
-  非オブジェクト型が、F-Script オブジェクトにどのようにマッピングされるのか、等々たくさんの主題が、まだ議論されていない。
-  しかし、読者は、これらの各側面において、非常に高いレベルでの統合がなされていると期待して良い。
+  非オブジェクト型が、F-Script オブジェクトにどのようにマッピングされるのか、等々、まだ議論されていないテーマがたくさんある。
+  しかし、読者は、それらのどの側面においても、統合のレベルは非常に高いことを期待して良い。
   <!--
       We have seen what scripting Cocoa with F-Script involves.
       Clearly, many subjects have not been tackled in this article,
