@@ -1,0 +1,5 @@
+#!/bin/bash
+git add .
+git commit -m "all commit"
+git push https://github.com/hid2718/hid2718.github.com.git
+echo "published!"
