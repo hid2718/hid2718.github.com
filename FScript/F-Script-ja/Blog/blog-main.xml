@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<rss xmlns:iweb="http://www.apple.com/iweb" version="2.0">
+  <channel>
+    <title>Blog</title>
+    <link>http://hid2718.github.com/hid2718/FScript/F-Script-ja/Blog</link>
+    <description>&#x3053;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x306F;&#x3001;&#x539F;&#x8457;&#x8005;&#x306E;&#x4E86;&#x89E3;&#x3092;&#x5F97;&#x3066;&#x3001;F-Script &#x306E;&#x30AA;&#x30D5;&#x30A3;&#x30B7;&#x30E3;&#x30EB;&#x30B5;&#x30A4;&#x30C8;&#x3067;&#x516C;&#x958B;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B; F-Script &#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x65E5;&#x672C;&#x8A9E;&#x8A33;&#x3092;&#x516C;&#x958B;&#x3057;&#x3066;&#x884C;&#x304F;&#x4E88;&#x5B9A;&#x3067;&#x3059;&#x3002;
+&#x30AA;&#x30D5;&#x30A3;&#x30B7;&#x30E3;&#x30EB;&#x30B5;&#x30A4;&#x30C8;&#xFF1A;http://www.fscript.org/
+</description>
+    <item>
+      <title>F-Script &#x3092; Mac &#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;</title>
+      <link>http://hid2718.github.com/hid2718/FScript/F-Script-ja/Blog/entori/2013/1/1_F-Script_wo_Mac_niinsutorusuru.html</link>
+      <guid isPermaLink="false">4d87bff8-79b2-4820-906e-40eb7600a1f4</guid>
+      <pubDate>Tue, 1 Jan 2013 22:30:38 +0900</pubDate>
+      <description>Consectetuer arcu ipsum ornare pellentesque vehicula, in vehicula diam, ornare magna erat felis wisi a risus. Justo fermentum id. Malesuada eleifend, tortor molestie, a fusce &#x2028;a vel et. Mauris at suspendisse, neque aliquam faucibus adipiscing, vivamus in. Wisi mattis leo suscipit nec amet, &#x2028;nisl fermentum tempor ac a, augue in eleifend in venenatis, cras sit id in vestibulum felis in, sed ligula. In sodales suspendisse mauris quam etiam erat, quia tellus convallis eros rhoncus diam orci, porta lectus esse adipiscing posuere et, nisl arcu vitae laoreet.</description>
+      <iweb:image href="Media/object008.jpg"></iweb:image>
+      <iweb:comment enabled="0" count="0" link="http://hid2718.github.com/hid2718/FScript/F-Script-ja/Blog/entori/2013/1/1_F-Script_wo_Mac_niinsutorusuru.html#comment_layer"></iweb:comment>
+    </item>
+    <iweb:dateFormat>yyyy&#x5E74;M&#x6708;d&#x65E5;EEEE</iweb:dateFormat>
+    <iweb:baseURL>http://hid2718.github.com/hid2718/FScript/F-Script-ja/Blog</iweb:baseURL>
+    <iweb:maximumSummaryItems>5</iweb:maximumSummaryItems>
+  </channel>
+</rss>

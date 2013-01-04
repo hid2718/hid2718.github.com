@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
+  <lastEdited clientType="local-build-20130102" date="2013-01-02 16:51:51 +0900"/>
+  <textBox id="generic-title-attributes" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;F-Script &#x3092; Mac &#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&lt;/b&gt;</richText>
+  </textBox>
+  <textBox id="generic-body-attributes" dynamic="no" visible="yes">
+    <richText>Consectetuer arcu ipsum ornare pellentesque vehicula, in vehicula diam, ornare magna erat felis wisi a risus. Justo fermentum id. Malesuada eleifend, tortor molestie, a fusce &#x2028;a vel et. Mauris at suspendisse, neque aliquam faucibus adipiscing, vivamus in. Wisi mattis leo suscipit nec amet, &#x2028;nisl fermentum tempor ac a, augue in eleifend in venenatis, cras sit id in vestibulum felis in, sed ligula. In sodales suspendisse mauris quam etiam erat, quia tellus convallis eros rhoncus diam orci, porta lectus esse adipiscing posuere et, nisl arcu vitae laoreet.</richText>
+  </textBox>
+  <textBox id="generic-datefield-attributes" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;2013&#x5E74;1&#x6708;1&#x65E5;&#x706B;&#x66DC;&#x65E5;&lt;/b&gt;</richText>
+  </textBox>
+  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="1_F-Script_wo_Mac_niinsutorusuru_files/shapeimage_3.png" left="0px" top="0px" width="401px" height="301px"/>
+</content>

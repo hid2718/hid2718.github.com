@@ -1,0 +1,520 @@
+<html><head>
+    <title>
+      F-Script で Mac の様々なアプリケーションを操作する
+      &lt;!--
+	  System-wide Scripting with F-Script
+	--&gt;
+    </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
+    <link rel="stylesheet" type="text/css" href="SystemWideScriptingWithFScript-index-ja_files/documentation.css" media="all">
+    
+  </head>
+  <body bgcolor="#FFFFFF">
+    <br>
+    <h1 align="center">
+      F-Script で Mac の様々なアプリケーションを操作する
+      <!--
+	  System-wide Scripting with F-Script
+	-->
+    </h1>
+    <p>
+      <font color="#326fa3">2009年 9月 改訂<!-- Revised September 2009 --></font>
+    </p>
+    
+    
+	<table style="border: 1px solid #C9D1D7; width:38em" bgcolor="whitesmoke" cellpadding="5">
+	<!-- <table style="border: 1px solid #C9D1D7; width:43em" bgcolor="whitesmoke" cellpadding="5"> -->
+	  <tbody><tr>
+		  <td align="left">
+			<b>
+			  記事一覧
+			  <!-- Articles in this series -->
+			</b><br>
+			<br>
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  基 礎
+			  <!-- Fundamentals -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="ExploringCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa 探検
+				</a>
+				<a href="http://www.fscript.org/documentation/ExploringCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="LearnFScriptIn20Minutes-index-ja.html">
+				  F-Script を20分で学び、Core Image で遊んでみよう
+				</a>
+				<a href="http://www.fscript.org/documentation/LearnFScriptIn20Minutes/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="ScriptingCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa スクリプティング
+				</a>
+				<a href="http://www.fscript.org/documentation/ScriptingCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="CreatingCocoaClassesWithFScript-index-ja.html">
+				  F-Script で Cocoa クラスを創る
+				</a>
+				<a href="http://www.fscript.org/documentation/CreatingCocoaClassesWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="SystemWideScriptingWithFScript-index-ja.html">
+				  F-Script で Mac の様々なアプリケーションを操作する
+				</a>
+				<a href="http://www.fscript.org/documentation/SystemWideScriptingWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="EmbeddingFScriptIntoCocoa-index-ja.html">
+				  Cocoa アプリケーションに F-Script を埋め込む
+				</a>
+				<a href="http://www.fscript.org/documentation/EmbeddingFScriptIntoCocoa/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="AccessingMacOSXFrameworksWithFScript-index-ja.html">
+				  F-Script で Mac OS X のフレームワーク群にアクセスする
+				</a>
+				<a href="http://www.fscript.org/documentation/AccessingMacOSXFrameworksWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+			
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  その他
+			  <!-- Miscellaneous -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/GoogleChartAPIFunWithCocoaAndFScript-index-ja.html">
+				  Cocoa と F-Script で Google Chart API をいじってみよう
+				  </a>
+				  <a href="http://www.fscript.org/documentation/GoogleChartAPIFunWithCocoaAndFScript/index.htm">
+				  ［原文］
+				  </a>
+			  </li>
+			  <li>
+				<a href="http://hid2718.github.com/fscript.articles.ja/TheGameOfReverseInFScript-index-ja.html">
+				  F-Script 版 Reverse ゲーム
+				</a>
+				<a href="http://www.fscript.org/documentation/TheGameOfReverseInFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+		  </td>
+		</tr>
+	</tbody></table>
+
+<h2>
+  はじめに
+  <!-- Introduction -->
+</h2>
+<p>
+  AppleScript と同様に、F-Script は、スクリプタブルアプリケーションと交信することができ、そのアプリケーションを使った作業プロセスを自動化したり、複数のアプリケーションを跨いだ
+  ワークフローを創ったりすることができるが、このシステムワイドなスクリプティング能力は、<a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/Introduction/Introduction.html">スクリプティングブリッジ</a> と呼ばれる Mac OS X の標準的な技術の一つを使って実現されている： 
+  <!--
+      Like AppleScript, F-Script can communicate with scriptable application, 
+      making it possible to automate processes using these applications and to create workflows spanning multiple applications.
+      This system-wide scripting capability relies on a standard Mac OS X technology called the
+      <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/Introduction/Introduction.html"> Scripting Bridge:</a>
+      -->
+</p>
+<blockquote>
+  スクリプティングブリッジとは、Cocoa 開発者が、スクリプタブルアプリケーションを制御したり、それらと交信したりするのを、非常に容易にしてくれるフレームワークであり、技術である。
+  [...] スクリプティングブリッジフレームワークを使えば、AppleScript のコマンドや、Apple-Event 記述子の代わりに、Objective-C のメッセージを使って、Apple-Event の送受信をすることができる。
+  スクリプティングブリッジは、Cocoa プログラマに対して、スクリプタブルアプリケーションを制御する為の、易しくて明快なモデルを提供してくれる。
+  これを使えば、Cocoa プログラマは、より効率的に Apple-Event を送受信でき、しかも、ターゲットアプリケーションの Apple-Event モデルがどうなっているのかに関する詳しい知識を持っている必要がない。
+  スクリプティングブリッジは、既存の Objective-C コードをうまく統合し、キー値-コーディング、ターゲット-アクション、それに、デクレアド-プロパティの様な、標準的な Cocoa の設計と連携して機能する。
+  <!--
+      Scripting Bridge is a framework and a technology that makes it much easier for Cocoa developers to control and communicate with scriptable applications.
+      [...] The Scripting Bridge framework makes it possible to send and receive Apple events using Objective-C messages
+      instead of AppleScript commands or Apple-event descriptors.
+      For Cocoa programmers, Scripting Bridge provides a simple and clear model for controlling scriptable applications.
+      It makes Cocoa programs that send and receive Apple events more efficient,
+      and it doesn't require you to have detailed knowledge of the target application's Apple event model.
+      Scripting Bridge integrates well with existing Objective-C code and works with standard Cocoa designs, such as key-value coding, target-action, and declared properties. 
+    -->
+</blockquote>
+
+<p>
+  スクリプティングブリッジを使うと、基本的に、交信の詳細（つまり、Apple-Event の生成や送信）が自動的に処理される為に、スクリプタブルアプリケーションが まるで Cocoa オブジェクトであるかのように
+  操作できるようになるのだ。この仕組みのお陰で、標準的なスクリプティングインタフェースを経由することで、F-Script を使って、他のアプリケーションを操作することができるのである。
+  <!--
+      Basically, the scripting bridge allows manipulating scriptable applications as if they were Cocoa objects, automatically taking care of the communication details
+      (e.g. creating and sending Apple Events). 
+      This allows using F-Script to manipulate other applications through their standard scripting interface.
+    -->
+</p>
+ 
+<p>
+  注：AppleScript や Apple-Event 等々について改めて見直してみたい方には、William R.Cook が
+  <a href="http://research.ihost.com/hopl/HOPL-III.html">HOPL III コンファレンス</a> の為に書いた
+  <a href="http://www.cs.utexas.edu/%7Ewcook/Drafts/2006/ashopl.pdf">AppleScript</a> を一読されることをお薦めする。
+  これは、ユニークな歴史的視野を与えてくれる、大変良い読み物の一つである。
+  <!--
+      Note: for a refresher about AppleScript, Apple Events and so on, one very good read, providing a unique historical perspective, is
+      <a href="http://www.cs.utexas.edu/%7Ewcook/Drafts/2006/ashopl.pdf">AppleScript</a>,
+      written by William R. Cook for the <a href="http://research.ihost.com/hopl/HOPL-III.html">HOPL III conference</a>.
+      -->
+</p>
+
+<h2>
+  アプリケーションに接続する
+  <!-- Connecting to applications -->
+</h2>
+<p>
+  では、F-Script でスクリプティングブリッジを使うにはどうすれば良いのか？　最初にまず、Cocoa が提供する
+   <a href="http://developer.apple.com/DOCUMENTATION/Cocoa/Reference/SBApplication_Class/SBApplication/SBApplication.html">SBApplication</a> クラスを使って、
+  アプリケーションに接続する。
+  例えば、こうすれば iTunes に接続することができる：
+  <!--
+      So how does one use Scripting Bridge in F-Script? First, to connect to an application,
+      we use the <a href="http://developer.apple.com/DOCUMENTATION/Cocoa/Reference/SBApplication_Class/SBApplication/SBApplication.html">SBApplication class</a>
+      provided by Cocoa.
+      For example, here is how we can connect to iTunes:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">iTunes</span> := <span class="identifier">SBApplication</span> <span class="selector">applicationWithBundleIdentifier:</span><span class="string">'com.apple.iTunes'</span>
+</code></pre>
+
+<p>
+  <code>applicationWithBundleIdentifier:</code> メソッドは、ターゲットアプリケーションの内部を覗き込んで、自動的にスクリプティングインタフェースを見つけ出し、
+  それらと相互作用する為に必要なクラスやメソッドを動的に生成して、ターゲットアプリケーションを表すオブジェクトを返してくる。
+  これが、F-Script によるターゲットアプリケーションの操作を始める為に利用するオブジェクトだ。
+  上の例では、このオブジェクトを「iTunes」という名前の変数に代入している。
+  このオブジェクトが、必要に応じて自動的に、ターゲットアプリケーションとの交信の面倒を見てくれるのである。
+  <!--
+      The <code>applicationWithBundleIdentifier:</code> method automatically introspects the scripting interface of the target application, 
+      dynamically creates the classes and methods needed to interact with it and returns an object that represents the application.
+      This is the object we then use to start manipulating the application from F-Script. 
+      In the example below, we assign it to a variable named "iTunes".
+      This object will automaticaly take care of communicating with the application when needed.
+    -->
+</p>
+
+<h2>
+  アプリケーションとの相互作用
+  <!-- Interacting with applications -->
+</h2>
+
+<p>
+  一度ターゲットアプリケーションとの接続ができてしまえば、そのアプリケーションと、F-Script を使って相互に遣り取りを行うことができる。
+  例えば、iTunes に現在のトラックの名前を尋ねてみよう：
+  <!--
+      Now that we have a connection to an application, we can interact with it from F-Script.
+      For example, let's ask iTunes for the name of the current track:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">iTunes</span> <span class="selector">currentTrack</span> <span class="selector">name</span>
+</code></pre>
+
+<p>
+  もし、現在のトラックが存在しなければ、スクリプティングブリッジからエラーが返り、F-Script がそれを表示するが、さもなければ、現在のトラックの名前が返ってくる。
+  <!--
+      If there is no current track, an error is returned by the scripting bridge and displayed by F-Script.
+      Otherwise, the name of the current track is returned.
+    -->
+</p>
+
+<p>
+  では、iTunes に次のトラックに進むように頼んでみよう：
+  <!--
+      Now, ask iTunes to go to the next track:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">iTunes</span> <span class="selector">nextTrack</span>
+</code></pre>
+
+<p>
+  今度は、ファインダに接続して、デスクトップにあるファイルの名前を問い合わせてみよう：
+  <!--
+      Connect to the Finder and query it for the names of the files on the desktop:
+      -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">Finder</span> := <span class="identifier">SBApplication</span> <span class="selector">applicationWithBundleIdentifier:</span><span class="string">'com.apple.finder'</span>.
+<span class="identifier">Finder</span> <span class="selector">desktop</span> <span class="selector">files</span> <span class="selector">name</span>
+</code></pre>
+
+<p>
+  これらのファイル名を、配列インスペクタに表示させてみよう：
+  <!--
+      Display these file names in the array inspector:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">Finder</span> <span class="selector">desktop</span> <span class="selector">files</span> <span class="selector">name</span> <span class="selector">inspect</span>
+</code></pre>
+
+<p>
+  ファインダに、今日更新されたデスクトップ上のファイルの名前を訊いてみよう：
+  <!--
+      Ask the Finder for the names of the files on the desktop which have been modified today:
+    -->
+</p>
+ 
+<pre class="codebox"><code><span class="identifier">files</span> := <span class="identifier">Finder</span> <span class="selector">desktop</span> <span class="selector">files</span>.
+<span class="identifier">files</span> <span class="selector">name</span> <span class="selector">where:</span><span class="identifier">files</span> <span class="selector">modificationDate</span> <span class="selector">&gt;=</span> <span class="string">'today'</span> <span class="selector">asDate</span>
+</code></pre>
+
+<p>
+  ご覧のように、いつでも F-Script の配列プログラミングモデルを利用することができる。
+  <!--
+      As you see, we can make use of F-Script's array programming model as usual. 
+      -->
+      
+<!-- ------------- original comment out --------------- -->
+<!--Actually, this programming model (in which you manipulate whole sets of objects at once) acts synergistically with Scripting Bridge as it allows F-Script to automatically perform behind-the-scene optimizations and minimize the number of remote calls. Since such remote interactions are very costly, these optimizations have a huge impact on performance.</p> -->
+<!-- ------------- original comment out --------------- -->
+
+</p>
+<p>
+  以下の例では、ファインダに、起動ディスクの アプリケーション フォルダにあるファイルの総数を訊いている：
+  <!--
+      In the following example, we ask the Finder for the number of files in the Applications folder on the startup disk:
+    -->
+</p>
+
+<pre class="codebox"><code>(<span class="identifier">Finder</span> <span class="selector">startupDisk</span> <span class="selector">folders</span> <span class="selector">objectWithName:</span><span class="string">'Applications'</span>) <span class="selector">files</span> <span class="selector">count</span>
+</code></pre>
+
+<p>
+  次の例では、Mail アプリケーションに接続して、現在の inbox にあって、既に返信済みのメッセージの表題を訊いている：
+  <!--
+      In the following example, we connect to Mail and ask for the subjects of the messages that are currently in our inbox and to which we have already replied:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">Mail</span> := <span class="identifier">SBApplication</span> <span class="selector">applicationWithBundleIdentifier:</span><span class="string">'com.apple.mail'</span>.
+<span class="identifier">Mail</span> <span class="selector">inbox</span> <span class="selector">messages</span> <span class="selector">subject</span> <span class="selector">where:</span><span class="identifier">Mail</span> <span class="selector">inbox</span> <span class="selector">messages</span> <span class="selector">wasRepliedTo</span>
+</code></pre>
+
+<p>
+  以下のスクリプトは、<a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/UsingScriptingBridge/UsingScriptingBridge.html">Scripting Bridge Programming Guide for Cocoa</a> にある例を基にしている。
+  このスクリプトは（iTunes が動いていれば）現在選択されている曲を再生して、その音量がゼロから最終的にオリジナルのレベルに達するまで、ボリュームを変化させる。
+  <!--
+      The following script is based on a example in the
+      <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/UsingScriptingBridge/UsingScriptingBridge.html">
+	Scripting Bridge Programming Guide for Cocoa</a>.
+      It plays the currently selected iTunes track (if the application is running) and then modulates the volume of the sound, eventually restoring it to the original level.
+      -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">iTunes</span> := <span class="identifier">SBApplication</span> <span class="selector">applicationWithBundleIdentifier:</span><span class="string">'com.apple.iTunes'</span>.
+
+<span class="identifier">iTunes</span> <span class="selector">isRunning</span> <span class="selector">ifTrue:</span>
+[
+    |<span class="identifier">rampVolume</span> <span class="identifier">originalVolume</span>|
+  
+    <span class="identifier">originalVolume</span> := <span class="identifier">iTunes</span> <span class="selector">soundVolume</span>.
+    <span class="identifier">iTunes</span> <span class="selector">setSoundVolume:</span><span class="literal">0</span>; <span class="selector">pause</span>; <span class="selector">playpause</span>.
+    <span class="identifier">rampVolume</span> := <span class="literal">0</span>.
+
+    [<span class="identifier">rampVolume</span> <span class="selector">&lt;</span> <span class="identifier">originalVolume</span>] <span class="selector">whileTrue:</span>
+    [
+        <span class="identifier">iTunes</span> <span class="selector">setSoundVolume:</span><span class="identifier">rampVolume</span>.
+        <span class="comment">"Pause 1/10th of a second between adjustments"</span>
+        <span class="identifier">NSThread</span> <span class="selector">sleepUntilDate:</span>(<span class="identifier">NSDate</span> <span class="selector">dateWithTimeIntervalSinceNow:</span><span class="literal">0.1</span>).
+        <span class="identifier">rampVolume</span> := <span class="identifier">rampVolume</span> <span class="selector">+</span> (<span class="identifier">originalVolume</span> <span class="selector">/</span> <span class="literal">32</span>).
+    ].
+    
+    <span class="identifier">iTunes</span> <span class="selector">setSoundVolume:</span><span class="identifier">originalVolume</span>.
+]
+</code></pre>
+
+<p>
+  次のスクリプトも、<a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/UsingScriptingBridge/UsingScriptingBridge.html">Scripting Bridge Programming Guide for Cocoa</a> にある例を基にしている。
+  このスクリプトは、Mail の選択されたメッセージのテキストの内容を TextEdit 文書にコピーする。
+  <!--
+  The following script is also based on a example in the <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/UsingScriptingBridge/UsingScriptingBridge.html">Scripting Bridge Programming Guide for Cocoa</a>. It copies the textual content of each selected Mail message to a TextEdit document.
+  -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">TextEdit</span> := <span class="identifier">SBApplication</span> <span class="selector">applicationWithBundleIdentifier:</span><span class="string">'com.apple.TextEdit'</span>.
+<span class="identifier">Mail</span> := <span class="identifier">SBApplication</span> <span class="selector">applicationWithBundleIdentifier:</span><span class="string">'com.apple.Mail'</span>.
+
+<span class="identifier">Mail</span> <span class="selector">messageViewers</span> <span class="selector">do:</span>[:<span class="identifier">viewer</span>| 
+    <span class="identifier">viewer</span> <span class="selector">selectedMessages</span> <span class="selector">do:</span>[:<span class="identifier">message</span>|  
+        <span class="identifier">doc</span> := (<span class="identifier">TextEdit</span> <span class="selector">classForScriptingClass:</span><span class="string">'document'</span>) <span class="selector">alloc</span> <span class="selector">init</span>.
+        <span class="identifier">TextEdit</span> <span class="selector">documents</span> <span class="selector">addObject:</span><span class="identifier">doc</span>.
+        <span class="identifier">doc</span> <span class="selector">setText:</span><span class="identifier">message</span> <span class="selector">content</span> <span class="selector">get</span>.
+    ] 
+]
+</code></pre>
+
+
+<h2>
+  スクリプティングインタフェースの調査
+  <!--
+    Exploring scripting interfaces
+    -->
+</h2>
+
+<p>
+  各アプリケーションは、それぞれ独自のスクリプティングインタフェースを持っているが、F-Script のオブジェクトブラウザを使うと、ある特定のアプリケーションで利用可能なメソッドについて調べたり、
+  それを使って実験したりすることができて便利である。
+  もしアプリケーションとの接続が既に確立しているのならば、以下の例のように、オブジェクトブラウザに、プログラム的にそのアプリケーションを表すオブジェクトを渡して、ブラウザを開くことができる。
+  <!--
+      Each application has its own specific scripting interface.
+      The F-Script object browser comes in handy for exploring and experimenting with the available methods for a particular application.
+      If we have already established a connection with an application,
+      we can open the object browser programmatically,
+      passing it the object representing the application, as in the following example:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">sys</span> <span class="selector">browse:</span><span class="identifier">iTunes</span>
+</code></pre>
+
+<p>
+  そうする代わりに、以下のステップに従って、オブジェクトブラウザ自身から、アプリケーションとの正しい接続を確立することもできる。
+  <!--
+      Alternatively, we can establish the connection right from the object browser itself, by following these steps:
+    -->
+</p>
+
+<ol>
+<li>
+  もしも、オブジェクトブラウザがまだ表示されていなければ、ワークスペースメニューから「Open object browser」を選択する。
+  <!--
+      If the object browser is not already on screen, select "Open object browser" in the Workspace menu.
+    -->
+</li><br>
+<li>
+  オブジェクトブラウザの「Classes」ボタンをクリックすると、現在リンクしている全てのクラスの一覧が表示される。
+  <!--
+      In the object browser, click on the Classes button. This lists all the classes currently linked.
+    -->
+</li><br>
+<li>
+  クラス一覧の中の <code>SBApplication</code> クラスをクリックすると、<code>SBApplication</code> のクラスメソッドが表示される。
+  <!--
+      In the class list, click on the <code>SBApplication</code> class. This displays the class methods of <code>SBApplication</code>.
+    -->
+</li><br>
+<li>
+  メソッド一覧の中の <code>applicationWithBundleIdentifier:</code> をクリックして、入力を求められた引数（つまり、接続したいアプリケーションの識別子を含む文字列）；
+  例えば、<code>'com.apple.iTunes'</code> を入力する。
+  <!--
+      In the method list, click on the <code>applicationWithBundleIdentifier:</code> method and provide the required argument
+      (i.e., a string containing the identifier of the application you want to connect to);
+      for example, enter <code>'com.apple.iTunes'</code>.
+    -->
+</li>
+</ol>
+<p></p>
+
+<p>
+  こうして、対象となるアプリケーションのスクリプティングインタフェースを調査したり、それを使った実験を行う為にも、オブジェクトブラウザを使うことができるのだ。
+  <!--
+      We can then use the object browser to explore and experiment with the scripting interface of the application.
+    -->
+</p>
+
+<img src="SystemWideScriptingWithFScript-index-ja_files/fig1.png">
+
+<p>
+  上のスクリーンショットに示すように、ブラウザには、スクリプティングブリッジが自動的に生成した iTunes アプリケーションを表す Cocoa オブジェクトのメソッド群が表示される。
+  ある特定のメソッドを起動するには、それをクリックするだけで良い（引数が必要な場合、ブラウザがその入力を求めてくる）。
+  一度メソッドが返ってくると、その結果がブラウザの新しい列に表示され、それを更に操作することができる。
+  オブジェクトブラウザは、オブジェクトを調査したり、ナビゲートしたりするのを助ける機能をたくさん提供しているが、
+  <a href="http://hid2718.github.com/FScript/ExploringCocoaWithFScript-index-ja.html">F-Script で Cocoa 探検</a> を見れば、その詳しいチュートリアルが見つかるだろう。
+   <!--
+       As shown in the screenshot, the browser displays the methods of the Cocoa object automatically created by the Scripting Bridge to represent the iTunes application.
+       To invoke a particular method, all we have to do is to click on it (the browser will asks for arguments if needed).
+       Once the method returns, the result is displayed in a new column in the browser and we can further manipulate it.
+       The object browser provides a lot of features to help exploring and navigating objects.
+       You'll find a detailed tutorial in <a href="http://www.fscript.org/documentation/ExploringCocoaWithFScript/index.htm">Exploring Cocoa with F-Script</a>.
+     -->
+</p>
+
+<p>
+  あるアプリケーションのスクリプティングインタフェースについて、更に情報を得る為に、そのアプリケーションのスクリプティングインタフェースが記述されている Objective-C インタフェースファイル
+  （つまり .h ファイルのことだ）を生成することができる。
+  それを実行するには、Mac OS X が提供する <code>sdef</code>（スクリプティング定義抽出）と <code>sdp</code>（スクリプティング定義処理）という二つのコマンドを使用する。
+  まず最初に、<code>sdef</code> を使って、アプリケーションからそのスクリプティング定義を訊き出し、次にその結果を <code>sdp</code> に渡して Objective-C インタフェースファイルを作らせる。
+  例えば、iTunes が、スクリプティングブリッジを使ってどのように制御できるのかに関する詳しい記述を得る為には、UNIX のシェルで、次のコマンドを実行すれば良い。
+  
+  <!--
+      To get more information about the scripting interface of an application,
+      we can generate an Objective-C interface file (that is, a .h file) that describes the application scripting interface.
+      This is done by using together the <code>sdef</code> (scripting definition extractor) and <code>sdp</code> (scripting definition processor) commands provided by Mac OS X.
+      We first use <code>sdef</code> to asks an application for its scripting definition,
+      and we then pass this definition to <code>sdp</code> to produce an Objectice-C interface file.
+      For example, to get a detailed description of how iTunes can be controlled with the Scripting Bridge,
+      we can execute the following command in a UNIX shell:
+    -->
+</p>
+
+<pre class="codebox">sdef /Applications/iTunes.app | sdp -fh --basename "iTunes"
+</pre>
+
+<p>
+  このコマンドを実行すると、iTunes.h という名前のファイルができる。
+  Xcode が表示するこのファイルの内容の、短い抜粋を以下に示そう。
+  <!--
+  This will create a file named iTunes.h. Here is a short extract of this file, as displayed by Xcode:
+  -->
+</p>
+
+<img src="SystemWideScriptingWithFScript-index-ja_files/fig2.png">
+
+<p>
+  <code>sdp</code> コマンドがうまく動かないアプリケーションもあるが、そのような場合でも、<code>sdef</code> の出力を見れば、そのアプリケーションのインタフェースに関する役立つ情報を得ることができる。
+  <!--
+  The <code>sdp</code> command might not work well with some applications.
+  In such cases, looking at the output of <code>sdef</code> can still provide useful information about an application interface.
+  -->
+</p>
+
+<p>
+  <code>sdp</code> や <code>sdef</code> を使って得られる情報と、対話的な実験を組み合わせれば、
+  F-Script から（同様にまた Objective-C からでも）どのようにアプリケーションを制御できるかを学ぶことができるし、クールなスクリプトがきっと書けるはずだ。
+  <!--
+      Combining information we get using <code>sdef</code> and <code>sdp</code> with interactive exprimentation,
+      we can learn how to control an application from F-Script (as well as from Objective-C) and hopefully write cool scripts.
+    -->
+</p>
+
+<p>
+  楽しいスクリプティングを！
+  <!--
+      Happy scripting!
+    -->
+</p>
+
+		<br>
+		<p style="text-align:center; font-size:x-small">
+		  <font color="slategray">Copyright © 2009 Philippe Mougin</font><br>
+		  <font color="slategray">Translation-ja © 2012 Hideo Haga［日本語版］</font>
+		</p>
+		<br>
+		<!--
+		    <script src="SystemWideScriptingWithFScript-index-ja_files/urchin.js" type="text/javascript">
+		    </script>
+		    <script type="text/javascript">
+		      _uacct = "UA-278325-1";
+		      urchinTracker();
+		    </script>
+		    -->
+		
+</body></html>

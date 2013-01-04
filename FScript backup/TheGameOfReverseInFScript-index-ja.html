@@ -1,0 +1,266 @@
+<html><head>
+	<title>
+	  F-Script 版 Reverse ゲーム - The game of Reverse in F-Script
+	</title>
+	<!-- The game of Reverse in F-Script -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
+	<link rel="stylesheet" type="text/css" href="TheGameOfReverseInFScript-index-ja_files/documentation.css" media="all">
+	<style type="text/css" media="all"> 
+	</style>
+  </head>
+  <body bgcolor="#FFFFFF">	
+	<br>
+	<h1 align="center">
+	  F-Script 版 Reverse ゲーム
+	  <!-- The Game of Reverse in F-Script -->
+	</h1>
+	<p>
+	  <font color="#326fa3">
+		2009年 8月 改訂
+		<!-- Revised August 2010 -->
+	  </font>
+	</p>
+	
+	
+	<table style="border: 1px solid #C9D1D7; width:38em" bgcolor="whitesmoke" cellpadding="5">
+	<!-- <table style="border: 1px solid #C9D1D7; width:43em" bgcolor="whitesmoke" cellpadding="5"> -->
+	  <tbody><tr>
+		  <td align="left">
+			<b>
+			  記事一覧
+			  <!-- Articles in this series -->
+			</b><br>
+			<br>
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  基 礎
+			  <!-- Fundamentals -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="ExploringCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa 探検
+				</a>
+				<a href="http://www.fscript.org/documentation/ExploringCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="LearnFScriptIn20Minutes-index-ja.html">
+				  F-Script を20分で学び、Core Image で遊んでみよう
+				</a>
+				<a href="http://www.fscript.org/documentation/LearnFScriptIn20Minutes/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="ScriptingCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa スクリプティング
+				</a>
+				<a href="http://www.fscript.org/documentation/ScriptingCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="CreatingCocoaClassesWithFScript-index-ja.html">
+				  F-Script で Cocoa クラスを創る
+				</a>
+				<a href="http://www.fscript.org/documentation/CreatingCocoaClassesWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="SystemWideScriptingWithFScript-index-ja.html">
+				  F-Script で Mac の様々なアプリケーションを操作する
+				</a>
+				<a href="http://www.fscript.org/documentation/SystemWideScriptingWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="EmbeddingFScriptIntoCocoa-index-ja.html">
+				  Cocoa アプリケーションに F-Script を埋め込む
+				</a>
+				<a href="http://www.fscript.org/documentation/EmbeddingFScriptIntoCocoa/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="AccessingMacOSXFrameworksWithFScript-index-ja.html">
+				  F-Script で Mac OS X のフレームワーク群にアクセスする
+				</a>
+				<a href="http://www.fscript.org/documentation/AccessingMacOSXFrameworksWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+			
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  その他
+			  <!-- Miscellaneous -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="GoogleChartAPIFunWithCocoaAndFScript-index-ja.html">
+				  Cocoa と F-Script で Google Chart API をいじってみよう
+				  </a>
+				  <a href="http://www.fscript.org/documentation/GoogleChartAPIFunWithCocoaAndFScript/index.htm">
+				  ［原文］
+				  </a>
+			  </li>
+			  <li>
+				<a href="TheGameOfReverseInFScript-index-ja.html">
+				  F-Script 版 Reverse ゲーム
+				</a>
+				<a href="http://www.fscript.org/documentation/TheGameOfReverseInFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+		  </td>
+		</tr>
+	</tbody></table>
+<!-------------------------------------------->
+<!--
+    -->
+	<p>
+	  Paul Bissex が、様々な言語で、<a href="http://www.atariarchives.org/basicgames/showpage.php?page=135">Reverse ゲーム</a>を どのように実装できるか について
+	  <a href="http://e-scribe.com/news/193">書いて</a> いる。
+	  <!--
+	  Paul Bissex が、<a href="http://www.atariarchives.org/basicgames/showpage.php?page=135">Reverse ゲーム</a>は、様々な言語で どのように実装され得るのか に関する
+	  <a href="http://e-scribe.com/news/193">記事</a> を書いている。 
+	  -->
+	  <!--
+		Paul Bissex <a href="http://e-scribe.com/news/193">writes</a> about how <a href="http://www.atariarchives.org/basicgames/showpage.php?page=135">
+		the game of Reverse</a> can be implemented in various languages.
+		-->
+	</p>
+	<p>
+	</p>
+	<blockquote>
+	  Reverse ゲームは、ある数の並びを、左から右に数値の順番になる様に並べ替えるゲームだ。
+	  並べ替えるには、コンピュータに、(左から数えて) 何個の数の並びを反転 (reverse) せよ と指示する。 
+	  例えば、もし現在の並びが 2 3 4 5 1 6 7 8 9 だとすると、４個の数を反転 (reverse) すれば、その結果は 5 4 3 2 1 6 7 8 9 になるだろう。
+	  さあ、５個の数を反転 (reverse) すれば、あなたの勝ちだ。
+	  <!--
+		  The game of Reverse requires you to arrange a list of numbers in numerical order from left to right.
+		  To move, you tell the computer how many numbers (counting from the left) to reverse.
+		  For example, if the current list is 2 3 4 5 1 6 7 8 9 and you reverse 4, the result will be 5 4 3 2 1 6 7 8 9.
+		  Now if you reverse 5, you win.
+		-->
+	</blockquote>
+	<p>
+	</p>
+	<p>
+	  ここに F-Script で書いたバージョンがある。
+	  <!-- F-Script で書いたバージョンがこれだ。-->
+	  <!--
+		  Here is a version in <a href="http://www.fscript.org/">F-Script</a>:
+		  -->
+	</p>
+
+<pre class="codebox"><code><span class="identifier">numbers</span> := (<span class="literal">9</span> <span class="selector">random:</span><span class="literal">9</span>) <span class="selector">+</span> <span class="literal">1</span>.
+<span class="identifier">steps</span> := <span class="literal">-1</span>.
+
+<span class="identifier">flip</span> := [:<span class="identifier">flipCount</span>| 
+    <span class="identifier">numbers</span> <span class="selector">at:</span><span class="identifier">flipCount</span> <span class="selector">iota</span> <span class="selector">put:</span>(<span class="identifier">numbers</span> <span class="selector">at:</span><span class="identifier">flipCount</span> <span class="selector">iota</span>) <span class="selector">reverse</span>.
+    <span class="identifier">steps</span> := <span class="identifier">steps</span> <span class="selector">+</span> <span class="literal">1</span>.
+    (<span class="identifier">numbers</span> <span class="selector">isEqual:</span> <span class="literal">9</span> <span class="selector">iota</span> <span class="selector">+</span> <span class="literal">1</span>) <span class="selector">ifTrue:</span>[<span class="string">'Done! That took you '</span> <span class="selector">++</span> <span class="identifier">steps</span> <span class="selector">printString</span> <span class="selector">++</span> <span class="string">' steps.'</span>]
+                                  <span class="selector">ifFalse:</span>[<span class="identifier">numbers</span>]
+].
+
+<span class="identifier">flip</span> <span class="selector">value:</span><span class="literal">0</span>.
+</code></pre>
+
+		<p>
+		  このプログラムを実行すると、F-Scriptは、最初の数のリストを表示する。
+		  F-Script の精神に則り、このゲームとの遣り取りは F-Script 自身を使って行おう。
+		  反転させる要素の個数を引数にして、<code>flip</code> ブロックを評価することでプレイするのだ。
+		  ゲームはこんな具合に終了する：
+		  <!--
+			Upon execution of this program, F-Script displays the initial list of numbers.
+			In the spirit of F-Script, we interact with the game using F-Script itself.
+			We play by evaluating the <code>flip</code> block, passing it the number of elements to reverse.
+			For example, here is the end of a game:
+			-->
+
+</p><pre class="codebox"><code>...
+<span class="result">{3, 1, 2, 4, 5, 6, 7, 8, 9}</span>
+
+&gt; <span class="identifier">flip</span> <span class="selector">value:</span><span class="literal">3</span>
+
+<span class="result">{2, 1, 3, 4, 5, 6, 7, 8, 9}</span>
+
+&gt; <span class="identifier">flip</span> <span class="selector">value:</span><span class="literal">2</span>
+
+<span class="result">'Done! That took you 9 steps.'</span>
+</code></pre>
+
+		<p>
+		  これで対話的にプレイするのも良いが、ゲームの実装が手元にあるのだから、ゲームを自動実行する（しかも勝てる）プログラムを書いて楽しむこともできる。
+		  以下に示すのは、そんなプログラムの一つ だ。
+		  ゲームが完了すると、ゲームの各段階の詳細と勝つまでに要したステップ数を表示する。
+		  <!--
+			  Now that we have an implementation of the game, we can play with it interactively.
+			  We can also have fun writing programs that play automatically (and hopefully win).
+			  Below is such a program.
+			  Upon completion, it displays the detail of each step of the game and the number of steps it took to win.
+			  -->
+		</p>
+
+<pre class="codebox"><code><span class="identifier">sorted</span> := <span class="identifier">numbers</span> <span class="selector">at:</span><span class="identifier">numbers</span> <span class="selector">sort</span>.
+<span class="identifier">unsortedCount</span> := <span class="identifier">numbers</span> <span class="selector">count</span>.
+<span class="identifier">journal</span> := {<span class="identifier">numbers</span> <span class="selector">copy</span>}.
+
+[<span class="identifier">numbers</span> <span class="selector">isEqual:</span><span class="identifier">sorted</span>] <span class="selector">whileFalse:</span>
+[
+    <span class="identifier">maxIndex</span> := <span class="identifier">numbers</span> <span class="selector">indexOfObject:</span>(<span class="identifier">numbers</span> <span class="selector">at:</span><span class="identifier">unsortedCount</span> <span class="selector">iota</span>) <span class="selector">\</span> <span class="literal">#max:</span> .
+    <span class="identifier">maxIndex</span> <span class="selector">+</span> <span class="literal">1</span> <span class="selector">=</span> <span class="identifier">unsortedCount</span> <span class="selector">ifFalse:</span>
+    [
+        <span class="identifier">maxIndex</span> <span class="selector">=</span> <span class="literal">0</span> <span class="selector">ifFalse:</span>[<span class="identifier">flip</span> <span class="selector">value:</span><span class="identifier">maxIndex</span> <span class="selector">+</span> <span class="literal">1</span>. <span class="identifier">journal</span> <span class="selector">addObject:</span><span class="identifier">numbers</span> <span class="selector">copy</span>].
+        <span class="identifier">result</span> := <span class="identifier">flip</span> <span class="selector">value:</span><span class="identifier">unsortedCount</span>.
+        <span class="identifier">journal</span> <span class="selector">addObject:</span><span class="identifier">numbers</span> <span class="selector">copy</span>.
+    ].
+    <span class="identifier">unsortedCount</span> := <span class="identifier">unsortedCount</span> <span class="selector">-</span> <span class="literal">1</span>.
+].
+
+<span class="identifier">journal</span> <span class="selector">printString</span> <span class="selector">++</span> <span class="string">'\n'</span> <span class="selector">++</span> <span class="identifier">result</span>.
+</code></pre>
+
+	<p>
+	  このプログラムは、以下の手続きに基づいている。
+	  <!--
+	  It is based on the following process:
+	  -->
+	</p>
+	<ul style="margin: 12px 60px 12px 60px;">
+	  <li>リストの中で最大の数を見つける</li>
+	  <li>その数がリストの最初に来る様に、数の並びを反転する</li>
+	  <li>今度は、その数がリストの末尾に来る様に、数の並びを反転する</li>
+	  <li>そうしたら、現在のリストの先頭からその数まで (その数は含めない) の範囲のサブリストを対象に、同じ手続きを適用する</li>
+	  <!--
+	  <li>Find the greatest number in the list.</li>
+	  <li>Flip the list in order to put it at the beginning of the list.</li>
+	  <li>Flip again in order to put it at the end of the list.</li>
+	  <li>Now consider the sub-list ranging from the start of the current list to this number (not including it), and apply the same process.</li>
+	  -->
+	</ul>
+	<p>
+	</p>
+	
+	<br>
+	<p style="text-align:center; font-size:x-small">
+	  <font color="slategray">Copyright © 2006-2009 Philippe Mougin</font>
+	  <br>
+	  <font color="slategray">Translation-ja © 2012 Hideo Haga ［日本語版］</font>
+	</p>
+	<br>
+	<script src="TheGameOfReverseInFScript-index-ja_files/urchin.js" type="text/javascript">
+	</script>
+	<script type="text/javascript">
+	  _uacct = "UA-278325-1";
+	  urchinTracker();
+	</script>
+  
+
+</body></html>
