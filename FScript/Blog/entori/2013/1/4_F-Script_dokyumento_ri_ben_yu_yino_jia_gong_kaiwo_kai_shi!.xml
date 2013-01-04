@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
-  <lastEdited clientType="local-build-20130105" date="2013-01-05 01:04:00 +0900"/>
+  <lastEdited clientType="local-build-20130105" date="2013-01-05 01:18:37 +0900"/>
   <textBox id="generic-header-attribute" dynamic="no" visible="yes">
     <richText>  F-Script &#x3067;&#x904A;&#x3093;&#x3067;&#x307F;&#x3088;&#x3046;&#xFF01;&#xD;Let&#x2019;s play with F-Script !</richText>
   </textBox>
