@@ -124,10 +124,9 @@
     <h2>はじめに</h2>
     <!-- Introduction -->
     <p>
-      Objective-C のお陰で、Cocoa は、高度に動的で再定義可能な、しかも、オープンなオブジェクトモデルの上に構築されている。
-      とりわけ、この事実の為に、オブジェクトグラフエディタ、ランタイムモニタリングツール、オブジェクトブラウザ、その他の
-      Cocoa ランタイムの能力を利用する数多くのプログラムを創ることができるのである。
-      Cocoa のオープン性の一つの重要な応用は、スクリプティング言語と Cocoa の統合だが、これは大変役に立つ。
+      Cocoa が、高度に動的で、再定義可能であり、しかもオープンなオブジェクトモデルの上に構築されているという事実に対して、Objective-C に感謝しよう。
+      とりわけ、オブジェクトグラフエディタ、ランタイムモニタリングツール、オブジェクトブラウザ、等々その他数多くの Cocoa ランタイムの能力を利用するプログラムを創ることができるのは、この事実のお陰なのだ。
+      Cocoa のオープン性の一つの重要な応用は、スクリプティング言語と Cocoa の統合だが、これは非常に役に立つ。
       というのは、この統合によって、Cocoa を対話的に使うことが可能になり、複数の Cocoa コンポーネントを容易に結合して使うことが可能になるからだ。
       <!--
 	  Thanks to Objective-C, Cocoa is built upon a highly dynamic, reflexive and open object model.
@@ -142,7 +141,7 @@
       我々は、Cocoa 専用のオープンソーススクリプト言語 F-Script を使って、小さなグラフィカルアプリケーションを創る。
       グラフィカルユーザーインタフェースを作る為の Cocoa オブジェクトフレームワークである Application Kit に正面から向き合い、F-Script を使って直接プログラムするのだ。
       この種のアプリケーションはインタフェースビルダーを使って作ることもできるが、
-      この記事では、Cocoa スクリプティングを解説する為に、Application Kit をプログラム的に使っていくので注意して欲しい。
+      この記事では、Cocoa スクリプティングを解説する為に、Application Kit をプログラム的に使っていくので注意されたい。
     <!--
       In this article I want to give you a taste of Cocoa scripting, and to show you the level of integration that you can expect.
       We will use F-Script, an open source scripting language for Cocoa, to build a little graphical application.
@@ -158,8 +157,8 @@
 	-->
     </p>
     <p>
-      注記：この記事は、O'Reilly MacDevcenter の記事 <a href="http://www.oreillynet.com/pub/a/mac/2001/11/30/scripting_fscript.html">here</a>
-      <i>Scripting Cocoa with F-Script </i> の改訂版である。
+      注記：この記事は、O'Reilly MacDevcenter の記事 <a href="http://www.oreillynet.com/pub/a/mac/2001/11/30/scripting_fscript.html"> <i>Scripting Cocoa with F-Script </i> </a>
+      の改訂版である。
     <!--
       Note: This article is an updated version of <i>Scripting Cocoa with F-Script</i>, which is published on the O'Reilly MacDevcenter
       <a href="http://www.oreillynet.com/pub/a/mac/2001/11/30/scripting_fscript.html">here</a>.
@@ -170,8 +169,14 @@
       Yet another currency converter
 	-->
     <p>
+      これから作るアプリケーションは、
+      <a href="https://developer.apple.com/jp/documentation/Cocoa/Conceptual/ObjCTutorial/01Introduction/chapter_1_section_1.html">アップル チュートリアル</a>
+      にあるものとそっくりな「カレンシーコンバータ」（通貨換算器）だ。
+    <!--
       これから作るアプリケーションは、<a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ObjCTutorial/index.html">アップル チュートリアル</a>
       にあるものにそっくりな「カレンシーコンバータ」（通貨換算器）だ。
+	-->
+      
     <!--
       Our application is a "currency converter" similar to the one found in
       <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ObjCTutorial/index.html">Apple tutorials</a>.
@@ -190,7 +195,10 @@
      <!-- F-Script -->
     <p>
       F-Script は、Smalltalk に似た構文とコンセプトを持つ、純粋にオブジェクト指向のスクリプト言語である。
-      読者は、命令をタイプして使える対話的なシェルを提供する <b>FScript.app</b> アプリケーションを通して、F-Script と対話することができる。
+      読者は、<b>FScript.app</b> アプリケーションが提供する対話的なシェルに命令を入力することによって F-Script と対話することができる。
+      <!--
+	  読者は、命令をタイプして使える対話的なシェルを提供する <b>FScript.app</b> アプリケーションを通して、F-Script と対話することができる。
+	-->
       <!--
 	  F-Script is a pure object-oriented scripting language with Smalltalk-like syntax and concepts.
 	  You can interact with F-Script through the <b>FScript.app</b> application, which gives you an interactive shell into which you can type instructions.
@@ -251,10 +259,10 @@
 	-->
     </h2>
     <p>
-      以下のスクリプトを F-Script シェルに入力するには、単にコピー／ペーストすれば良いのだが、命令を少しずつ入力して行くこともできる：
-      そうすれば、このカレンシーコンバータのユーザーインタフェースが、少しずつ姿を現してくる様子が分るだろう。
-      もちろん、スクリプト中のさまざまな引数の値を変更してみたり、命令をいくつか省いてみたりして、何が起こるか見てみることもできる。
-      カレンシーコンバータを作り上げてしまった後で、各オブジェクトを対話的に操作することさえできるのだ。
+      以下のスクリプトを F-Script シェルに入力するには、単にコピー／ペーストしても良いが、少しずつ命令を入力していってもよい：
+      そうすれば、このカレンシーコンバータのユーザーインタフェースが、少しずつ姿を現してくる様子を見ることができるだろう。
+      もちろん、スクリプト中のさまざまな引数の値を変更してみたり、命令をいくつか省いてみたりして、何が起こるかを見てみることもできる。
+      カレンシーコンバータが完成した後に、各オブジェクトを対話的に操作することさえできるのだ。
       <!--
 	  The following script can be entered into the F-Script shell using a simple copy/paste.
 	  You can also enter the intructions step by step: you will then see the currency converter interface appearing bit by bit.
@@ -673,12 +681,18 @@
 </code></pre>
 
 <p>
-  最後に、F-Script は、どんな Cocoa アプリケーションにでも埋め込めるように準備されたフレームワークの形式でも提供されているので、
-  Mac OS X で実行可能な標準的なアプリケーションの中に、自分のスクリプトを簡単に埋め込むことができる。
+  最後になるが、F-Script は、どんな Cocoa アプリケーションにでも埋め込めるフレームワークの形式でも提供されているので、
+  標準的な Mac OS X アプリケーションの中に、読者のスクリプトを簡単に埋め込むことができる。
   <!--
       Finally, since F-Script comes in the form of a framework ready to be embedded into any Cocoa application,
       it is easy to place our script in a standard Mac OS X executable.
     -->
+</p>
+<p style="text-align:left; font-size:x-small">
+  <font color="slategray">
+  ［訳注］この話題の詳細については
+  「<a href="EmbeddingFScriptIntoCocoa-index-ja.html">Cocoa アプリケーションに F-Script を埋め込む</a>」を参照。
+  </font><br>
 </p>
 
 <h2>
@@ -690,9 +704,9 @@
 
 <p>
   これまで Cocoa スクリプティングとはどのようなものかを見てきた。
-  明らかに、この記事では、Cocoa の例外の扱い方、インタフェースビルダーとの統合の方法、カスタム Objective-C クラスの使い方や、
-  非オブジェクト型が、F-Script オブジェクトにどのようにマッピングされるのか、等々、まだ議論されていないテーマがたくさんある。
-  しかし、読者は、それらのどの側面においても、統合のレベルは非常に高いものであることを期待して良い。
+  明らかに、Cocoa の例外の扱い方、インタフェースビルダーとの統合の方法、カスタム Objective-C クラスの使い方や、
+  非オブジェクト型が、F-Script オブジェクトにどのようにマッピングされるのか、等々、この記事では議論されていないテーマがまだたくさんある。
+  しかし、読者は、それらの側面についても非常に高いレベルで統合がなされていると期待して良い。
   <!--
       We have seen what scripting Cocoa with F-Script involves.
       Clearly, many subjects have not been tackled in this article,

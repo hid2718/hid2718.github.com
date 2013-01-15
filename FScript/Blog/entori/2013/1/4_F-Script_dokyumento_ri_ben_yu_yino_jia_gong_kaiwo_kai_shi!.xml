@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
-  <lastEdited clientType="local-build-20130105" date="2013-01-05 01:55:43 +0900"/>
+  <lastEdited clientType="local-build-20130113" date="2013-01-13 19:42:58 +0900"/>
   <textBox id="generic-header-attribute" dynamic="no" visible="yes">
     <richText>  F-Script &#x3067;&#x904A;&#x3093;&#x3067;&#x307F;&#x3088;&#x3046;&#xFF01;&#xD;Let&#x2019;s play with F-Script !</richText>
   </textBox>
@@ -13,5 +13,5 @@
   <textBox id="generic-datefield-attributes" dynamic="no" visible="yes">
     <richText>&lt;b&gt;2013&#x5E74;1&#x6708;4&#x65E5;&#x91D1;&#x66DC;&#x65E5;&lt;/b&gt;</richText>
   </textBox>
-  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="4_F-Script_dokyumento_ri_ben_yu_yino_jia_gong_kaiwo_kai_shi%21_files/shapeimage_3.png" left="0px" top="0px" width="413px" height="310px"/>
+  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="4_F-Script_dokyumento_ri_ben_yu_yino_jia_gong_kaiwo_kai_shi%21_files/shapeimage_3.png" left="0px" top="0px" width="412px" height="309px"/>
 </content>
