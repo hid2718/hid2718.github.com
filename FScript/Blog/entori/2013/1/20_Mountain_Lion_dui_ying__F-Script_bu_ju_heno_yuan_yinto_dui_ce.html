@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <meta name="Generator" content="iWeb 3.0.4" />
+    <meta name="iWeb-Build" content="local-build-20130121" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta name="viewport" content="width=700" />
+    <title>Mountain Lion 対応: F-Script 不具合の原因と対策</title>
+    <link rel="stylesheet" type="text/css" media="screen,print" href="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce.css" />
+    <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ceIE.css'/><![endif]-->
+    <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='../../../../Media/IE8.css'/><![endif]-->
+    <script language="javascript" type="text/javascript"><!--
+
+iWebBlogMainPageName = 'Blog.html';
+iWebBlogMainPageTitle = 'Blog';
+iWebBlogArchivePageName = 'akaibu.html';
+iWebBlogArchivePageTitle = 'アーカイブ';
+
+
+--></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebSite.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/SharedResources/WidgetCommon.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/Navbar/navbar.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebImage.js"></script>
+    <script type="text/javascript" src="http://www.me.com/1/up/comments/scripts/search.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebBlog.js"></script>
+    <script type="text/javascript" src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce.js"></script>
+  </head>
+  <body style="background: rgb(255, 255, 255); margin: 0pt; " onload="onPageLoad();" onunload="onPageUnload();">
+    <div style="text-align: center; ">
+      <div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden; position: relative; word-wrap: break-word;  background: rgb(255, 255, 255); text-align: left; width: 700px; " id="body_content">
+        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 0; " id="nav_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div class="com-apple-iweb-widget-navbar flowDefining" id="widget0" style="margin-left: 35px; margin-top: 0px; opacity: 1.00; position: relative; width: 630px; z-index: 1; ">
+    
+            <div id="widget0-navbar" class="navbar">
+
+      
+              <div id="widget0-bg" class="navbar-bg">
+
+        
+                <ul id="widget0-navbar-list" class="navbar-list">
+ <li></li> 
+</ul>
+                
+      
+</div>
+              
+    
+</div>
+          </div>
+          <script type="text/javascript"><!--//--><![CDATA[//><!--
+new NavBar('widget0', '../../../../Scripts/Widgets/Navbar', '../../../../Scripts/Widgets/SharedResources', '../../../..', {"path-to-root": "..\/..\/..\/..\/", "navbar-css": ".navbar {\n\tfont-family: Arial, sans-serif;\n\tfont-size: 1em;\n\tcolor: #666;\n\tmargin: 9px 0px 6px 0px;\n\tline-height: 30px;\n}\n\n.navbar-bg {\n\ttext-align: center;\n}\n\n.navbar-bg ul {\n\tlist-style: none;\n\tmargin: 0px;\n\tpadding: 0px;\n}\n\n\nli {\n\tlist-style-type: none;\n\tdisplay: inline;\n\tpadding: 0px 10px 0px 10px;\n}\n\n\nli a {\n\ttext-decoration: none;\n\tcolor: #666;\n}\n\nli a:visited {\n\ttext-decoration: none;\n\tcolor: #666;\n}\n\nli a:hover\r{\r\n \tcolor: #463C3C;\n\ttext-decoration: none;\r}\n\n\nli.current-page a\r{\r\t color: #463C3C;\n\ttext-decoration: none;\n\tfont-weight: bold;\r\r}", "current-page-GUID": "A8ED8FB8-BF74-4FF0-9BD0-4C361C3330FA", "isCollectionPage": "YES"});
+//--><!]]></script>
+          <div style="clear: both; height: 0px; line-height: 0px; " class="spacer"> </div>
+        </div>
+        <div style="height: 111px; margin-left: 0px; position: relative; width: 700px; z-index: 10; " id="header_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div style="height: 1px; width: 630px;  height: 1px; left: 35px; position: absolute; top: 3px; width: 630px; z-index: 1; " class="tinyText">
+            <div style="position: relative; width: 630px; ">
+              <img src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/shapeimage_1.jpg" alt="" style="height: 1px; left: 0px; position: absolute; top: 0px; width: 630px; " />
+            </div>
+          </div>
+          
+
+
+          <div id="id1" style="height: 89px; left: 35px; position: absolute; top: 22px; width: 630px; z-index: 1; " class="style_SkipStroke shape-with-text">
+            <div class="text-content graphic_textbox_layout_style_default_External_630_89" style="padding: 0px; ">
+              <div class="graphic_textbox_layout_style_default">
+                <p style="padding-top: 0pt; " class="paragraph_style">  F-Script で遊んでみよう！<br /></p>
+                <p style="padding-bottom: 0pt; " class="paragraph_style_1">Let’s play with F-Script !</p>
+              </div>
+            </div>
+          </div>
+          
+
+
+          <div style="height: 1px; width: 630px;  height: 1px; left: 36px; position: absolute; top: 120px; width: 630px; z-index: 1; " class="tinyText">
+            <div style="position: relative; width: 630px; ">
+              <img src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/shapeimage_2.jpg" alt="" style="height: 1px; left: 0px; position: absolute; top: 0px; width: 630px; " />
+            </div>
+          </div>
+        </div>
+        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 5; " id="body_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div id="id2" style="height: 315px; left: 146px; position: absolute; top: 22px; width: 408px; z-index: 1; " class="style_SkipStroke_1 shape-with-text stroke_0">
+            <div class="text-content graphic_shape_layout_style_default_External_406_313" style="padding: 1px; ">
+              <div class="graphic_shape_layout_style_default"></div>
+            </div>
+          </div>
+          
+
+
+          <div id="id3" style="visibility: hidden;  height: 34px; left: 145px; position: absolute; top: 352px; width: 410px; z-index: 1; " class="style_SkipStroke_2 shape-with-text">
+            <div class="text-content Normal_External_410_34" style="padding: 0px; ">
+              <div class="Normal">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_2">Mountain Lion 対応: F-Script 不具合の原因と対策</p>
+              </div>
+            </div>
+            <div id="generic-title-attributes" class="Title"></div>
+          </div>
+          <div style="height: 1px; line-height: 1px; " class="tinyText"> </div>
+          <div style="visibility: hidden;  margin-left: 145px; margin-top: 406px; position: relative; width: 410px; z-index: 1; " class="style_SkipStroke_4 shape-with-text flowDefining">
+            <div class="text-content style_External_410_2474" style="padding: 0px; ">
+              <div class="style">
+                <p style="padding-top: 0pt; " class="paragraph_style_3">F-Script の最新バージョン 2.1 には、Mac OS X 10.8（Mountain Lion）で起動するとクラッシュする、という不具合があることが報告されている。<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">当サイトでは、公式サイトからダウンロードしたバージョン</span> 2.1 の ZIP に同梱されているプロジェクトファイルを修正＆リビルドし、問題の対策版を独自に配布することにした。　　　　　 → <a onclick="window.open(this.href); return false;" title="https://dl.dropbox.com/u/11990037/F-Script20100614-Rebuild-for-Mountain-Lion-by-hid2718-20130114.zip" href="https://dl.dropbox.com/u/11990037/F-Script20100614-Rebuild-for-Mountain-Lion-by-hid2718-20130114.zip" onkeypress="window.open(this.href); return false;" style="font-family: 'HiraKakuProN-W6', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 600; line-height: 22px; " class="style_1">ダウンロードはこちらから</a><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">以下に、その対策の改修手順について記録しておく。</span><br /></p>
+                <p class="paragraph_style_4"><span style="font-family: 'LucidaGrande', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif; font-size: 10px; font-stretch: normal; font-style: normal; font-weight: 400; line-height: 14px; ">※</span> この記事の作業環境：Mac OS X 10.6.8 Snow Leopard ／ Xcode 3.2.6<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_5">■ 原因<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3">F-Script チュートリアル記事の一つ「<a onclick="window.open(this.href); return false;" title="http://hid2718.github.com/FScript/AccessingMacOSXFrameworksWithFScript-index-ja.html" href="http://hid2718.github.com/FScript/AccessingMacOSXFrameworksWithFScript-index-ja.html" onkeypress="window.open(this.href); return false;">F-Script で Mac OS X のフレームワーク群にアクセスする</a><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">」にも説明があるように、</span>F-Script は、起動時に40個ものフレームワークを自動リンクしている。<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">この中には、</span>F-Script 自身の動作の為にも必要なもの（Foundation Kit や Application Kit など）も当然含まれているが、そのほとんどは、事前作業無しでそのフレームワークが使えるように、ユーザーの利便を図る目的でリンクされているものだ。<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">今回の不具合は、このユーザーの利便を図る目的で起動時に自動リンクしているフレームワークの一つ「</span>XgridFoundation」が、Mountain Lion では廃止されたことが「原因」である。<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_5">■ 対策方針<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3">ML で廃止された「XgridFoundation」は、F-Script 自体の動作には関与しないフレームワークである為、単に、プロジェクトの構成からこれを削除して、プロジェクトをビルドし直す、という方針で改修を行った。<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_5">■ 改修手順<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">１）公式サイトからダウンロードして解凍したフォルダの「</span>source」直下<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　にある「</span>FScript.xcodeproj」を Xcode で開く。<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <div class="paragraph paragraph_style_3"><div style="height: 167px; width: 395px;  clear: left; float: left; height: 167px; margin: 6px 6px 6px 0px; position: relative; width: 395px; " class="tinyText style_SkipStroke_3 inline-block stroke_1"><img src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/2013-01-20%2020.05.49.jpg" alt="" style="border: none; height: 168px; width: 395px; " /></div>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<br /></div>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">２）「プロジェクトの検索」ボタンを押し、「プロジェクト内」を対象に</span><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　検索文字列：「</span> XgridFoundation」と入力して検索する。<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　この文字列を含む箇所が、３カ所見つかった。</span><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <div class="paragraph paragraph_style_3"><div style="height: 357px; width: 381px;  clear: left; float: left; height: 357px; margin: 6px 6px 6px 0px; position: relative; width: 381px; " class="tinyText style_SkipStroke_3 inline-block stroke_1"><img src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/2013-01-20%2020.12.58.jpg" alt="" style="border: none; height: 358px; width: 381px; " /></div>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<br /></div>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">３）</span>FSConstantsDictionaryGenerator.m の以下の行をコメントアウト。<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　</span>#import &lt;XgridFoundation/XgridFoundation.h&gt;<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　　</span>↓<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　</span>// #import &lt;XgridFoundation/XgridFoundation.h&gt;<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　もう一つのファイルの該当箇所は、コメント文の為、そのままとする。</span><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">４）</span> Xcode の左側「グループとファイル」ペインに表示されている 各種<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　フレームワーク群の最後にある「</span> XgridFoundation.framework」の上で<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　右クリックして「削除」を選択。このプロジェクトへのリンクを外す。</span><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <div class="paragraph paragraph_style_3"><div style="height: 330px; width: 381px;  clear: left; float: left; height: 330px; margin: 6px 6px 6px 0px; position: relative; width: 381px; " class="tinyText style_SkipStroke_3 inline-block stroke_1"><img src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/2013-01-20%2020.14.57.jpg" alt="" style="border: none; height: 330px; width: 381px; " /></div>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<br /></div>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">５）</span>Xcode メニュー：「プロジェクト＞アクティブターゲットを設定」<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　で「</span>F-Script」を選択。<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">６）</span> Xcode メニュー：「プロジェクト＞アクティブビルド構成を設定」<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　で「</span>Deployment」を選択。<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">７）</span> Xcode メニュー：「ビルド＞ビルド」を選択。<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　ビルドが完了すると、解凍したフォルダの中の「</span>source / build」の下<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　に「</span>Deployment」というフォルダができ、その中に今回のビルド結果<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　である「</span>F-Script.app」が生成されるので、これを、フォルダの直下に<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　コピーして、今回の改修作業は終了。</span><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_5">■ 動作確認<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">８）今回の改修結果を</span> Mountain Lion 環境下で起動して、無事に動作する<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　ことを確認し、ご連絡を下さった</span> <a onclick="window.open(this.href); return false;" title="https://twitter.com/kuritar" href="https://twitter.com/kuritar" onkeypress="window.open(this.href); return false;">@kuritar</a> さんに深く感謝致します。<br /></p>
+                <p class="paragraph_style_3"><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 12px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 22px; ">　ありがとうございました！</span><br /></p>
+              </div>
+              <div style="clear: both; height: 15px; line-height: 15px; " class="tinyText"> </div>
+            </div>
+            <div id="generic-body-attributes" class="Body"></div>
+          </div>
+          
+
+
+          <div id="id4" style="visibility: hidden;  height: 24px; left: 145px; position: absolute; top: 383px; width: 410px; z-index: 1; " class="style_SkipStroke_5 shape-with-text">
+            <div class="text-content style_External_410_24" style="padding: 0px; ">
+              <div class="style">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_6">2013年1月20日日曜日</p>
+              </div>
+            </div>
+            <div id="generic-datefield-attributes" class="Date"></div>
+          </div>
+          
+
+
+          <div style="height: 260px; width: 400px;  height: 259px; left: 150px; position: absolute; top: 49px; width: 400px; z-index: 1; " class="tinyText">
+            <div style="position: relative; width: 400px; ">
+              <img src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/shapeimage_3.png" alt="" style="height: 259px; left: 0px; margin-top: 1px; position: absolute; top: 0px; width: 400px; visibility: hidden; " id="generic-picture-attributes" />
+            </div>
+          </div>
+          <div style="height: 0px; line-height: 0px; " class="spacer"> </div>
+        </div>
+        <div style="height: 150px; margin-left: 0px; position: relative; width: 700px; z-index: 15; " id="footer_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <a href="http://apple.com/jp/mac" title="http://apple.com/jp/mac"><img src="20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce_files/mwmac.png" alt="Made on a Mac" style="border: none; height: 50px; left: 280px; opacity: 0.35; position: absolute; top: 80px; width: 139px; z-index: 1; " id="id5" />
+
+</a>
+          <div id="id6" style="height: 30px; left: 350px; position: absolute; top: 10px; width: 315px; z-index: 1; " class="style_SkipStroke shape-with-text">
+            <div class="text-content graphic_textbox_layout_style_default_External_315_30" style="padding: 0px; ">
+              <div class="graphic_textbox_layout_style_default">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Next"><a class="iWebBlogNext" title="" href=""><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 15px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 28px; ">次へ</span> &gt;</a></p>
+              </div>
+            </div>
+          </div>
+          
+
+
+          <div id="id7" style="height: 30px; left: 35px; position: absolute; top: 10px; width: 315px; z-index: 1; " class="style_SkipStroke shape-with-text">
+            <div class="text-content graphic_textbox_layout_style_default_External_315_30" style="padding: 0px; ">
+              <div class="graphic_textbox_layout_style_default">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Previous"><a class="iWebBlogPrev" title="" href="">&lt; 前ヘ</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
