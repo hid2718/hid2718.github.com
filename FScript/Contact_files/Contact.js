@@ -6,6 +6,6 @@ function hostedOnDM()
 {return false;}
 function onPageLoad()
 {loadMozillaCSS('Contact_files/ContactMoz.css')
-adjustLineHeightIfTooBig('id1');adjustFontSizeIfTooBig('id1');Widget.onload();fixAllIEPNGs('Media/transparent.gif');IMpreload('Contact_files','shapeimage_3','0');applyEffects()}
+adjustLineHeightIfTooBig('id1');adjustFontSizeIfTooBig('id1');Widget.onload();fixupAllIEPNGBGs();fixAllIEPNGs('Media/transparent.gif');IMpreload('Contact_files','shapeimage_3','0');applyEffects()}
 function onPageUnload()
 {Widget.onunload();}
