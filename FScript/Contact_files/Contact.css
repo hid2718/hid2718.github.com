@@ -23,6 +23,9 @@
     text-indent: 0px;
     text-transform: none;
 }
+.style_External_523_506 {
+    position: relative;
+}
 .paragraph_style_1 {
     color: rgb(82, 82, 82);
     font-family: 'ArialMT', 'Arial', sans-serif;
@@ -63,9 +66,6 @@
     line-height: 16px;
     opacity: 1.00;
 }
-.style_External_523_486 {
-    position: relative;
-}
 .style_SkipStroke {
     background: transparent;
     opacity: 1.00;
@@ -92,11 +92,11 @@
     text-indent: 0px;
     text-transform: none;
 }
-.Normal_External_523_486 {
-    position: relative;
-}
 .Normal {
     padding: 4px;
+}
+.Normal_External_523_506 {
+    position: relative;
 }
 .graphic_generic_header_textbox_style_default_SkipStroke {
     background: transparent;
