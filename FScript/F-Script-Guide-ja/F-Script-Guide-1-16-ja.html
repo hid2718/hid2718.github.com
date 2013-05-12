@@ -1,0 +1,2403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>F-Script Guide 日本語版</title>
+  
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="resources/documentation.css" media="all">
+
+  
+  <style type="text/css" media="all"></style></head><body style="background-color: rgb(255, 255, 255);"><big style="font-weight: bold;"><big><big><big><a href="#mozTocId273208">F-Script Guid</a></big></big></big></big><big style="font-weight: bold;"><big><big><big><a href="F-Script%20Guide%20%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%89%88.html#mozTocId273208">e　-　</a></big></big></big></big><a href="#mozTocId273208"><big style="font-weight: bold;"><big><big><big>目次　<small>1 - 16</small></big></big></big></big></a><br>
+<div style="text-align: left;"><big style="font-weight: bold;"><big><big><big>
+</big></big></big></big><small style="color: rgb(51, 102, 255);"><span style="color: rgb(0, 0, 153);"><br>
+</span></small><span style="color: rgb(0, 0, 153);">------------------------------------------------------------------------------------------</span><br>
+
+<small style="color: rgb(51, 102, 255);"><span style="color: rgb(0, 0, 153);"></span><span style="color: rgb(0, 0, 153);">訳注：</span><br style="color: rgb(0, 0, 153);"><span style="color: rgb(0, 0, 153);">
+F-Script Guide の以下のような内容のうち、この文書は、最初の「1 - 16 章」の部分の翻訳です。</span><br style="color: rgb(0, 0, 153);"><span style="color: rgb(0, 0, 153);">
+・&nbsp; 1 - 16 章　主に F-Script の「Smalltalk」としての側面、及びその使い方に関する解説</span><br style="color: rgb(0, 0, 153);"><span style="color: rgb(0, 0, 153);">
+・17 - 28 章　主に F-Script の「配列言語」としての側面、及びその使い方に関する解説</span><br style="color: rgb(0, 0, 153);"><span style="color: rgb(0, 0, 153);">
+・29 - 57 章　既存の Cocoa に対して、F-Script で独自に拡張、追加された機能（カテゴリ、クラス、メソッド）のリファレンス</span></small><br style="color: rgb(0, 0, 153);">
+<span style="color: rgb(0, 0, 153);">------------------------------------------------------------------------------------------</span><br>
+<br>
+<br style="color: rgb(0, 0, 153);">
+
+
+<big style="font-weight: bold; color: rgb(0, 0, 153);"><big><big><big></big></big></big></big><a href="#mozTocId234977">１　はじめに</a><br>
+</div>
+
+<a href="#mozTocId33611">
+２　F-Script のソフトウェアアーキテクチャ
+</a><br>
+
+<a href="#mozTocId188792">３　F-Script の使い方
+</a><br>
+
+<a href="#mozTocId229218">４　基礎概念</a><br>
+
+<a href="#mozTocId200989">&nbsp;&nbsp;&nbsp; 4.1 リテラル表記</a><br>
+
+<a href="#mozTocId427412">&nbsp;&nbsp;&nbsp; 4.2 メッセージ送信</a><br>
+
+<a href="#mozTocId70916">&nbsp;&nbsp;&nbsp; 4.3 優先順位と括弧付け</a><br>
+
+<a href="#mozTocId362118">&nbsp;&nbsp;&nbsp; 4.4 変数 及び 式の評価の検討</a><br>
+
+<a href="#mozTocId698238">&nbsp;&nbsp;&nbsp; 4.5 式のリスト</a><br>
+
+<a href="#mozTocId884889">&nbsp;&nbsp;&nbsp; 4.6 コメント</a><br>
+
+<a href="#mozTocId377379">&nbsp;&nbsp;&nbsp; 4.7 カスケード</a><br>
+
+<a href="#mozTocId732493">
+５　Cocoa への直接アクセス</a><br>
+
+<a href="#mozTocId769626">&nbsp;&nbsp;&nbsp; 5.1 例：描画する</a><br>
+
+<a href="#mozTocId701902">&nbsp;&nbsp;&nbsp; 5.2 例：音を鳴らす</a><br>
+
+<a href="#mozTocId820928">&nbsp;&nbsp;&nbsp; 5.3 例：ウィンドウを一つ開く</a><br>
+
+<a href="#mozTocId81998">&nbsp;&nbsp;&nbsp; 5.4 例：ちょっとしたグラフィカルアニメーション</a><br>
+
+<a href="#mozTocId559840">
+６　グラフィカル オブジェクト ブラウザ
+</a><br>
+
+<a href="#mozTocId149747">７　標準入出力ストリーム
+</a><br>
+
+<a href="#mozTocId909004">８　基本データ型 の紹介
+</a><br>
+
+<a href="#mozTocId694081">&nbsp;&nbsp;&nbsp; 8.1 数　Numbers</a><br>
+
+<a href="#mozTocId67386">&nbsp;&nbsp;&nbsp; 8.2 文字列　Strings</a><br>
+
+<a href="#mozTocId83524">&nbsp;&nbsp;&nbsp; 8.3 配列　Arrays</a><br>
+
+<a href="#mozTocId189771">&nbsp;&nbsp;&nbsp; 8.4 真偽値　Booleans</a><br>
+
+<a href="#mozTocId496986">&nbsp;&nbsp;&nbsp; 8.5 ブロック　Blocks</a><br>
+
+<a href="#mozTocId603342">&nbsp;&nbsp;&nbsp; 8.6 範囲　Ranges, 点　Points,
+矩形　Rectangles　及び、大きさ　Sizes
+</a><br>
+
+<a href="#mozTocId947539">&nbsp;&nbsp;&nbsp; 8.6.1 範囲　Ranges</a><br>
+
+<a href="#mozTocId585303">&nbsp;&nbsp;&nbsp; 8.6.2 点　Points</a><br>
+
+<a href="#mozTocId456090">&nbsp;&nbsp;&nbsp; 8.6.3 矩形　Rectangles</a><br>
+
+<a href="#mozTocId285339">&nbsp;&nbsp;&nbsp; 8.6.4 大きさ　Sizes
+</a><br>
+
+<a href="#mozTocId688145">９　制御構造
+</a><br>
+
+<a href="#mozTocId45248">&nbsp;&nbsp;&nbsp; 9.1 条件選択　Conditional
+</a><br>
+
+<a href="#mozTocId18394">&nbsp;&nbsp;&nbsp; 9.2 繰り返し　Loop
+</a><br>
+
+<a href="#mozTocId556446">10　永続化
+</a><br>
+
+<a href="#mozTocId3366">11　カスタムクラスの統合
+</a><br>
+
+<a href="#mozTocId743524">12　オブジェクトの同等性と同値性
+</a><br>
+
+<a href="#mozTocId744103">13　オブジェクトの複製
+</a><br>
+
+<a href="#mozTocId285973">14　例外
+</a><br>
+
+<a href="#mozTocId433866">15　Objective-C マッピング
+</a><br>
+
+<a href="#mozTocId436121">&nbsp;&nbsp;&nbsp; 15.1 演算子　Operators
+</a><br>
+
+<a href="#mozTocId288536">&nbsp;&nbsp;&nbsp; 15.2 非オブジェクト型
+</a><br>
+
+<a href="#mozTocId482882">&nbsp;&nbsp;&nbsp; 15.3 nil オブジェクト
+</a><br>
+
+<a href="#mozTocId31242">&nbsp;&nbsp;&nbsp; 15.2 例外処理
+</a><br>
+
+<a href="#mozTocId399839">&nbsp;&nbsp;&nbsp; 15.2 シンボル定数
+</a><br>
+
+<a href="#mozTocId582157">16　メモリの管理
+</a><br>
+
+<br>
+
+<h1><br>
+</h1>
+
+<h1>F-Script Guide　<small><small>1 - 16 章</small></small><br>
+</h1>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId234977"></a>１　はじめに</h3>
+
+F-Script は、Mac OS X
+オブジェクトシステム（Cocoa）に対して、手軽にスクリプティングを行なったり、対話的に操作したりする為の環境である。F-Script
+は、オブジェクトの内部を覗いたり、操作したりすることができる洗練されたツール類（インタプリタやオブジェクトブラウザ）を提供する。また、独自のクラ
+スを動的に定義することもできる。
+<p>F-Script の構文は Smalltalk に基づいている。そのオブジェクトモデルは、Mac OS X
+のオブジェクトモデルそのものである。
+</p>
+
+<p>この文書は、F-Script
+インタプリタの前で、本文にでてくる F-Script の様々な概念を、対話的に、実験したり調べたりしながら読むと良いだろう。</p>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<p>
+<span style="font-weight: bold;">注：原著者特記</span>
+</p>
+
+<p>F-Script は、Smalltalk や Self それに APL といくつかの言語的な特徴を共有している。<br>
+この文書の幾つかの箇所は、IBM
+の Paul Berry による素晴しい <span style="font-style: italic;">APL 360 Primer </span>か
+ら直接翻案された。<br>
+また、以下の文書から直接着想を得ている箇所もある:
+</p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">-<br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-style: italic;">Inside
+Smalltalk</span>, Volume 1.
+Wif R. Lalonde / John R. Pugh. Prentice Hall</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">-</td>
+      <td style="vertical-align: top;"><span style="font-style: italic;">The
+SELF 4.0 Programmer’s
+Reference Manual</span>, Agesen / Bak / Chambers /
+Chang / Hölzle / Maloney / Smith /Ungar / Wolczko. Sun Microsystem</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">-</td>
+      <td style="vertical-align: top;">NCITS J20 DRAFT of ANSI
+Smalltalk Standard revision 1.9 </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+いくつかの例題は、<span style="font-style: italic;">Les APL étendus</span>,
+Bernard Legrand. Masson から着想を得たものである。<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId33611"></a>
+２　F-Script のソフトウェアアーキテクチャ
+</h3>
+
+（図を省略）<br>
+
+<h3><a class="mozTocH3" name="mozTocId188792"></a>３　F-Script の使い方
+</h3>
+
+<p>F-Script
+の標準的なパッケージには「F-Script.app」と言う名前のアプリケーションが入っている。このアプリケーションは、F-Script
+インタプリタとの対話的なインタフェースで、これにはコマンドラインインタフェースとグラフィカルオブジェクトブラウザが含まれている。</p>
+
+<p>コマンドラインインタフェースは、ウィンドウを表示して、読者にコマンドを入力するよう促す。コマンドを入力し終えた後、リターン
+キーを押してそれを実行すると、ウィンドウは、コマンド実行の結果を表示する。例えば、「3 +
+4」とタイプして、リターンキーを押してみよう。こうなるはずだ：</p>
+
+<p style="margin-left: 40px;">&gt; 3 + 4<br>
+7 <br>
+</p>
+
+<p>ユーザーインタフェースは読者が入力したコマンドの履歴を保持しており、いくつかの特別なキー操作で、このインタフェースを制御することができる：</p>
+
+<table style="text-align: left; width: 80%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <th style="vertical-align: middle;">キーの組み合わせ</th>
+      <th style="vertical-align: middle;"><br>
+      </th>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 150px;">[Control +]↑<br>
+      </td>
+      <td style="vertical-align: top;">一つ前の履歴のコマンドを得る<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">[Control +]↓</td>
+      <td style="vertical-align: top;">一つ次の履歴のコマンドを得る</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&nbsp;Control + →<br>
+      </td>
+      <td style="vertical-align: top;">現在のコマンドの最後に移動する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&nbsp;Control + ←<br>
+      </td>
+      <td style="vertical-align: top;">現在のコマンドの先頭に移動する</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">&nbsp;Control
++ BackSpace<br>
+      </td>
+      <td style="vertical-align: top;">現在のコマンドを削除する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&nbsp;Control + Return<br>
+      </td>
+      <td style="vertical-align: top;">改行する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&nbsp;Control + \<br>
+      </td>
+      <td style="vertical-align: top;">次の引数入力箇所に移動する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">&nbsp;F5
+または option + Esc<br>
+      </td>
+      <td style="vertical-align: top;">コード補完<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&nbsp;F7<br>
+      </td>
+      <td style="vertical-align: top;">ペーストパースモードを切り替える（つまり、コマンドをペーストした
+時、改行をコマンド区切りと見なすかどうかを決定する）<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&nbsp;F8<br>
+      </td>
+      <td style="vertical-align: top;">カッコ付けする<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br>
+コード補完の機構は、クラス名 や Cocoa
+定数、メソッドセレクタを認識しており、新しいバンドルをロードすると、クラス名やメソッドセレクタの名称が、自動的にこの補完用リストに追加される。</p>
+
+<p>グラフィカルオブジェクトブラウザを起動するには、ワークスペースメニューの「Open Object Browser」を選択すればよい。</p>
+
+<br>
+
+<p><br>
+</p>
+
+<h3><a class="mozTocH3" name="mozTocId229218"></a>４　基礎概念</h3>
+
+<h4><a class="mozTocH4" name="mozTocId200989"></a>4.1 リテラル表記</h4>
+
+<p>リテラル表記を評価すると、オブジェクトが生成される。</p>
+
+<p>リテラル式の例：</p>
+
+<table style="text-align: left; width: 70%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 150px;">1<br>
+-3.14<br>
+1.23e-2<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber オブジェクト<br>
+NSNumber オブジェクト<br>
+NSNumber オブジェクト<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">'Hello'<br>
+      </td>
+      <td style="vertical-align: top;">NSString オブジェクト</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">true<br>
+false<br>
+      </td>
+      <td style="vertical-align: top;">FSBoolean オブジェクト<br>
+FSBoolean オブジェクト<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">{1, 2, 'bill'}<br>
+      </td>
+      <td style="vertical-align: top;">FSArray オブジェクト（NSMutableArray
+のサブクラス）<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">#{'one'-&gt;1, 'two'-&gt;2}<br>
+      </td>
+      <td style="vertical-align: top;">NSMutableDictionary オブジェクト<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">[:a :b | a + b]<br>
+#+<br>
+      </td>
+      <td style="vertical-align: top;">FSBlock オブジェクト<br>
+コンパクト形式の FSBoolean オブジェクト</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">nil<br>
+      </td>
+      <td style="vertical-align: top;">nil オブジェクト<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId427412"></a>4.2 メッセージ送信</h4>
+
+<p>F-Script では、メッセージを送る（つまり、メソッドを起動する）ことでオブジェクトを操作する。</p>
+
+<p>F-Script のメッセージ式は Smalltalk
+におけるものに似ており、メッセージの受け手、選択した操作、それに、要求された操作を実行するのに必要な幾つかの引数を記述する。メッセージ式の各要素
+は、それぞれ、レシーバ、セレクタ、そして、それに続く引数と呼ばれる。</p>
+
+<p>メッセージ送信の例：</p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 150px;">5 sin<br>
+      </td>
+      <td style="vertical-align: top;">単項メッセージ「sin」が、値5の数値オブジェクト（レシーバ）に送
+られている。<br>
+-0.95892427466313845 を値に持つ数値オブジェクトが戻る。<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2 + 4<br>
+      </td>
+      <td style="vertical-align: top;">二項メッセージ「＋」が、値4の数値オブジェクトを引数として、値2の
+数値オブジェクトに送られている。値6の数値オブジェクトが戻る。<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; white-space: nowrap;">35 between:
+0 and: 100<br>
+      </td>
+      <td style="vertical-align: top;">キーワードメッセージ「between:and:」が、値0と100の
+値を持つ二つの数値オブジェクトを引数として、値35の数値オブジェクトに送られている。FSBoolean オブジェクト「true」が戻る。<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>上の例にも示されているように、F-Script は、<span style="font-weight: bold;">単項</span><span style="font-weight: bold;"></span>、<span style="font-weight: bold;">二項</span>、
+それに<span style="font-weight: bold;">キーワード</span>
+メッセージとして知られる、３つの基本的なタイプのメッセージをサポートしている：</p>
+
+<ul>
+
+  <li>単項メッセージには引数がない。レシーバとセレクタがあるだけだ。</li>
+  <li>二項メッセージは、レシーバの他に、引数を一つ取る。二項メッセージのセレクタは一連の特殊文字で形成される。二項メッセージセレクタは、以
+下の文字の組み合わせである： +&nbsp; -&nbsp; *&nbsp; /&nbsp; =&nbsp; &gt;&nbsp;
+&lt;&nbsp; ~&nbsp; ?&nbsp; %&nbsp; !&nbsp; &amp;&nbsp; |&nbsp; \
+。二項メッセージは 演算子（オペレータ）と呼ばれることもある。</li>
+  <li>キーワードメッセージには、一つ以上のキーワードが含まれ、各キーワード毎にそれぞれ関連する引数を一つずつ取る。キーワードは常にコロン
+（：）で終わる。このコロンは名称の一部であり、特殊な終端記号ではない。</li>
+</ul>
+
+オブジェクトが実装していないメソッドを呼び出すと、その命令の実行は停止して、エラーとなる。例を示そう：<br>
+
+<br>
+
+&gt; 3 unrealMethod<br>
+
+<br>
+
+error: an instance of FSNumber does not respond to "unrealMethod"<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId70916"></a>4.3 優先順位と括弧付け</h4>
+
+<p>メッセージ式の、レシーバや引数それ自身がメッセージ式であっても良い。そのため、複雑なメッセージ式と、その評価順序の必要性が生じる。例えば、
+次のメッセージ式には、単項、二項、及び、キーワードメッセージが含まれている。</p>
+
+<p>&gt; 4 sin between: 2 * 3 and:&nbsp; 100</p>
+
+<p>Cを含む多くの言語は、異なる演算子に割り付けられた優先順位に基づいて、式を評価する。例えば、乗法（*）には、普通、加法（+）より高い優先順
+位が割り付けられている。しかし、F-Script の評価規則は（Smalltalk
+と同じように）式の中で呼び出されるメッセージのタイプ（単項、二項、キーワード）に基づいている。適用の順番としては、評価は次の順に行われる。</p>
+
+<p><span style="font-weight: bold;">１）カッコ付けされた</span>式</p>
+
+<p><span style="font-weight: bold;">２）単項</span>式（左から右に評価される）</p>
+
+<p><span style="font-weight: bold;">３）二項</span>式（左から右に評価される）</p>
+
+<p><span style="font-weight: bold;">４）キーワード</span>式</p>
+
+<p>注意：二項演算子の優先順位は、全て同格である</p>
+
+<p>メッセージ式を完全にカッコ付けすれば、評価順位に関する曖昧さは完全に排除できる。そこで、以下の例では、各々の場合の評価順序を、完全にカッコ
+付けした形式を使って説明しよう。</p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">式</span><br>
+      </td>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">完
+全にカッコ付けされた式</span><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2 sin negated<br>
+      </td>
+      <td style="vertical-align: top;">(2 sin) negated</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">3 + 4 * 6 + 3<br>
+      </td>
+      <td style="vertical-align: top;">((3 + 4) * 6) + 3</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">15 max: 32 / 3<br>
+      </td>
+      <td style="vertical-align: top;">15 max: (32 / 3)</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">2 sin + 4<br>
+      </td>
+      <td style="vertical-align: top;">(2 sin) + 4</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">5 between: 1 and: 3 sin + 4<br>
+      </td>
+      <td style="vertical-align: top;">5 between: 1 and: ((3 sin) + 4)</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">4 sin max: 4 * 6<br>
+      </td>
+      <td style="vertical-align: top;">(4 sin) max: (4 * 6)<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4><a class="mozTocH4" name="mozTocId362118"></a>4.4 変数 及び 式の評価の検討</h4>
+
+<p>F-Script
+における変数名は、文字、数字とアンダースコア（_）の並びからなる単純な識別子で、文字またはアンダースコアで始まる。全ての変数はオブジェクトへの参
+照である。代入式は「:=」構文要素で表される。式「x :=
+4」は、値4を持つ数値オブジェクトを、ターゲットの変数に束縛する。代入式の値は、ターゲット変数に代入された値であることに注意しよう。この式の続く
+式「x」は、それ自身の値に評価される。さらに続く命令「x := x + 1」は、以下の様に評価される。</p>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">１）<br>
+      </td>
+      <td style="vertical-align: top;">（代入式の右側の部分の）部分式「x」が評価され、x
+に束縛されている値4を持つ数値オブジェクトが返される。</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">２）<br>
+      </td>
+      <td style="vertical-align: top;">部分式「1」が評価される：値1を持つ数値オブジェクトが生成され、返
+される。</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">３）<br>
+      </td>
+      <td style="vertical-align: top;">ステップ１で返された数値オブジェクトの二項メソッド「+」が、ステッ
+プ２で返された数値オブジェクトを引数として、起動される。数値を表すクラスは、Objective-C クラスの一つなので、メソッド「+」は
+Objective-C に実装されている（実は、Objective-C
+はメソッド名として「+」のようなシンボルを使うことを許していないので、F-Script
+が自動的にマッピングを行って「operator_plus」というメソッドを呼び出すのだが）。このメソッドが、値5を持つ数値オブジェクトを生成して
+返してくる。<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">４）<br>
+      </td>
+      <td style="vertical-align: top;">代入がなされる：x
+は、ステップ３で返される数値オブジェクトに束縛される。<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">５）<br>
+      </td>
+      <td style="vertical-align: top;">ステップ３で返される数値オブジェクトが、代入式の値として返される。<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>読者は、オブジェクトを、読者の好きな、ほとんどどんな名前の変数にでも束縛できる。しかし、もしも何らかのオブジェクトを代入する前に、その変数
+の値を表示しようとしたり、使おうとしたりすると、インタプリタは、その変数に関するオブジェクトを提供できない為に、その命令の実行を進めようとはしな
+いだろう。インタプリタは「error: undefined identifier
+xxx」という形式のメッセージで、エラーを発生させ、問題が起こったことを報告する。読者のワークスペース上のユーザーが定義した識別子のリストを得る
+には、前もって定義されているオブジェクト sys に identifiers メッセージを送れば良い。<br>
+</p>
+
+<h4><a class="mozTocH4" name="mozTocId698238"></a>4.5 式のリスト</h4>
+
+複数の式をドット（.）セパレータを使って繋ぐことができる。こうすることで、式のリストが創られる。<br>
+
+式のリストは、リスト中の最後の式の評価結果へと評価される。<br>
+
+例えば：「x := 3. y :=5. x + y」は、8 と評価される。シンボル「.」は、命令の区切りと呼ばれることもある。<br>
+
+<h4><a class="mozTocH4" name="mozTocId884889"></a>4.6 コメント</h4>
+
+コメントは、ダブルクオートで括られる：<br>
+
+<br>
+
+"これは、コメントです"<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId377379"></a>4.7 カスケード</h4>
+
+カスケードとは、全てが同一のオブジェクトに向けられた一連のメッセージ送信である。その一連のメッセージの最初のものだけが、明示的に指定されたレシー
+バを持っている。その後に続くメッセージのレシーバは、並びの最初のメッセージのレシーバと同じオブジェクトである。その点を除けば、それぞれのメッセー
+ジ送信は、カスケードの一部ではない通常のメッセージ送信であるかの様に生じる。カスケードの中の各メッセージ送信の結果返ってくるオブジェクトは、一番
+右側のメッセージの結果を除き、捨てられる。カスケードの結果は、その一番右端のメッセージの返す値である。カスケードを形成するメッセージは、「;」で
+区切られる。<br>
+
+<br>
+
+例：<br>
+
+<br>
+
+&gt; myArray := {}<br>
+
+<br>
+
+&gt; myArray add: 99; add: 100; add: 101; count<br>
+
+3<br>
+
+<br>
+
+&gt; myArray<br>
+
+{99, 100, 101}<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId732493"></a>
+５　Cocoa への直接アクセス</h3>
+
+F-Script は、Cocoa API 群への直接アクセスを提供する。<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId769626"></a>5.1 例：描画する</h4>
+
+この例では、Cocoa のグラフィック API を使って、青い円を描いてみよう。<br>
+
+<br>
+
+現在の描画色を設定する：<br>
+
+<br>
+
+&gt; NSColor blueColor set<br>
+
+<br>
+
+円を描く：<br>
+
+<br>
+
+&gt; (NSBezierPath bezierPathWithOvalInRect: (500&lt;&gt;300 extent:
+100&lt;&gt;100)) stroke<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId701902"></a>5.2 例：音を鳴らす</h4>
+
+この例では、Cocoa の NSSound クラスを使って、音を鳴らしてみよう：<br>
+
+<br>
+
+&gt; (NSSound soundNamed: 'Submarine') play<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId820928"></a>5.3 例：ウィンドウを一つ開く</h4>
+
+NSWindow を一つ開く：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 50px;">&gt; w := <br>
+      </td>
+      <td style="vertical-align: top; width: 215px; text-align: right;">NSWindow
+alloc initWithContentRect:<br>
+      </td>
+      <td style="vertical-align: top;">(100&lt;&gt;100
+extent:300&lt;&gt;300)</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: right;">styleMask:</td>
+      <td style="vertical-align: top;">NSTitledWindowMask+NSClosableWindowMask</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: right;">backing:</td>
+      <td style="vertical-align: top;">NSBackingStoreBuffered</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: right;">defer:</td>
+      <td style="vertical-align: top;">false</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+では、これを画面に表示してみよう。<br>
+
+<br>
+
+&gt; w orderFront: nil<br>
+
+<br>
+
+このウィンドウのタイトル設定は簡単だ：<br>
+
+<br>
+
+&gt; w setTitle: 'this is a nice title'<br>
+
+<br>
+
+透明度を変えるには：<br>
+
+<br>
+
+&gt; w setAlphaValue: 0.5<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId81998"></a>5.4
+例：ちょっとしたグラフィカルアニメーション</h4>
+
+この例では、Cocoa のグラフィカル API を使って、ちょっとしたグラフィカルアニメーションを創ってみよう：<br>
+
+<br>
+
+keyWindow := NSApplication sharedApplication keyWindow. <br>
+
+NSBezierPath setDefaultLineWidth: 20. <br>
+
+keyWindow contentView lockFocus.<br>
+
+1 to: 550 by: 4 do: <br>
+
+[:x |<br>
+
+&nbsp;&nbsp;&nbsp; path := NSBezierPath bezierPathWithOvalInRect:
+(x&lt;&gt;130 extent: 200-(x/3)&lt;&gt;(x/2)).<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; (NSColor colorWithDeviceRed: x / 570 green:
+0.1 blue: 1 - (x / 570) alpha: 1) set. <br>
+
+&nbsp;&nbsp;&nbsp; path stroke. <br>
+
+&nbsp;&nbsp;&nbsp; keyWindow flushWindow.<br>
+
+&nbsp;&nbsp;&nbsp; NSColor whiteColor set. <br>
+
+&nbsp;&nbsp;&nbsp; path setLineWidth: path lineWidth + 2. <br>
+
+&nbsp;&nbsp;&nbsp; path stroke.<br>
+
+].<br>
+
+keyWindow contentView unlockFocus. <br>
+
+keyWindow display.<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId559840"></a>
+６　グラフィカル オブジェクト ブラウザ<br>
+</h3>
+
+F-Script は、グラフィカルな操作でオブジェクトと対話できる強力なツールを提供している。この F-Script
+オブジェクトブラウザは、FSSystem クラス（各対話セッションのワークスペースには、「sys」という名前で、現在のF-Script
+インタプリタを表す FSSystem の特別なインスタンスが定義されている）の browse や browse:
+メソッドを使って開くことができる。<br>
+
+例えば、数値 99 についてオブジェクトブラウザを開くには、 sys broese: 99 とタイプすれば良い。<br>
+
+<br>
+
+F-Script アプリケーションの workspace メニューから「Open Object
+Browser」を選択してブラウザを開くこともできる。<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId149747"></a>７　標準入出力ストリーム<br>
+</h3>
+
+stdin、stdout、stderr という３つのグローバルオブジェクトを使って、標準入出力ストリームにアクセスすることができる。<br>
+
+これらのオブジェクトは、NSFileHandle クラスを継承している。しかも、stdout と stderr
+は、文字列を出力する便利なメソッド：-（void）print:（NSString *）string を提供する。例えば：<br>
+
+<br>
+
+stdout print: 'hello world'<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId909004"></a>８　基本データ型 の紹介<br>
+</h3>
+
+このセクションでは、基本的な F-Script のデータ型のいくつかの特徴を紹介する。<br>
+
+<h4><a class="mozTocH4" name="mozTocId694081"></a>8.1 数　Numbers</h4>
+
+F-Script における数は、標準的な NSNumber オブジェクトである。 NSNumber のカテゴリ FSNSNumber
+が、古典的な数学演算子（+, -, *, /）や、比較記号（&gt;, &gt;=, &lt;, &lt;=）を提供する。数の等価性は =
+メソッドで、等価でないことは ~= メソッドでテストされる。また、abs sin cos ln sqrt
+等の様な、いくつかの数学関数も提供されている。数値を扱う為に F-Script が提供するメソッドは、倍精度で動く。<br>
+
+<br>
+
+２つの数値の大きい方を得るには、 max: メソッドを使えば良い。また、小さい方は min: メソッドで得ることができる。。<br>
+
+例えば：<br>
+
+&nbsp;&nbsp;&nbsp; <br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; 5 max: 100<br>
+100</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; 5 min: 100<br>
+5</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+数値の切り上げ、切り捨ては、こうすれば得ることができる：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; 5.7 ceiling<br>
+6<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; 5.7 floor<br>
+5<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId67386"></a>8.2 文字列　Strings</h4>
+
+F-Script における文字列は、標準的な NSString や NSMutableString である。F-Script は、Cocoa
+の文字列メソッド群に加えて、古典的な比較演算子や、いくつかの文字列操作サポート機能を追加している。これらのメソッドは、NSString や
+NSMutableString のカテゴリー：FSNSString と FSNSMutableString に定義されている。<br>
+
+<br>
+
+例：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; 'aaa' &lt;
+'abc'<br>
+true<br>
+      </td>
+      <td style="vertical-align: top;">” 比較 ”</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; 'oliver' at:2<br>
+'i'<br>
+      </td>
+      <td style="vertical-align: top;">" インデックス指定 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; 'oliver' length<br>
+6<br>
+      </td>
+      <td style="vertical-align: top;">" 長さを得る "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; 'oliver' reverse<br>
+'revilo'<br>
+      </td>
+      <td style="vertical-align: top;">" 並びの反転 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; 'Dear ' ++ 'oliver'<br>
+'Dear oliver'<br>
+      </td>
+      <td style="vertical-align: top;">" 文字列の連結 "</td>
+    </tr>
+  </tbody>
+</table>
+
+&nbsp;<br>
+
+文字列のリテラル表記は、変更ができない NSString オブジェクトを返す。<br>
+
+<h4><a class="mozTocH4" name="mozTocId83524"></a>8.3 配列　Arrays</h4>
+
+F-Script の配列は、NSArray 及び NSMutableArray オブジェクトである。F-Script
+では、配列オブジェクトが非常に重要だ。というのは、 F-Script
+の配列がいくつかの高度なデータ操作機能をサポートしているからである。これらの機能については、このガイドのそれぞれ対応するセクションに記してある。
+NSArray のカテゴリである FSNSArray と、NSMutableArray のカテゴリである FSNSMutableArray
+には、配列操作の為の数多くのメソッドが追加されている。<br>
+
+<br>
+
+リテラル表記は、可変配列を返す。<br>
+
+<br>
+
+配列の基本的な機能には（0 で始まる）インデクス操作、要素の追加と削除が含まれる。<br>
+
+例を示そう：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt;
+{1,2,3,'oliver',5*5}<br>
+{1, 2, 3, 'oliver', 25}</td>
+      <td style="vertical-align: top;">" 配列リテラルを評価する "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; {1,2,3,4} count<br>
+4</td>
+      <td style="vertical-align: top;">" 配列の大きさを得る "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; {2,4,6,8} at:2<br>
+6</td>
+      <td style="vertical-align: top;">" インデクス操作 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; {2,4,6,8} at:4<br>
+error: index of an array must be a number less than the size of the
+array<br>
+      </td>
+      <td style="vertical-align: top;"> " 無効なインデクス操作 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myArray :=
+{1,2,3,4}&nbsp;&nbsp;&nbsp; &nbsp; <br>
+&gt; myArray insert:'hello' at:2<br>
+&gt; myArray<br>
+{1, 2, 'hello', 3, 4}</td>
+      <td style="vertical-align: top;"><br>
+" 要素の挿入 " <br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myArray removeAt:1 <br>
+&gt; myArray<br>
+{1, 'hello', 3, 4}</td>
+      <td style="vertical-align: top;">" 要素の削除 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myArray at:0 put:100<br>
+&gt; myArray <br>
+{100, 'hello', 3, 4}<br>
+      </td>
+      <td style="vertical-align: top;">" 要素の置換 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; {{1,2,3}, {10,11}}<br>
+{{1,2,3}, {10,11}}<br>
+      </td>
+      <td style="vertical-align: top;">" 配列の配列 " </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; {1,2,3} ++ {10,20}<br>
+{1, 2, 3, 10, 20}<br>
+      </td>
+      <td style="vertical-align: top;">" 配列の結合 "</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="5" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(244, 244, 244);">注：配列
+は NSArray と NSMutableArray で表されるので、F-Script においても、配列を操作する為に、Cocoa
+の標準的なメソッドを使ってもよい。しかし、このガイドを読めば分るように、F-Script
+は配列言語であり、上の例に示す様なメソッドは、標準メソッドには無い、配列を扱う為に付加された力を提供する。例えば、上の例に示すように、配列のイン
+デクス操作をする at: メソッドを使うと、インデクスに一つの整数を指定できるだけでなく、整数の配列を丸ごと指定できる<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId189771"></a>8.4 真偽値　Booleans</h4>
+
+真偽値オブジェクト（true, false 及び YES, NO として入力できる）は FSBoolean
+クラスで表される。それらは、古典的なブール演算子：AND 演算子は二項メソッド &amp; で、OR 演算子は二項メソッド |
+で、NOT演算子は、単項メソッド not を提供する。<br>
+
+例えば：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; true &amp;
+false <br>
+false<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; true | false <br>
+true</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; false not <br>
+true<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+真偽値は、ブロックと共に、ifTrue: や ifTrue:ifFalse: メソッドで制御構造もサポートする。<br>
+
+「true」と「YES」は、どちらも値 true に評価される。<br>
+
+「false」と「NO」は、どちらも値 false に評価される。<br>
+
+<h4><a class="mozTocH4" name="mozTocId496986"></a>8.5 ブロック　Blocks</h4>
+
+ブロックは、何らかの F-Script
+コードを内部に含むオブジェクトである。コード片をカギカッコで括ることによってブロックオブジェクトを生成するのが一般的である。例えば：[x :=
+x + 1] はブロックである。このブロックの内部のコードを実行するには、このブロックに value メッセージを送れば良い。例えば：<br>
+
+<br>
+
+&nbsp;
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+<br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; x:=1</td>
+      <td style="vertical-align: top;">" x に 1 を代入 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; x<br>
+1<br>
+      </td>
+      <td style="vertical-align: top;">" x を評価する "<br>
+" x は 1 "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myBlock := [x:=x+1] <br>
+      </td>
+      <td style="vertical-align: top;">" ブロック [x := x + 1] を myBlock
+に代入する "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; x<br>
+1</td>
+      <td style="vertical-align: top;">" x を評価する "<br>
+" x の値はもとのまま "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myBlock value</td>
+      <td style="vertical-align: top;">" ブロックを評価する "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; x<br>
+2<br>
+      </td>
+      <td style="vertical-align: top;">" x を評価する "<br>
+" x の値が変化した "<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+ブロックには、パラメータがあって良い。例えば [:a :b | a + b] は、a 及び b
+という名称の二つのパラメータを持つブロックである。これを実行するには、適切な value: ...
+メソッドを使って、引数に値を渡す必要がある。例えば：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      <br>
+<br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; myBlock :=
+[:a :b| a + b] <br>
+&gt; myBlock value:3 value:4 <br>
+7</td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+ブロックはまた、ローカル変数を持ち、他のオブジェクトを束縛しても良い。それらは再帰的に実行させることができる。<br>
+
+以下に示すのは、二つの引数と一つのローカル変数を持つブロックの例である。<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; [:a :b|
+|local| local := a + b. local * 2] value:3 value:4 <br>
+14<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+最初の引数に対して、もう一つの引数をその引数とするようなメッセージを一つ送るだけのブロックは、ブロックリテラルのコンパクト記法を使って表しても良
+い。この記法は、ブロックを、このブロックが実行された時に使う必要のあるメッセージセレクタをすぐ後ろに伴った「#」で表す。例えば、[:a :b
+| a + b] は「#+」というコンパクト形式でも表すことができる。<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; #+ value: 3
+value:4<br>
+7<br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+ブロックは、それに inspect メッセージを送って独自のインスペクタを呼び出し、編集することができる。<br>
+
+<h4><a class="mozTocH4" name="mozTocId603342"></a>8.6 範囲　Ranges,
+点　Points, 矩形　Rectangles　及び、大きさ　Sizes<br>
+</h4>
+
+Cocoa API の多くが、NSRange型、NSPoint型、NSRect型 それに NSSize型の引数や戻り値を取る。<br>
+
+これらの型は C の構造体として定義されているので、オブジェクトだけを扱う F-Script
+からは直接操作することができない。しかし、Cocoa の NSValue
+クラスが、これらの型の値をオブジェクトにラップするサポートを提供している。F-Script
+は、このサポートを利用して、メソッド起動時に自動的に、このラップとアンラップを実行する。それで、F-Script
+からでもNSRange型、NSPoint型、NSRect型 それに NSSize型の引数や戻り値を取るメソッドを起動できるのである。<br>
+
+F-Script はまた（FSNSValue カテゴリで）NSValue に、そして（FSNSNumber カテゴリで）NSNumber
+に、範囲 Ranges、点 Points、矩形 Rectangles や、大きさ Sizes を扱う為のいくつかの便利メソッドを追加している。<br>
+
+<h4><a class="mozTocH4" name="mozTocId947539"></a>8.6.1 範囲　Ranges</h4>
+
+FSNSValue カテゴリで NSValue に定義されたクラスメソッド rangeWithLocation:length:
+を呼び出せば、内部に NSRange のインスタンスを含む NSValue のインスタンスを F-Script から生成することができる。<br>
+
+<br>
+
+例えば：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+<br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; myRange := NSValue rangeWithLocation:10 length:5<br>
+ </td>
+      <td style="vertical-align: top;">" 範囲を生成して、変数 myRange に代入 " </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; myRange<br>
+(Range location=10 length=5)<br>
+      </td>
+      <td style="vertical-align: top;">" 変数 myRange を評価 " </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRange location<br>
+10<br>
+      </td>
+      <td style="vertical-align: top;">" 範囲 myRange の開始位置 location を尋ねる
+"</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRange length<br>
+5<br>
+      </td>
+      <td style="vertical-align: top;">" 範囲 myRange の幅 length を尋ねる "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRange = (NSValue
+rangeWithLocation:10 length:5)<br>
+true<br>
+      </td>
+      <td style="vertical-align: top;">" myRange が別の範囲と同じかを比較判定する "</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId585303"></a>8.6.2 点　Points</h4>
+
+ある数に対して、もう一つの数を引数にして &lt;&gt; メソッドを呼び出せば、内部に NSPoint のインスタンスを含む NSValue
+のインスタンスを F-Script から生成することができる。<br>
+
+このメソッドは、x 座標がレシーバの値に等しく、y 座標が引数の値に等しい point オブジェクトを生成して返す。<br>
+
+point オブジェクトにメッセージ x や y を送って、その x 座標や y 座標を尋ねることができる。<br>
+
+<br>
+
+例えば：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+&nbsp;&nbsp;  <br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; myPoint :=
+100&lt;&gt;150<br>
+      </td>
+      <td style="vertical-align: top;">" ある点を生成して、変数 myPoint に代入 " </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myPoint<br>
+(100&lt;&gt;150)</td>
+      <td style="vertical-align: top;">" 変数を評価 "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myPoint x<br>
+100<br>
+      </td>
+      <td style="vertical-align: top;"> " 点 myRange の x 座標を尋ねる "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myPoint y<br>
+150<br>
+      </td>
+      <td style="vertical-align: top;">" 点 myRange の y 座標を尋ねる "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myPoint=(100&lt;&gt;150)<br>
+true<br>
+      </td>
+      <td style="vertical-align: top;">" myPoint
+が別の点と同じかを比較判定する。必ずカッコで括
+らなければならない。さもないと、式は (myPoint = 100) &lt;&gt;
+150 と解釈されてしまう " </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="5" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(244, 244, 244);">&nbsp;
+注：Smalltalk では、点は伝統的に&lt;&gt; ではなく @ 演算子を使って生成される（つまり、100&lt;&gt;150
+ではなく 100@150 とタイプする）。しかし、F-Script では、シンボル @
+は、メッセージングパターンを指定する為に使われるので、演算子としては使うことができない。<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId456090"></a>8.6.3 矩形　Rectangles</h4>
+
+ある NSPoint オブジェクトを含む NSValue オブジェクトの extent: や corner: メソッドを、別の point
+オブジェクトを引数にして呼び出せば、NSRect オブジェクトを含む NSValue オブジェクトを F-Script
+から生成することができる。<br>
+
+extent: メソッドは、その原点がレシーバで、その幅と高さが引数で与えられる矩形を生成して返す。<br>
+
+corner: メソッドは、その原点がレシーバで、その対角が引数の矩形を生成して返す。<br>
+
+矩形オブジェクトに対して、その extent（矩形の幅と高さで定義される point オブジェクト）や corner（原点の向かいの角を表す
+point オブジェクト）を尋ねることができる。<br>
+
+<br>
+
+例えば：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;">&nbsp;&nbsp;&nbsp; <br>
+<br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; myRect :=
+100&lt;&gt;150 extent:20&lt;&gt;20</td>
+      <td style="vertical-align: top;">" 矩形 rectangle を生成し、変数 myRect
+に代入する "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+<br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRect2 := 100&lt;&gt;150
+corner:120&lt;&gt;170</td>
+      <td style="vertical-align: top;">" 矩形 rectangle を生成し、変数 myRect2
+に代入する "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRect<br>
+(100&lt;&gt;150 extent:20&lt;&gt;20)<br>
+      </td>
+      <td style="vertical-align: top;">" 変数 myRect を評価する " </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top; width: 300px;">&gt; myRect extent<br>
+(20&lt;&gt;20)<br>
+      </td>
+      <td style="vertical-align: top;">" 矩形 myRect に幅と高さ extent を尋ねる " </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRect corner<br>
+(120&lt;&gt;170)<br>
+      </td>
+      <td style="vertical-align: top;">" 矩形 myRect に対角座標 corner を尋ねる "</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRect origin <br>
+(100&lt;&gt;150)</td>
+      <td style="vertical-align: top;">" 矩形 myRect に原点座標 origin を尋ねる " </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myRect = myRect2<br>
+true</td>
+      <td style="vertical-align: top;">" 矩形 myRect は矩形 myRect2 と同じか "<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId285339"></a>8.6.4 大きさ　Sizes<br>
+</h4>
+
+<br>
+
+FSNSValue カテゴリで NSValue に定義されたクラスメソッド sizeWithWidth:height: を起動すれば、
+NSSize を含む NSValue オブジェクトを F-Script から生成することができる。ある size オブジェクトに対して、その幅
+width と高さ height を尋ねることができる。<br>
+
+<br>
+
+例えば：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;"><br>
+&nbsp;&nbsp;  <br>
+      </td>
+      <td style="vertical-align: top; width: 330px;">&gt; mySize :=
+NSValue sizeWithWidth:20 height:30</td>
+      <td style="vertical-align: top;">" 大きさ size を生成して、変数 mySize に代入 "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; mySize<br>
+(Size width=20 height=30)<br>
+      </td>
+      <td style="vertical-align: top;">" mySize を評価 "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; mySize width<br>
+20<br>
+      </td>
+      <td style="vertical-align: top;">" 大きさ mySize に幅 width を尋ねる "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; mySize height<br>
+30<br>
+      </td>
+      <td style="vertical-align: top;">" 大きさ mySize に高さ height を尋ねる "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; mySize = (NSValue
+sizeWithWidth:20 height:30)<br>
+true<br>
+      </td>
+      <td style="vertical-align: top;">" 大きさ mySize が他の大きさと等しいか比較判定する "<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId688145"></a>９　制御構造<br>
+</h3>
+
+多くの言語とは異なり、旧来の条件や繰り返しの制御構造を記述するために付加的な構文構造を追加する必要はない。これらの制御構造は、F-Script
+では、オブジェクトとメッセージ送信の言葉で実装されている。特に、ブロックと真偽値 Boolean
+オブジェクトが、必要なサポートを提供する。また、F-Script
+はこの節で説明するものより高レベルの制御構造もいくつか提供している；実はその為に、F-Script では、他の言語に比べて、明示的に if や
+while 型の構造が使われる頻度は非常に少ない。<br>
+
+<h4><a class="mozTocH4" name="mozTocId45248"></a>9.1 条件選択　Conditional<br>
+</h4>
+
+条件選択は、真偽値 Boolean オブジェクトに対して、普通、引数に二つのブロックを取って、ifTrue:ifFalse:
+メッセージを送ることで表現される。真偽値オブジェクトは、送られたメッセージに対し、適切な方のブロックを評価して、応答を返す。もし、真偽値の値が
+true ならば、最初のブロックが評価され、二番目のブロックは無視される。その一方で、もし、真偽値の値が false
+ならば、二番目のブロックが評価され、最初のブロックは無視される。最終的には、選ばれたブロックの評価結果が返されることになる。<br>
+
+<br>
+
+以下に、条件選択に関する F-Script コードと C のコードを対比させて示す。<br>
+
+<br>
+<div style="text-align: center;">
+</div>
+<table style="text-align: left; width: 543px; height: 185px; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center; width: 50%;"><span style="font-weight: bold; font-style: italic;">F-Script &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br>
+</span></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold; font-style: italic;">C<span style="font-weight: bold; font-style: italic;">&nbsp;&nbsp;&nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp; &nbsp; &nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">number1 &lt; number2 <span style="font-weight: bold;">ifTrue:</span><br>
+[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maximum :=
+number2.&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minimum&nbsp; := number1.<br>
+]<br>
+      <span style="font-weight: bold;">ifFalse:</span><br>
+[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maximum := number1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minimum&nbsp; := number2.<br>
+]</td>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">if</span>
+(number1 &lt; number2)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maximum = number2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minimum&nbsp; = number1;<br>
+}<br>
+      <span style="font-weight: bold;">else</span><br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maximum = number1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minimum&nbsp; = number2;<br>
+}<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="text-align: center;">
+<br>
+</div>
+
+真偽値オブジェクト true 及び false は、また、単一のキーワードメッセージ ifTrue: も受け入れる。真偽値 true
+は、ブロック引数の値を返すことでメッセージに応答し；false は、特別なオブジェクト nil を返してメッセージに応答する。<br>
+
+ifFalse: や ifFalse:ifTrue: というメソッドも存在する。<br>
+
+<h4><a class="mozTocH4" name="mozTocId18394"></a>9.2 繰り返し　Loop<br>
+</h4>
+
+F-Script は、C の<span style="font-weight: bold;"> while </span>文に相当する条件繰り
+返しを提供する。これもまたブロックを基礎にしていて、ブロックがオブジェクトで、それ自身のメッセージプロトコルをサポートできるという事実を利用して
+いる。<br>
+
+100 までの整数の和を計算する以下のプログラム片を考察してみよう：<br>
+
+<br>
+<div style="text-align: center;">
+</div>
+<table style="text-align: left; width: 546px; height: 140px; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center; width: 50%;"><span style="font-weight: bold; font-style: italic;">F-Script</span><span style="font-weight: bold; font-style: italic;">&nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp; &nbsp; &nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></td>
+      <td style="vertical-align: top; text-align: center; font-weight: bold; font-style: italic;">C<span style="font-weight: bold; font-style: italic;">&nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp; &nbsp; &nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">sum := 0.<br>
+number := 1.<br>
+      <div style="text-align: left;">
+[number1 &lt;= 100] <span style="font-weight: bold;">whileTrue:</span><br>
+      </div>
+
+[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum := sum +
+number.&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number := number + 1.<br>
+]<br>
+      <span style="font-weight: bold;"></span></td>
+      <td style="vertical-align: top;">sum = 0;<br>
+number = 1;<br style="font-weight: bold;">
+      <span style="font-weight: bold;">while</span> (number &lt;= 100)<br>
+      <span style="font-weight: bold;"></span>{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum = sum + number;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number = number + 1;<br>
+}<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+whileTrue:
+メッセージを受け取るブロックは、繰り返し、自分自身を評価し、終了条件にまだ出会わなければ、引数のブロックを評価する。（引数無しの）
+whileTrue、whileFalse それに whileFalse: メソッドも存在する。<br>
+
+<br>
+
+F-Script はまた（NSNumber のカテゴリ）FSNSNumber カテゴリが提供する to:do: や to:do:by:
+メソッドの形式で、<span style="font-weight: bold;">for</span> 文のようなものも提供している。<br>
+
+<br>
+<div style="text-align: center;">
+</div>
+<table style="text-align: left; width: 549px; height: 110px; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 50%; text-align: center;"><span style="font-weight: bold; font-style: italic;">F-Script</span><span style="font-weight: bold; font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp; &nbsp; &nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></td>
+      <td style="vertical-align: top; font-weight: bold; font-style: italic; text-align: center;">C<span style="font-weight: bold; font-style: italic;">&nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp; &nbsp; &nbsp;</span><span style="font-weight: bold; font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">sum := 0.<br>
+1 <span style="font-weight: bold;">to:</span> 100 <span style="font-weight: bold;">do:</span><br>
+[:i |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum := sum + i.<br>
+]<br>
+      <span style="font-weight: bold;"></span></td>
+      <td style="vertical-align: top;">sum = 0;<br>
+for (i = 0; i &lt;= 100; i++)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sum = sum + i;<br>
+}<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId556446"></a>10　永続化<br>
+</h3>
+
+save: や save メッセージを使えば、オブジェクトをファイルに保管することができる：<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;">&nbsp;&nbsp;&nbsp; <br>
+      </td>
+      <td style="vertical-align: top; width: 310px;">&gt; myObject
+save: 'myFile'</td>
+      <td style="vertical-align: top;">" myObject を指定したファイルに保管する "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myObject save</td>
+      <td style="vertical-align: top;">" ファイルブラウザを開き、選んだファイルに保管する "<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+load: や load を既定のオブジェクト sys に送れば、オブジェクトをロードすることができる。<br>
+
+<br>
+
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 20px;">&nbsp;&nbsp;&nbsp; <br>
+      </td>
+      <td style="vertical-align: top; width: 310px;">&gt; myObject :=
+sys load: 'myFile'</td>
+      <td style="vertical-align: top;">" 指定ファイルに保管したオブジェクトをロードする "<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;">&gt; myObject := sys load</td>
+      <td style="vertical-align: top;">" ファイルブラウザを開き、選んだファイルからロードする"<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+F-Script は、オブジェクトの保管に NSArchiver を使用する。そのため、保管されるオブジェクトは、標準的な Cocoa
+NSCoding プロトコルに準拠していなければならない。生成されるファイルは、標準的な NSArchiver ファイルなので；Cocoa
+NSUnarchiver API を使えば、他のアプリケーションでも、アーカイブされたオブジェクトをロードすることができる。<br>
+
+<br>
+
+<small style="color: rgb(51, 102, 255);">訳注：save:ファイル名 や
+load:ファイル名
+の「ファイル名」には、ルートからのフルパスで、パスを指定することができる。ホームディレクトリを「~」と略記した「~/」のような表現は使えない。ま
+た、ファイル名だけを指定すると、ルートの直下（Macintosh HD 直下）と解釈される。</small><br style="color: rgb(51, 102, 255);">
+
+<br style="color: rgb(255, 102, 102);">
+
+<h3><a class="mozTocH3" name="mozTocId3366"></a>11　カスタムクラスの統合<br>
+</h3>
+
+F-Script は、読者が創ったカスタムクラスを自動的にシステムに統合することができる。読者は、自分のクラスを含むバンドルを
+F-Script リポジトリの中に置くだけで良い。このリポジトリは、F-Script.app を初めて起動した時に、F-Script.app
+によって創られ、デフォルトでは、それは「~/Library/Application Support/F-Script」（~
+はホームディレクトリ）になるだろう。読者は、自分のバンドル（フレームワーク丸ごとであっても良い）を「~/Library/Application
+Support/F-Script/classes」ディレクトリの下に置くのである。<br>
+
+<br>
+
+F-Script
+の起動時に、自動的にインタプリタがこれらのバンドルに繋がるのだ。読者は、望むだけ多くのバンドルを、このリポジトリに置くことができる。<br>
+
+<br>
+
+もちろん、クラスを動的にロードする為に、標準的な Cocoa メソッドを使っても良い。例えば、以下の F-Script 命令は、GLUT
+フレームワーク（OpenGL ユーティリティキット）を動的にロードする。<br>
+
+<br>
+
+(NSBundle bundleWithPath:'/System/Library/Frameworks/GLUT.framework')
+load<br>
+
+<br>
+
+64bit での実行を要求するフレームワークは（64bit ハード上ではデフォルトの）64bit で動作中の F-Script
+の中でロードしなければならない。32bit 用のフレームワークに対しては、 F-Script を 32bit
+モードで起動する必要がある。これは、他のアプリと同じやり方で実行すれば良い： F-Script のファインダインスペクタ<small style="color: rgb(51, 102, 255);">（訳注：ファインダのメニューで「ファイル」&gt;「情報を見る」<small>）</small></small>を
+開いて、「<small> </small>32bit
+モードで開く」にチェックを入れる。自動ガベージコレクションモードで実行する必要のあるフレームワークもあるし、参照カウントモードで実行する必要のあ
+るものもある。F-Script のプリファレンスパネルを使えば、F-Script.app が正しいモードで実行されるよう設定することができる。<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId743524"></a>12　オブジェクトの同等性と同値性<br>
+</h3>
+
+同等性 identity は、== と ~~ メソッドを使ってテストすることができる。==
+メソッドは、レシーバと引数が、メモリ内の同一のオブジェクトなら true を返し、そうでなければ false を返す。~~
+メソッドは、レシーバと引数が、メモリ内の同一のオブジェクトでないなら true を返し、そうでなければ false
+を返す。これらのメソッドは、NSObject のカテゴリ FSNSObject の中で定義されているので、全てのオブジェクトで使うことができる。<br>
+
+<br>
+
+同値性 equality は、Cocoa では isEqual: メソッドで定義されている。F-Script
+でもこのメソッドを使うが、利便性の為に、F-Script で提供されるクラスやカテゴリの中には、isEqual:
+で定義されているのと同じ同値性と非同値性のテストの為に、= や ~= メソッドも実装しているものもある。この = や ~= メソッドは、
+NSNumber、NSString、NSDate、NSValue、FSBoolean、FSPointer、FSBlock、...
+等のクラスで提供されている。<br>
+
+<br>
+
+自分のクラスの中で isEqual: を実装しても良いのと同様、 = や ~= を実装しても良い。<br>
+
+<br>
+
+<small style="color: rgb(51, 102, 255);">訳注：同値性 equality
+が、異なるインスタンスであってもその「値」が等しいことを指すのに対し、同等性 identity は、全く同一のインスタンスであることを指す<br>
+</small><br>
+
+<h3><a class="mozTocH3" name="mozTocId744103"></a>13　オブジェクトの複製<br>
+</h3>
+
+setValue: メッセージはレシーバの値に、引数の値を設定する。通常、レシーバと引数は同じクラスでなければならない。<small style="color: rgb(51, 102, 255);"><br>
+</small>F-Script のほとんどの組み込みクラスは、setValue: メソッドを実装している。<br>
+
+<br>
+
+<small style="color: rgb(51, 102, 255);">訳注：obj2 setValue: obj1
+とすることによって、obj2 は obj1 の複製になる。この場合、obj2 = obj1 → YES だが、obj2 == obj1 →
+NO である。<br>
+つまり、obj2 は、obj1 と同じ値を持つ別のインスタンス（複製）になったのである。<br>
+</small><br>
+
+<h3><a class="mozTocH3" name="mozTocId285973"></a>14　例外<br>
+</h3>
+
+<br>
+
+F-Script は、Objective-C の例外モデルを使って、例外の発生や処理を行う。F-Script
+例外ハンドラを定義するには、FSBlock クラスの onException:
+メソッドを使用する。このメソッドは、引数としてブロック（例外ハンドラ）を取る。このメソッドは、まずレシーバを評価して、レシーバの処理の何処かで例
+外が生じた場合に、ハンドラが評価される。<br>
+
+<br>
+
+もし、ハンドラが引数を持っていれば、その引数には実際の例外が渡される。<br>
+
+<br>
+
+一般的な表記法：<br>
+
+<br>
+
+[例外が発生するかも知れないブロック] onException: [:exception | 例外処理コード]<br>
+
+<br>
+
+例：<br>
+
+<br>
+
+" ゼロによる除算で例外を発生させ、それを記録して、音を鳴らしてみよう "<br>
+
+<br>
+
+[ 1/0 ] onException:[:e | sys beep. stdout print:e description]<br>
+
+<br>
+
+<br>
+
+明示的に例外を発生させる為には、NSException API を使えば良い。例を示そう：<br>
+
+<br>
+
+(NSException exceptionWithName:'MyException' reason:'testing'
+userInfo:nil) raise<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId433866"></a>15　Objective-C マッピング<br>
+</h3>
+
+<br>
+
+F-Script は Objective-C のオブジェクトモデルに基づいている。しかし、ある状況下においては、F-Script と
+Objective-C の間でマッピングが必要になる。<br>
+
+<h4><a class="mozTocH4" name="mozTocId436121"></a>15.1 演算子　Operators<br>
+</h4>
+
+Objective-C は、メソッドセレクタとしては、アルファベットでないシンボルをサポートしていない。F-Script
+でそのようなセレクタを使うと、アルファベットを使ったセレクタを生成する為にマッピングが実行される。セレクタ名の形成に使われる可能性のあるアルファ
+ベッ
+トでないシンボルは、それぞれ以下の表に示すようなアルファベット名を持っている。このアルファベット名が、アルファベットを使った
+Objective-C セレクタを生成する為に使われる。<br>
+
+<br>
+
+<table style="text-align: left; width: 300px; height: 245px; border-collapse: collapse;" border="2" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center; background-color: rgb(50, 111, 163); color: white;">シ
+ンボル<br>
+      </td>
+      <td style="vertical-align: top; text-align: center; background-color: rgb(50, 111, 163); color: white;">ア
+ルファベット名<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;">+<br>
+-<br>
+&lt;<br>
+&gt;<br>
+=<br>
+*<br>
+/<br>
+?<br>
+~<br>
+!<br>
+%<br>
+&amp;<br>
+|<br>
+\<br>
+      </td>
+      <td style="vertical-align: top;">
+      <div style="margin-left: 40px;">plus<br>
+hyphen<br>
+less<br>
+greater<br>
+equal<br>
+asterisk<br>
+slash<br>
+question<br>
+tilde<br>
+exclam<br>
+percent<br>
+ampersand<br>
+bar<br>
+backslash</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+マッピングは、区切り記号に「_」を使い、シンボルの名称を追加するように行われる。<br>
+
+Objective-C のセレクタ名は「operator_」で始まり、「:」で終わる。<br>
+
+<br>
+
+例：<br>
+
+<br>
+
+<table style="text-align: left; width: 450px;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; width: 40px;">演算子<br>
+      </td>
+      <td style="vertical-align: top; width: 50px; text-align: center;">+<br>
+      </td>
+      <td style="vertical-align: top;">は<br>
+      </td>
+      <td style="vertical-align: top; width: 150px;">operator_plus:<br>
+      </td>
+      <td style="vertical-align: top;">にマップされる<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">演算子</td>
+      <td style="vertical-align: top; text-align: center;">-<br>
+      </td>
+      <td style="vertical-align: top;">は<br>
+      </td>
+      <td style="vertical-align: top;">operator_hyphen:</td>
+      <td style="vertical-align: top;">にマップされる</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">演算子</td>
+      <td style="vertical-align: top; text-align: center;">++<br>
+      </td>
+      <td style="vertical-align: top;">は<br>
+      </td>
+      <td style="vertical-align: top;">operator_plus_plus:</td>
+      <td style="vertical-align: top;">にマップされる</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId288536"></a>15.2 非オブジェクト型<br>
+</h4>
+
+F-Script では、メッセージの全ての引数や戻り値はオブジェクトである。しかし、Objective-C
+はオブジェクト型の他に、非オブジェクト型もサポートしており、非オブジェクト型を使う Objective-C メソッドを F-Script
+から呼び出せるようにする為には、オブジェクトの引数は非オブジェクトの引数にマップされなければならないし、非オブジェクトの戻り値はオブジェクトの戻
+り値にマップされなければならない。このマッピングは、自動的に行われる。<br>
+
+<br>
+
+<table style="text-align: left; border-collapse: collapse; width: 80%;" border="2" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center; background-color: rgb(50, 111, 163); color: white;">メ
+ソッドが期待している引数の型は<br>
+      </td>
+      <td style="vertical-align: top; text-align: center; background-color: rgb(50, 111, 163); color: white;">メ
+ソッドに提供すべき引数の型は<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 50%; text-align: left;">char
+（BOOL を含む）<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber または FSBoolean<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned char<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">short<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned short（unichar を含む）<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber または 一文字だけの NSString<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">int<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned int<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">long long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned long long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">float<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">double<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">_Bool<br>
+      </td>
+      <td style="vertical-align: top;">FSBoolean<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">SEL<br>
+      </td>
+      <td style="vertical-align: top;">FSBlock のコンパクト形式<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSPointer または CGPoint<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSPoint を持つ）</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSSize または CGSize<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSSize を持つ）</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSRect または CGRect<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSRect を持つ）</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSRange<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSRange を持つ）<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">CGAffineTransform<br>
+      </td>
+      <td style="vertical-align: top;">NSAffineTransform<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">pointer（例えば int *）<br>
+      </td>
+      <td style="vertical-align: top;">FSPointer か nil（nil は NULL
+にマップされる）<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<br>
+
+<table style="text-align: left; border-collapse: collapse; width: 80%;" border="2" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center; background-color: rgb(50, 111, 163); color: white;">Objective-C
+メソッドの戻り値の型は<br>
+      </td>
+      <td style="vertical-align: top; text-align: center; background-color: rgb(50, 111, 163); color: white;">F-Script
+における戻り値の型は<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; width: 50%; text-align: left;">char
+（BOOL を含む）<br>
+      </td>
+      <td style="vertical-align: top;">NSBoolean<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned char<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">short<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned short（unichar を含む）<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">int<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned int<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">long long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">unsigned long long<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">float<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">double<br>
+      </td>
+      <td style="vertical-align: top;">NSNumber</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">_Bool<br>
+      </td>
+      <td style="vertical-align: top;">FSBoolean<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">SEL<br>
+      </td>
+      <td style="vertical-align: top;">FSBlock のコンパクト形式<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSPoint または CGPoint<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSPoint を持つ）</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSSize または CGSize<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSSize を持つ）</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSRect または CGRect<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSRect を持つ）</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">NSRange<br>
+      </td>
+      <td style="vertical-align: top;">NSValue（内部に NSRange を持つ）<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">CGAffineTransform<br>
+      </td>
+      <td style="vertical-align: top;">NSAffineTransform<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">C ポインタ（例えば int *）<br>
+      </td>
+      <td style="vertical-align: top;">FSGenericPointer か nil（nil は
+NULL にマップされる）<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">void<br>
+      </td>
+      <td style="vertical-align: top;">FSVoid<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+このマッピング仕様は Objective-C の全ての型をカバーしてはいない。そうした F-Script
+がカバーしていない非オブジェクト型の引数や戻り値を使う Objective-C メソッドは、F-Script から直接呼び出すことはできない。<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId482882"></a>15.3 nil オブジェクト<br>
+</h4>
+
+特殊な Objective-C の値である nil にも F-Script は対応している。F-Script から nil
+にメッセージを送ると、それぞれレシーバが nil かどうかを判定させる為のメッセージ（12 節の「オブジェクトの同等性と同値性」を見よ）である
+== 及び ~~ の場合を除き、常に nil を返す。<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId31242"></a>15.2 例外処理<br>
+</h4>
+
+Objective-C の例外は、それが例外ハンドラ（14 節を見よ）によって処理されない場合は、インタプリタによって、F-Script
+実行エラー（このガイドのリファレンス編 FSInterpreter 及び FSInterpreterResult
+クラスを見よ）として報告される。<br>
+
+<br>
+
+もしF-Script.app
+からインタプリタが使われていて、例外が発生し、例外ハンドラで処理されなければ、現在の命令の実行は停止され、ユーザーには、例外の内容を説明するメッ
+セージが表示される。<br>
+
+<br>
+
+<h4><a class="mozTocH4" name="mozTocId399839"></a>15.2 シンボル定数<br>
+</h4>
+
+Cocoa には、数多くのシンボル定数（例えば、NSNotFound）が定義されている。それらのほとんどは F-Script
+の中でも事前に定義されており、F-Script から直接使うことができる。<br>
+
+<br>
+
+<h3><a class="mozTocH3" name="mozTocId582157"></a>16　メモリの管理<br>
+</h3>
+
+Cocoa
+の実行形式は、自動ガベジコレクションを有効にするか、代わりに、マニュアル参照カウントの枠組みを使って実行することができる。どちらの場合でも、F-
+Script は、その実行形式を稼働させている Cocoa メモリ管理システムのルールに従う。<br>
+
+<br>
+
+F-Script のスタンドアロン版である F-Script.app
+は、自動ガベジコレクションを使っても、参照カウントモードででも、どちらでも動かすことができる。ほとんどの場合、読者は、自動ガベジコレクションを使
+い
+たいと思うだろう。それは、このモードが参照カウントモードの制約や複雑さから読者を解放してくれるからである。しかし、参照カウントモードを使わざるを
+得ない
+場合もある。例えば、自動ガベジコレクションに対応した設計がなされていない既存のクラスをロードせざるを得ない様な場合である。<br>
+
+<br>
+
+参照カウントモードでは、オブジェクトをある変数に代入するとそれを retain
+し、同じ変数に別のオブジェクトを再代入したらそれを release するという作業を、F-Script
+が自動的に実行してくれる。但し、例外がある：F-Script
+クラスのメソッド中で、Objective-C
+のクラスから継承したインスタンス変数にオブジェクトを代入する場合だ。この時には、Objective-C
+ではそうするのと同様に、自分で、そのオブジェクトの retain や release の面倒を見る必要がある。<br>
+
+<br>
+
+参照カウントモードでは、ブロックオブジェクトへの参照を生成する際、循環参照が発生しないようにする為に、ある特別な手当てが必要になる。ブロックオブ
+ジェクトは、自分を囲んでいるブロックや自分を生成したメソッドが自分を起動したことを記録した参照カウントを維持しているので、もしも、その起動処理の中に、こ
+のオブジェクトへの参照があると、循環参照が生じて、メモリリークを引き起すのである。そのような循環参照を避ける為、そうしたブロックへの参照は、使
+い終ったら必ず破棄しなければならない。例えば、以下の例の場合、ローカル変数「internalBlock」が内部のブロックを保持してしまう
+為、メモリリークを生じることになる。<br>
+
+<br>
+
+[ | internalBlock |<br>
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; internalBlock := [ 'hello' ].<br>
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; ... 何らかの処理 ...<br>
+
+] value.<br>
+
+<br>
+
+メモリリークを避ける為には、例えば以下の様に、外側のブロック（やメソッド）の処理の最後で、使い終えた内部のブロックへの参照を破棄すれば
+よい:<br>
+
+<br>
+
+[ | internalBlock |<br>
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; internalBlock := [ 'hello' ].<br>
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; ... 何らかの処理 ...<br>
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; internalBlock := nil.<br>
+
+] value.<br>
+
+<br>
+
+<br>
+
+</body></html>

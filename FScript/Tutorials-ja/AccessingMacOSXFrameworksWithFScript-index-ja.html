@@ -1,0 +1,446 @@
+<html><head>
+	<title>
+	  F-Script で Mac OS X のフレームワーク群にアクセスする - Accessing Mac OS X Frameworks with F-Script
+	</title>
+	  <!-- Accessing Mac OS X Frameworks with F-Script -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
+	<link rel="stylesheet" type="text/css" href="AccessingMacOSXFrameworksWithFScript-index-ja_files/documentation.css" media="all">
+	
+  </head>
+  <body bgcolor="#FFFFFF">
+	<br>
+	<h1 align="center">
+	  F-Script で Mac OS X のフレームワーク群にアクセスする
+	  <!-- Accessing Mac OS X Frameworks with F-Script -->
+	</h1>
+	<p>
+	  <font color="#326fa3">
+		2010年 5月 改訂
+		<!-- Revised May 2010 -->
+	  </font>
+	</p>
+	
+	
+	<table style="border: 1px solid #C9D1D7; width:38em" bgcolor="whitesmoke" cellpadding="5">
+	<!-- <table style="border: 1px solid #C9D1D7; width:43em" bgcolor="whitesmoke" cellpadding="5"> -->
+	  <tbody><tr>
+		  <td align="left">
+			<b>
+			  記事一覧
+			  <!-- Articles in this series -->
+			</b><br>
+			<br>
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  基 礎
+			  <!-- Fundamentals -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="ExploringCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa 探検
+				</a>
+				<a href="http://www.fscript.org/documentation/ExploringCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="LearnFScriptIn20Minutes-index-ja.html">
+				  F-Script を20分で学び、Core Image で遊んでみよう
+				</a>
+				<a href="http://www.fscript.org/documentation/LearnFScriptIn20Minutes/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="ScriptingCocoaWithFScript-index-ja.html">
+				  F-Script で Cocoa スクリプティング
+				</a>
+				<a href="http://www.fscript.org/documentation/ScriptingCocoaWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="CreatingCocoaClassesWithFScript-index-ja.html">
+				  F-Script で Cocoa クラスを創る
+				</a>
+				<a href="http://www.fscript.org/documentation/CreatingCocoaClassesWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="SystemWideScriptingWithFScript-index-ja.html">
+				  F-Script で Mac の様々なアプリケーションを操作する
+				</a>
+				<a href="http://www.fscript.org/documentation/SystemWideScriptingWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="EmbeddingFScriptIntoCocoa-index-ja.html">
+				  Cocoa アプリケーションに F-Script を埋め込む
+				</a>
+				<a href="http://www.fscript.org/documentation/EmbeddingFScriptIntoCocoa/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			  <li>
+				<a href="AccessingMacOSXFrameworksWithFScript-index-ja.html">
+				  F-Script で Mac OS X のフレームワーク群にアクセスする
+				</a>
+				<a href="http://www.fscript.org/documentation/AccessingMacOSXFrameworksWithFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+			
+			<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  その他
+			  <!-- Miscellaneous -->
+			</b><br>
+			<ol>
+			  <li>
+				<a href="GoogleChartAPIFunWithCocoaAndFScript-index-ja.html">
+				  Cocoa と F-Script で Google Chart API をいじってみよう
+				  </a>
+				  <a href="http://www.fscript.org/documentation/GoogleChartAPIFunWithCocoaAndFScript/index.htm">
+				  ［原文］
+				  </a>
+			  </li>
+			  <li>
+				<a href="TheGameOfReverseInFScript-index-ja.html">
+				  F-Script 版 Reverse ゲーム
+				</a>
+				<a href="http://www.fscript.org/documentation/TheGameOfReverseInFScript/index.htm">
+				  ［原文］
+				</a>
+			  </li>
+			</ol>
+		  </td>
+		</tr>
+	</tbody></table>
+
+<h2>はじめに</h2>
+<!-- Introduction -->
+
+<p>
+  スタンドアロンの F-Script 環境 F-Script.app には、起動した時点で既に、数多くの Mac OS X フレームワークが自動的にリンクされている。
+  そのため、F-Script さえあれば、それ以上何ら特別な設定をすることなく、Mac OS X の能力を素早く調べたり、これらのフレームワークを直接使ったりすることができるのだ。
+  これはとても便利で役に立つ。
+  <!--
+      F-Script.app, the standalone F-Script environment, is automatically linked with a number of Mac OS X frameworks.
+      This is convenient for quickly exploring Mac OS X's capabilities and directly using the frameworks without any further configuration.
+    -->
+</p> 
+
+<h2>
+  実用的な例： Image Kit フレームワークにアクセスする
+  <!-- A practical example: accessing the Image Kit framework -->
+</h2>
+
+<p>
+  その使い方を示す具体的な例として、最近 Mac OS X の標準フレームワークに追加された <a href="http://developer.apple.com/graphicsimaging/imagekit/">Image Kit</a> にアクセスしてみよう。
+  F-Script.app を起動して、以下のコードを、コンソールに直接入力して欲しい：
+  <!--
+      We will illustrate this by accessing the <a href="http://developer.apple.com/graphicsimaging/imagekit/">Image Kit</a>,
+      a recent addition to the standard Mac OS X frameworks.
+      We can launch F-Script.app and directly enter the following code:
+    -->
+</p>    
+
+<pre class="codebox"><code><span class="identifier">IKPictureTaker</span> <span class="selector">pictureTaker</span> <span class="selector">orderFront:</span><span class="literal">nil</span>
+</code></pre>
+
+<p>
+  Image Kit のコンポーネントの一つ <code><a href="http://developer.apple.com/documentation/GraphicsImaging/Reference/IKImagePicker_Class/index.html">IKPictureTaker</a></code> の
+  パネルが最前面に現れる。これを使うと様々なことができるが、とりわけ、ファイルシステム上の画像ファイルをブラウズしたり、（iSight 内蔵の）デジタルカメラで、スナップショットを撮ったりすることができるのだ。
+  <!--
+      It will activate the <code><a href="http://developer.apple.com/documentation/GraphicsImaging/Reference/IKImagePicker_Class/index.html">IKPictureTaker</a></code> panel,
+      a component of Image Kit with which users can, among other things,
+      browse images in the file system and take snapshots with digital cameras (including the built-in iSight).
+    -->
+</p>
+
+<img src="AccessingMacOSXFrameworksWithFScript-index-ja_files/fig1.png">
+
+<p>
+  こうして一度欲しい画像を入手してしまえば、F-Script コンソールに以下の命令を入力すれば、pictureTaker からその画像オブジェクト
+  （<code><a href="http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/NSImage_Class/index.html">NSImage</a></code> のインスタンス）を
+  受け取ることができる：
+  <!--
+      Then, once we've got the image we want,
+      we can get the image objet
+      (an <code><a href="http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/NSImage_Class/index.html">NSImage</a></code>instance)
+      from the picture taker by typing the following instruction in the F-Script console:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">myImage</span> := <span class="identifier">IKPictureTaker</span> <span class="selector">pictureTaker</span> <span class="selector">outputImage</span>
+</code></pre>
+
+<p>
+  この F-Script コードは、「myImage」という名前の変数を定義して、pictureTaker に保持されている NSImage オブジェクトを、その変数に代入している。
+  <!--
+      This F-Script code defines a variable named "myImage" and assigns it the NSImage object held by the picture taker.
+    -->
+</p>
+
+<h2>
+  リンク済みのフレームワーク
+  <!--
+      Linked frameworks
+    -->
+</h2>
+
+<p>
+  以下の表は、F-Script.app に自動的にリンクされるフレームワークの一覧だ：
+  <!--
+      The following table lists the frameworks that are automatically liked with F-Script.app:
+    -->
+</p>
+
+<table>
+<tbody><tr align="center" bgcolor="#6ca6cd"><td style="padding:10px; color:FFFFFF;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;フレームワーク<!--Framework-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td> <td style="color:FFFFFF;"><b>特徴<!--Description--></b></td></tr>
+<tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Address Book </td>
+  <td style="padding:8px;"> 連絡先データベースへのアクセス <!-- Access to the contacts database --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Application Kit </td>
+    <td style="padding:8px;"> ユーザーインタフェース <!-- User interface --> </td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Automator </td>
+    <td style="padding:8px;"> オートメータプラグインシステム <!-- Automator plugin system --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Calendar Store </td>
+    <td style="padding:8px;"> カレンダデータベースへのアクセス <!-- Access to the calendar database --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Collaboration </td>
+    <td style="padding:8px;"> アイデンティティ情報の管理 <!-- Identity information management --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Core Animation </td>
+    <td style="padding:8px;"> グラフィカルアニメーション <!-- Graphical animation --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Core Audio Kit </td>
+    <td style="padding:8px;"> オーディオユニットカスタムビュー <!-- Audio Units custom views --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Core Data </td>
+    <td style="padding:8px;"> データモデルの管理（オブジェクトの永続化、等々）<!-- Data model management (object persistence, etc.) --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Core Image </td>
+    <td style="padding:8px;"> 画像処理 <!-- Image processing --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Core Location </td>
+    <td style="padding:8px;"> コンピュータの地理的位置の決定 <!-- Determining the geographical location of a computer --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Core Video </td>
+    <td style="padding:8px;"> ビデオ画像処理<!-- Video processing --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Core WLAN </td>
+    <td style="padding:8px;"> ワイアレスネットワーク接続の管理 <!-- Wireless networks access and management --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Disc Recording </td>
+    <td style="padding:8px;"> CD や DVD に書き込み記録する<!-- CD and DVD burning --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Disc Recording UI </td>
+    <td style="padding:8px;"> CD や DVD に書き込み記録する為の UI 部品 <!-- User interface components for CD and DVD burning --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Disk Arbitration </td>
+    <td style="padding:8px;"> ハードディスクイベントのモニター及び管理 <!-- Hard disk events monitoring and management --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Exception Handling </td>
+    <td style="padding:8px;"> 例外処理の構成管理 <!-- Exception handling configuration --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Foundation Kit </td>
+    <td style="padding:8px;"> コアサービス（ルートクラス、文字列処理、コレクション、ネットワーク、ファイル管理、スレッド処理 等々）<!-- Core services (root class, string handling, collections, networking, file management, threading, etc.) --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Image Capture Core </td>
+    <td style="padding:8px;"> スキャナ、カメラ等のディジタル機器接続 <!-- Access to digital devices such as scanners and cameras --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Image Kit </td>
+    <td style="padding:8px;"> イメージのブラウズや操作の為の UI 部品 <!-- User interface components for image browsing and manipulation --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Input Method Kit </td>
+    <td style="padding:8px;"> 文章入力方式の管理 <!-- Input methods management --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Instant Message </td>
+    <td style="padding:8px;"> インスタントメッセージユーザーのオンライン状態管理 <!-- Online status of instant messaging users --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> IOBluetooth </td>
+    <td style="padding:8px;"> ブルートゥース機器への接続 <!-- Access to Bluetooth devices --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> IOBluetooth UI </td>
+    <td style="padding:8px;"> ブルートゥース機器接続の為の UI 部品 <!-- User interface components for access to Bluetooth devices --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> JavaVM </td>
+    <td style="padding:8px;"> Java 環境へのアクセス <!-- Access to the Java environment --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Open Directory </td>
+    <td style="padding:8px;"> オープンディレクトリ情報の管理 <!-- Management of Open Directory information --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> OSA Kit </td>
+    <td style="padding:8px;"> OSA 準拠スクリプトの管理及び実行 <!-- Management and execution of OSA-compliant scripts --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Preference Panes </td>
+    <td style="padding:8px;"> システムリファレンスアプリケーション用プラグインの実装 <!-- Implementing plugins for the System Preferences application --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> PDF Kit </td>
+    <td style="padding:8px;"> PDF 関連の処理 <!-- PDF handling --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> PubSub </td>
+    <td style="padding:8px;"> RSS や ATOM 関連の処理 <!-- RSS and ATOM handling --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> QT Kit </td>
+    <td style="padding:8px;"> QuickTime コンテンツの表示や加工 <!-- Rendering and manipulation of QuickTime content --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Quartz Composer </td>
+    <td style="padding:8px;"> Quartz Composer 部品へのアクセス <!-- Access to Quartz Composer compositions --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Quartz Filters </td>
+    <td style="padding:8px;"> グラフィクスコンテクストに対するフィルター効果の適用や管理 <!-- Managing and applying filter effects to a graphics context --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Screen Saver </td>
+    <td style="padding:8px;"> スクリーンセーバの実装 <!-- Implementing screen savers --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Scripting Bridge </td>
+    <td style="padding:8px;"> スクリプタブルアプリケーションの制御 <!-- Control of scriptable applications --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Security Foundation </td>
+    <td style="padding:8px;"> ユーザー権限の管理 <!-- Users authorization --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Security Interface </td>
+    <td style="padding:8px;"> ユーザー権限管理の為の UI 部品 <!-- User interface components for users authorization --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> Server Notification </td>
+    <td style="padding:8px;"> サーバーを使ったノーティフィケーションの送受信 <!-- Sending and receiving server-based notifications --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Sync Services </td>
+    <td style="padding:8px;"> 複数のコンピュータや機器間でのデータの同期処理 <!-- Data synchronization between multiples computers and devices --></td>
+</tr><tr align="left" bgcolor="#edf3fe"><td style="padding:8px;"> WebKit </td>
+    <td style="padding:8px;"> Web コンテンツの描画処理 <!-- Web content rendering --></td>
+</tr><tr align="left" bgcolor="#FEFFFF"><td style="padding:8px;"> Xgrid Foundation </td>
+    <td style="padding:8px;"> クラスター管理 <!-- Cluster management --></td>
+</tr>
+</tbody></table>
+
+<h2>
+  その他のフレームワークやバンドルをロードする
+  <!-- Loading other frameworks and bundles -->
+</h2>
+
+<p>
+  標準的な Cocoa のテクニックを使えば、読者の作ったものも含めて、その他のフレームワークやバンドルを動的にロードすることができる。
+  <a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSBundle_Class/Reference/Reference.html">NSBundle</a> クラスを使うと便利である。
+  例えば、次のコードは、Mac OS X デベロッパーツールと一緒にインストールされるフレームワークの一つ SenTesting Kit をロードする： 
+  <!--
+      You can dynamically load other frameworks and bundles, including some you might have created, using standards Cocoa techniques.
+      The <a href="http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSBundle_Class/Reference/Reference.html">NSBundle</a> class comes in handy here.
+      For example, the following code loads the SenTesting Kit, a framework installed along with the Mac OS X developer tools:
+    -->
+</p>
+
+<pre class="codebox"><code>(<span class="identifier">NSBundle</span> <span class="selector">bundleWithPath:</span><span class="string">'/Developer/Library/Frameworks/SenTestingKit.framework'</span>) <span class="selector">load</span>
+</code></pre>
+
+<p>
+  64 ビットで実行する必要のあるフレームワークやバンドルは、64 ビットモード（デフォルト）で動作中の F-Script の中からロードする必要がある。
+  そして、32 ビット対応のバンドルをロードする為には、F-Script も 32 ビットで起動しなければならない。
+  （これをやるには、他のアプリケーションの場合と同じ様にすれば良い：F-Script.app に関するファインダインスペクタを開き、「32 ビットモードで開く」にチェックを入れる）
+  <!--
+      Frameworks and bundles requiring 64 bits execution must be loaded in F-Script running in 64 bit (the default).
+      For 32 bit bundles, you must launch F-Script in 32 bit mode
+      (you do that just like with other applications: open the Finder inspector on F-Script.app and check "open in 32 bit mode").
+    -->
+</p>
+<p style="text-align:left; font-size:x-small">
+  <font color="slategray">［訳注］ファインダインスペクタ： ファインダで、F-Script.app の上で右クリック &gt;「情報を見る」を選択すると開く「F-Script.app の情報」というパネル</font>
+</p>
+
+<p>
+  ロードしたいバンドルは、自動ガベージコレクションモードでしか動作しないかもしれないし、参照カウンタモードでしか動作しないかもしれない。
+  F-Script がそれに応じた正しいモードで動いていることを確認する必要がある。さもなければ、そのバンドルはロードされないだろう。
+  F-Script のリファレンスパネルを使えば、そのメモリ管理モードを設定することができる。
+  <!--
+      If your bundle requires running with automatic garbage collection only or in reference counting mode only,
+      you must make sure F-Script is running in the correct mode, or your bundle won't load.
+      You can configure F-Script's memory management mode from its preference panel.
+    -->
+</p>
+
+<p>
+  バンドルのロード中に問題が起きたら、<code>load</code> の換わりに、<code>loadAndReturnError:</code> を使うと良い。エラーに関する情報を得ることができる。
+  下のコードで、F-Script ではどうすればこのメソッドを使うことができるのかを示す。
+  この例では、TextEdit アプリケーションをロードしようとするが、それがロード可能なバンドルではない為、エラーが返ってくる：
+  <!--
+      If you encounter problems loading a bundle, you can use the method <code>loadAndReturnError:</code> instead of <code>load</code> to get error information.
+      The code below shows how you can use this method in F-Script.
+      In this example, we try to load the TextEdit application, but since this is not a loadable bundle, we get an error:
+    -->
+</p>
+
+<pre class="codebox"><code><span class="identifier">errorPointer</span> := <span class="identifier">FSObjectPointer</span> <span class="selector">objectPointer</span>.
+(<span class="identifier">NSBundle</span> <span class="selector">bundleWithPath:</span><span class="string">'/Applications/TextEdit.app'</span>) <span class="selector">loadAndReturnError:</span><span class="identifier">errorPointer</span>.
+<span class="identifier">errorPointer</span> <span class="selector">at:</span><span class="literal">0</span>.
+</code></pre>
+
+<p>
+  この上の例の最後の命令は NSError オブジェクトを返し、F-Script シェルで実行すると、そのエラーに関する情報を表示する：<br><br>
+  <code>Error Domain=NSCocoaErrorDomain Code=3584 UserInfo=0x2004990e0<br>"The bundle "TextEdit" couldn't be loaded because its executable isn't loadable."</code>
+  <!--
+      The last instruction in the example above returns the NSError object and displays it when executed in the F-Script shell:<br>
+      <br>
+      <code>Error Domain=NSCocoaErrorDomain Code=3584 UserInfo=0x2004990e0 "The bundle "TextEdit" couldn't be loaded because its executable isn't loadable."</code>
+    -->
+</p>
+
+<p>
+  追加したいフレームワークやバンドルを F-Script リポジトリの中に置けば、F-Script の起動時に、それらを自動的にロードすることができる。
+  このリポジトリは、F-Script が初めて起動された時に F-Script.app によって創られる。
+  このリポジトリは、デフォルトでは <code>~/Library/Application Support/F-Script</code>（<code>~</code> はホームディレクトリ）にあるだろう。
+  バンドルやフレームワークを <code>~/Library/Application Support/F-Script/classes</code> ディレクトリに置けば、F-Script.app に、それらを自動的にロードさせることができる。
+  <!--
+      You can have F-Script automatically load additional frameworks or bundles at launch time by putting them in the F-Script repository.
+      This repository is created by the F-Script.app application when launched for the first time.
+      By default it will be at <code>~/Library/Application Support/F-Script</code> (where <code>~</code> stands for your home directory).
+      You can put our bundles and frameworks in the <code>~/Library/Application Support/F-Script/classes</code> directory to have them loaded automatically by F-Scrit.app.
+    -->
+</p>
+
+<p>
+  こうする代わりに、それらのフレームワークやバンドルを指すシンボリックリンクを、ファイルシステムの中に創るだけでも良い。例えば、F-Script リポジトリから SenTesting Kit へのリンクを創るには、
+  次の F-Script コードを実行すれば良い。
+  <!--
+      Alternatively, you can just create symbolic links, in the file system, pointing to the frameworks and bundles.
+      For example, to create a link from the F-Script repository to the SenTesting Kit, you can execute the following F-Script code:
+    -->
+</p>
+<!--
+<pre class="codebox"><code><span class="identifier">bundlePathString</span> := <span class="string">'~/Library/Application Support/F-Script/classes/SenTestingKit.framework'</span>.
+<span class="identifier">NSFileManager</span> <span class="selector">defaultManager</span> <span class="selector">createSymbolicLinkAtPath:</span> <span class="identifier">bundlePathString</span> <span class="selector">stringByExpandingTildeInPath</span>
+                                  <span class="selector">withDestinationPath:</span><span class="string">'/Developer/Library/Frameworks/SenTestingKit.framework'</span>
+                                                <span class="selector">error:</span><span class="literal">nil</span>
+</code></pre>
+-->
+
+<pre class="codebox"><code><span class="identifier">NSFileManager</span> <span class="selector">defaultManager</span> <span class="selector">createSymbolicLinkAtPath:</span>
+                  <span class="string">'~/Library/Application Support/F-Script/classes/SenTestingKit.framework'</span> <span class="selector">stringByExpandingTildeInPath</span>
+                                  <span class="selector">withDestinationPath:</span><span class="string">'/Developer/Library/Frameworks/SenTestingKit.framework'</span>
+                                                <span class="selector">error:</span><span class="literal">nil</span>
+</code></pre>
+
+<p>
+  もう一つ別の方法として、隠しスクリプトに、明示的なローディングコードを書き加えても良い。
+  F-Script は、起動時に、F-Script リポジトリのトップレベルで「fs_latent」という名前のテキストファイルを探す。
+  もしこのファイルが存在するなら、このファイルには、ブロックリテラルのテキスト表現が記されていなければならない。
+  このブロックが、隠しスクリプトなのだが、この時インスタンス化されて、評価される。
+  このスクリプトを使えば、F-Script 対話セッションが開始される前に、やりたいことを何でも実行することができる。
+  例えば、SenTesting Kit をロードする為には、もし隠しスクリプトで他には何もしないのであれば、「fs_latent」ファイルには、ブロックで囲まれたローディングコードだけを書けば良い：
+  <!--
+      Another option is to add explicit loading code to the latent script. 
+      When F-Script is launched, a text file named "fs_latent" is searched for at the top level of the F-Script repository.
+      If this file exists it must contain the textual representation of a block literal. This block, the latent script, is then instantiated and evaluated.
+      You can use this script to do whatever you want before the interactive F-Script.app session begins.
+      For example, to load the SenTesting Kit, and if nothing else is done in the latent script,
+      the fs_latent file will just contain the loading code wrapped in a block:
+    -->
+</p>
+
+<pre class="codebox"><code>[(<span class="identifier">NSBundle</span> <span class="selector">bundleWithPath:</span><span class="string">'/Developer/Library/Frameworks/SenTestingKit.framework'</span>) <span class="selector">load</span>]
+</code></pre>
+
+<h2>
+  定数について
+  <!-- Constants -->
+</h2>
+
+<p>
+  Mac OS X の Objective-C ベースのフレームワークで定義されたほとんどの定数や列挙子は、F-Script でも、それらのシンボリック形式のまま直接利用できるが、
+  現時点では、F-Script は動的に新しい定数を見つけ出すことはしないので、もし（たぶん、動的にロードしたフレームワークで定義されている）使いたい定数が、F-Script 内で、
+  シンボリック形式では提供されていなければ、直接その本来の値に立ち返るべきである。
+  通常、対象のフレームワークの、公開されたヘッダーファイルを見れば、定数の定義が見つかるはずだ。
+  <!--
+      Most constants and enums defined in the Objective-C-based frameworks of Mac OS X are directly available in F-Script in their symbolic form. 
+      Currently, F-Script does not dynamically lookup new constants.
+      Thus, if a constant we want to use (maybe defined in a framework you load dynamically) is not provided by F-Script in its symbolic form,
+      you should fall back to directly using its raw value.
+      You can usualy find constants definitions in the public header files of the frameworks.
+    -->
+</p>
+
+<br>
+	<p style="text-align:center; font-size:x-small">
+	  <font color="slategray">Copyright © 2009-2010 Philippe Mougin</font><br>
+	  <font color="slategray">Translation-ja © 2012 Hideo Haga［日本語版］</font>
+	</p>
+	<br>
+	<!--
+	    <script src="AccessingMacOSXFrameworksWithFScript-index-ja_files/urchin.js" type="text/javascript">
+	    </script>
+	    <script type="text/javascript">
+	      _uacct = "UA-278325-1";
+	      urchinTracker();
+	    </script>
+	    -->
+
+</body></html>
