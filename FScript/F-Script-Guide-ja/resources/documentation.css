@@ -1,0 +1,81 @@
+table {
+  font-stretch: normal;
+  line-height: normal;
+  font-style: normal;
+  font-weight: normal;
+  display: table;
+}
+body {
+  margin: 12px 70px;
+  font-family: 'Lucida Grande',Geneva,Verdana,Arial,sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: normal;
+  font-size-adjust: none;
+  font-stretch: normal;
+  text-align: justify;
+}
+ul {
+  list-style-type: square;
+}
+a:link {
+  text-decoration: none;
+  color: #326fa3;
+}
+a:visited {
+  text-decoration: none;
+  color: #326fa3;
+}
+a:active {
+  text-decoration: none;
+  color: #666666;
+}
+a:hover {
+  text-decoration: underline;
+}
+h1 {
+  font-stretch: normal;
+  font-weight: bold;
+  font-family: 'Lucida Grande',Geneva,Verdana,Arial,sans-serif;
+  line-height: normal;
+  color: #326fa3;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 30px;
+  font-size-adjust: none;
+}
+h2 {
+  color: #326fa3;
+  font-family: 'Lucida Grande',Geneva,Verdana,Arial,sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 16px;
+  line-height: normal;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-weight: bold;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+blockquote {
+  margin: 1em;
+  padding: 0 0 10px 50px;
+  background: transparent url(blockquote.gif) no-repeat scroll left top;
+  color: #666666;
+}
+h3 {
+  line-height: normal;
+  color: white;
+  background-color: #326fa3;
+  vertical-align: middle;
+}
+th {
+  vertical-align: middle;
+  background-color: #326fa3;
+  color: white;
+}
