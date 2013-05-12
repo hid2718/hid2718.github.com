@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  <id>urn:iweb:7C5D4A06-9466-4EA3-8780-FCCCF6CC6FCC</id>
  <title>Page list Atom feed</title>
- <updated>2013-05-12T22:24:16+09:00</updated>
+ <updated>2013-05-12T22:37:16+09:00</updated>
  <link rel="self" href="feed.xml"/>
  <generator>iWeb</generator>
  <author>
@@ -14,7 +14,7 @@
   <title xmlns="urn:iweb:">Welcome</title>
   <in-navbar xmlns="urn:iweb:">B69DBB60-377A-4665-9821-5B1C93AA7D9C</in-navbar>
   <link rel="alternate" href="Welcome.html"/>
-  <updated>2013-05-12T22:24:16.001+09:00</updated>
+  <updated>2013-05-12T22:37:16.001+09:00</updated>
   <content>Welcome</content>
  </entry>
  <entry>
@@ -23,7 +23,7 @@
   <title xmlns="urn:iweb:">Documents</title>
   <in-navbar xmlns="urn:iweb:">94A77F47-D288-47E0-BACB-D503DBC7228B</in-navbar>
   <link rel="alternate" href="Documents.html"/>
-  <updated>2013-05-12T22:24:16.002+09:00</updated>
+  <updated>2013-05-12T22:37:16.002+09:00</updated>
   <content>Documents</content>
  </entry>
  <entry>
@@ -41,7 +41,7 @@
   <title xmlns="urn:iweb:">Contact</title>
   <in-navbar xmlns="urn:iweb:">17E8C1AE-4FCD-441F-B5AF-750657E8109E</in-navbar>
   <link rel="alternate" href="Contact.html"/>
-  <updated>2013-05-12T22:24:16.003+09:00</updated>
+  <updated>2013-05-12T22:37:16.003+09:00</updated>
   <content>Contact</content>
  </entry>
 </feed>
