@@ -11,6 +11,22 @@
       <link>http://hid2718.github.com/FScript/Blog/Blog.html</link>
     </image>
     <item>
+      <title>［情報］☆iOS用の「Super Debugger」登場☆☆</title>
+      <link>http://hid2718.github.com/FScript/Blog/entori/2013/2/3_%5Bqing_bao%5D_F-Script_ben_jiasaitoni_iOS_yongnoSuperDebugger_deng_chang%21.html</link>
+      <guid isPermaLink="false">87976548-f8e9-477c-919b-562b1c3a15dd</guid>
+      <pubDate>Sun, 3 Feb 2013 21:08:26 +0900</pubDate>
+      <description>&lt;a href=&quot;http://hid2718.github.com/FScript/Blog/entori/2013/2/3_%5Bqing_bao%5D_F-Script_ben_jiasaitoni_iOS_yongnoSuperDebugger_deng_chang%21_files/2013-05-25%2020.28.58%202.jpg&quot;&gt;&lt;img src=&quot;http://hid2718.github.com/FScript/Blog/Media/object028_1.jpg&quot; style=&quot;float:left; padding-right:10px; padding-bottom:10px; width:183px; height:137px;&quot;/&gt;&lt;/a&gt;F-Script 本家サイトのトップページにこの F-Script-ja サイトへのリンクが張られたのと同じタイミングで、F-Script を使った「 iOS用アプリケーション開発支援ツール Super Debugger 」が公開された。&lt;br/&gt;このリンク先には&lt;a href=&quot;http://shopify.github.io/superdb/&quot;&gt;「Super Debugger for iOS」を使って iPhone アプリの UI 開発を行っている様子を紹介する動画&lt;/a&gt;が置かれていて、このツールがどのような物であるかを大変具体的に知ることができる。&lt;br/&gt;&lt;br/&gt;まず、このツールは、iPhone 側ではなく、開発環境のある MacOSX 側で動作する開発支援ツールだ。&lt;br/&gt;Objective-C を使った通常の開発では、UI のちょっとした位置修正等でも、変更の都度、再コンパイルが必要だが、この Super Debugger を使えば、再コンパイルせずに、動的に変更しながら動かせる、ということのようだ。&lt;br/&gt;開発の生産性が劇的に向上するであろうことは想像に難くない。&lt;br/&gt;&lt;br/&gt;今や Cocoa は、MacOSX での開発よりも、iPhone や iPad など、iOS での開発の方が圧倒的にメジャーとなった。&lt;br/&gt;しかし、その開発者達のほとんどは「X-Code = Object-ve-C + Cocoa」で開発（や Cocoa の勉強）を行っている。&lt;br/&gt;この領域でも、F-Script は大幅な生産性の改善に寄与できるのは間違いなく、今後もこの Supe Debugger のような優れた環境が更に出てくれば、その存在が広く認知され、貢献できるようになるのではないかと期待される。&lt;br/&gt;&lt;br/&gt;この F-Script-ja でも、今後の動向をウォッチしていきたい。</description>
+      <enclosure url="http://hid2718.github.com/FScript/Blog/entori/2013/2/3_%5Bqing_bao%5D_F-Script_ben_jiasaitoni_iOS_yongnoSuperDebugger_deng_chang%21_files/2013-05-25%2020.28.58%202.jpg" length="60533" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>［日誌］ 本家サイトに F-Script-ja へのリンクができた☆！</title>
+      <link>http://hid2718.github.com/FScript/Blog/entori/2013/2/3_%5B_ri_zhi%5D%3A_ben_jiasaitoni_F-Script-ja_henorinkugadekita.html</link>
+      <guid isPermaLink="false">ef83ff79-1522-4491-a16c-41eaa44fcfa1</guid>
+      <pubDate>Sun, 3 Feb 2013 20:10:59 +0900</pubDate>
+      <description>&lt;a href=&quot;http://hid2718.github.com/FScript/Blog/entori/2013/2/3_%5B_ri_zhi%5D%3A_ben_jiasaitoni_F-Script-ja_henorinkugadekita_files/2013-05-25%2020.27.46.jpg&quot;&gt;&lt;img src=&quot;http://hid2718.github.com/FScript/Blog/Media/object027_1.jpg&quot; style=&quot;float:left; padding-right:10px; padding-bottom:10px; width:183px; height:137px;&quot;/&gt;&lt;/a&gt;昨年末に、原著者の Philippe にメールを書いて、この F-Script-ja サイトの企画の相談をした時、翻訳公開への快諾と共に、「 &lt;a href=&quot;http://www.fscript.org/&quot;&gt;www.fscript.org&lt;/a&gt; にリンクを張るから、公開できたらサイトのURLを知らせて！」という返事を戴いた。そこで、公開後に早速、公開完了の報告と共にこのサイトのURLをメールで連絡したのだが、数日前に何気なく本家サイトを覗いてみたら、いつの間にかこのサイトへのリンクができていた☆！&lt;br/&gt;この小さなサイトが、ささやかながら世界に繋がった☆ 素晴しい。&lt;br/&gt;</description>
+      <enclosure url="http://hid2718.github.com/FScript/Blog/entori/2013/2/3_%5B_ri_zhi%5D%3A_ben_jiasaitoni_F-Script-ja_henorinkugadekita_files/2013-05-25%2020.27.46.jpg" length="51386" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Mountain Lion 対応: F-Script 不具合の原因と対策</title>
       <link>http://hid2718.github.com/FScript/Blog/entori/2013/1/20_Mountain_Lion_dui_ying__F-Script_bu_ju_heno_yuan_yinto_dui_ce.html</link>
       <guid isPermaLink="false">b6e240ab-6df4-45a0-8fe7-9b0bc1a5e50d</guid>

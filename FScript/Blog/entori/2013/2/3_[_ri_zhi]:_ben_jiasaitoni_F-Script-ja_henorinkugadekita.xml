@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
+  <lastEdited clientType="local-build-20130525" date="2013-05-25 22:10:19 +0900"/>
+  <textBox id="generic-title-attributes" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;&#xFF3B;&#x65E5;&#x8A8C;&#xFF3D; &#x672C;&#x5BB6;&#x30B5;&#x30A4;&#x30C8;&#x306B; F-Script-ja &#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x304C;&#x3067;&#x304D;&#x305F;&#x2606;&#xFF01;&lt;/b&gt;</richText>
+  </textBox>
+  <textBox id="generic-body-attributes" dynamic="no" visible="yes">
+    <richText>&#x6628;&#x5E74;&#x672B;&#x306B;&#x3001;&#x539F;&#x8457;&#x8005;&#x306E; Philippe &#x306B;&#x30E1;&#x30FC;&#x30EB;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3001;&#x3053;&#x306E; F-Script-ja &#x30B5;&#x30A4;&#x30C8;&#x306E;&#x4F01;&#x753B;&#x306E;&#x76F8;&#x8AC7;&#x3092;&#x3057;&#x305F;&#x6642;&#x3001;&#x7FFB;&#x8A33;&#x516C;&#x958B;&#x3078;&#x306E;&#x5FEB;&#x8AFE;&#x3068;&#x5171;&#x306B;&#x3001;&#x300C; &lt;a href="http://www.fscript.org"&gt;www.fscript.org&lt;/a&gt; &#x306B;&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x5F35;&#x308B;&#x304B;&#x3089;&#x3001;&#x516C;&#x958B;&#x3067;&#x304D;&#x305F;&#x3089;&#x30B5;&#x30A4;&#x30C8;&#x306E;URL&#x3092;&#x77E5;&#x3089;&#x305B;&#x3066;&#xFF01;&#x300D;&#x3068;&#x3044;&#x3046;&#x8FD4;&#x4E8B;&#x3092;&#x6234;&#x3044;&#x305F;&#x3002;&#x305D;&#x3053;&#x3067;&#x3001;&#x516C;&#x958B;&#x5F8C;&#x306B;&#x65E9;&#x901F;&#x3001;&#x516C;&#x958B;&#x5B8C;&#x4E86;&#x306E;&#x5831;&#x544A;&#x3068;&#x5171;&#x306B;&#x3053;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x306E;URL&#x3092;&#x30E1;&#x30FC;&#x30EB;&#x3067;&#x9023;&#x7D61;&#x3057;&#x305F;&#x306E;&#x3060;&#x304C;&#x3001;&#x6570;&#x65E5;&#x524D;&#x306B;&#x4F55;&#x6C17;&#x306A;&#x304F;&#x672C;&#x5BB6;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x8997;&#x3044;&#x3066;&#x307F;&#x305F;&#x3089;&#x3001;&#x3044;&#x3064;&#x306E;&#x9593;&#x306B;&#x304B;&#x3053;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x305F;&#x2606;&#xFF01;&#xD;&#x3053;&#x306E;&#x5C0F;&#x3055;&#x306A;&#x30B5;&#x30A4;&#x30C8;&#x304C;&#x3001;&#x3055;&#x3055;&#x3084;&#x304B;&#x306A;&#x304C;&#x3089;&#x4E16;&#x754C;&#x306B;&#x7E4B;&#x304C;&#x3063;&#x305F;&#x2606; &#x7D20;&#x6674;&#x3057;&#x3044;&#x3002;&#xD;</richText>
+  </textBox>
+  <textBox id="generic-datefield-attributes" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;2013&#x5E74;2&#x6708;3&#x65E5;&#x65E5;&#x66DC;&#x65E5;&lt;/b&gt;</richText>
+  </textBox>
+  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="3_%5B_ri_zhi%5D%3A_ben_jiasaitoni_F-Script-ja_henorinkugadekita_files/shapeimage_3.png" left="0px" top="0px" width="400px" height="300px"/>
+</content>

@@ -1,5 +1,5 @@
 .paragraph_style {
-    color: rgb(88, 77, 77);
+    color: rgb(81, 81, 80);
     font-family: 'Meiryo';
     font-size: 28px;
     font-stretch: normal;
@@ -7,7 +7,7 @@
     font-variant: normal;
     font-weight: 400;
     letter-spacing: 0;
-    line-height: 50px;
+    line-height: 42px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -21,7 +21,7 @@
     text-transform: none;
 }
 .paragraph_style_1 {
-    color: rgb(88, 77, 77);
+    color: rgb(81, 81, 80);
     font-family: 'Meiryo';
     font-size: 18px;
     font-stretch: normal;
@@ -29,7 +29,7 @@
     font-variant: normal;
     font-weight: 400;
     letter-spacing: 0;
-    line-height: 32px;
+    line-height: 27px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -164,10 +164,6 @@
 .style_External_410_614 {
     position: relative;
 }
-.style_SkipStroke_1 {
-    background: rgb(255, 255, 255);
-    opacity: 1.00;
-}
 .style_SkipStroke_2 {
     background: transparent;
     opacity: 1.00;
@@ -176,11 +172,19 @@
     background: transparent;
     opacity: 1.00;
 }
+.style_SkipStroke_1 {
+    background: rgb(255, 255, 255);
+    opacity: 1.00;
+}
 .style_SkipStroke_3 {
     background: transparent;
     opacity: 1.00;
 }
 .style_SkipStroke_4 {
+    background: transparent;
+    opacity: 1.00;
+}
+.style_SkipStroke_5 {
     background: transparent;
     opacity: 1.00;
 }
@@ -262,6 +266,9 @@
 .Normal_External_410_614 {
     position: relative;
 }
+.Normal_External_630_77 {
+    position: relative;
+}
 .Normal_External_410_24 {
     position: relative;
 }
@@ -317,6 +324,10 @@
     background: transparent;
     opacity: 1.00;
 }
+.graphic_generic_header_textbox_style_default_SkipStroke {
+    background: transparent;
+    opacity: 1.00;
+}
 .graphic_generic_title_textbox_style_default_SkipStroke {
     background: transparent;
     opacity: 1.00;
@@ -333,9 +344,6 @@
 }
 .graphic_textbox_layout_style_default {
     padding: 4px;
-}
-.graphic_textbox_layout_style_default_External_630_89 {
-    position: relative;
 }
 .graphic_textbox_layout_style_default_External_315_30 {
     position: relative;
