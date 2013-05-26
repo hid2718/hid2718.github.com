@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <meta name="Generator" content="iWeb 3.0.4" />
+    <meta name="iWeb-Build" content="local-build-20130526" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta name="viewport" content="width=700" />
+    <title>［入門］F-Script コンソール を使ってみる</title>
+    <link rel="stylesheet" type="text/css" media="screen,print" href="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru.css" />
+    <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/5_%5Bru_men%5DF-Script_konsoru_wo_shittemiruIE.css'/><![endif]-->
+    <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='../../../../Media/IE8.css'/><![endif]-->
+    <script language="javascript" type="text/javascript"><!--
+
+iWebBlogMainPageName = 'Blog.html';
+iWebBlogMainPageTitle = 'Blog';
+iWebBlogArchivePageName = 'akaibu.html';
+iWebBlogArchivePageTitle = 'アーカイブ';
+
+
+--></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebSite.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/SharedResources/WidgetCommon.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/Widgets/Navbar/navbar.js"></script>
+    <script type="text/javascript" src="http://www.me.com/1/up/comments/scripts/search.js"></script>
+    <script type="text/javascript" src="../../../../Scripts/iWebBlog.js"></script>
+    <script type="text/javascript" src="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru.js"></script>
+  </head>
+  <body style="background: rgb(255, 255, 255); margin: 0pt; " onload="onPageLoad();" onunload="onPageUnload();">
+    <div style="text-align: center; ">
+      <div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden; position: relative; word-wrap: break-word;  background: rgb(255, 255, 255); text-align: left; width: 700px; " id="body_content">
+        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 0; " id="nav_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div class="com-apple-iweb-widget-navbar flowDefining" id="widget0" style="margin-left: 35px; margin-top: 0px; opacity: 1.00; position: relative; width: 630px; z-index: 1; ">
+    
+            <div id="widget0-navbar" class="navbar">
+
+      
+              <div id="widget0-bg" class="navbar-bg">
+
+        
+                <ul id="widget0-navbar-list" class="navbar-list">
+ <li></li> 
+</ul>
+                
+      
+</div>
+              
+    
+</div>
+          </div>
+          <script type="text/javascript"><!--//--><![CDATA[//><!--
+new NavBar('widget0', '../../../../Scripts/Widgets/Navbar', '../../../../Scripts/Widgets/SharedResources', '../../../..', {"path-to-root": "..\/..\/..\/..\/", "navbar-css": ".navbar {\n\tfont-family: Arial, sans-serif;\n\tfont-size: 1em;\n\tcolor: #666;\n\tmargin: 9px 0px 6px 0px;\n\tline-height: 30px;\n}\n\n.navbar-bg {\n\ttext-align: center;\n}\n\n.navbar-bg ul {\n\tlist-style: none;\n\tmargin: 0px;\n\tpadding: 0px;\n}\n\n\nli {\n\tlist-style-type: none;\n\tdisplay: inline;\n\tpadding: 0px 10px 0px 10px;\n}\n\n\nli a {\n\ttext-decoration: none;\n\tcolor: #666;\n}\n\nli a:visited {\n\ttext-decoration: none;\n\tcolor: #666;\n}\n\nli a:hover\r{\r\n \tcolor: #463C3C;\n\ttext-decoration: none;\r}\n\n\nli.current-page a\r{\r\t color: #463C3C;\n\ttext-decoration: none;\n\tfont-weight: bold;\r\r}", "current-page-GUID": "A8ED8FB8-BF74-4FF0-9BD0-4C361C3330FA", "isCollectionPage": "YES"});
+//--><!]]></script>
+          <div style="clear: both; height: 0px; line-height: 0px; " class="spacer"> </div>
+        </div>
+        <div style="height: 100px; margin-left: 0px; position: relative; width: 700px; z-index: 10; " id="header_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div style="height: 1px; width: 630px;  height: 1px; left: 35px; position: absolute; top: 3px; width: 630px; z-index: 1; " class="tinyText">
+            <div style="position: relative; width: 630px; ">
+              <img src="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/shapeimage_1.jpg" alt="" style="height: 1px; left: 0px; position: absolute; top: 0px; width: 630px; " />
+            </div>
+          </div>
+          
+
+
+          <div style="height: 1px; width: 630px;  height: 1px; left: 36px; position: absolute; top: 120px; width: 630px; z-index: 1; " class="tinyText">
+            <div style="position: relative; width: 630px; ">
+              <img src="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/shapeimage_2.jpg" alt="" style="height: 1px; left: 0px; position: absolute; top: 0px; width: 630px; " />
+            </div>
+          </div>
+          
+
+
+          <div id="id1" style="height: 77px; left: 35px; position: absolute; top: 23px; width: 630px; z-index: 1; " class="style_SkipStroke shape-with-text">
+            <div class="text-content Normal_External_630_77" style="padding: 0px; ">
+              <div class="Normal">
+                <p style="padding-top: 0pt; " class="paragraph_style">  F-Script で遊んでみよう！<br /></p>
+                <p style="padding-bottom: 0pt; " class="paragraph_style_1">Let’s play with F-Script !</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 5; " id="body_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <div id="id2" style="visibility: hidden;  height: 34px; left: 31px; position: absolute; top: 356px; width: 637px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
+            <div class="text-content Normal_External_637_34" style="padding: 0px; ">
+              <div class="Normal">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_2">［入門］F-Script コンソール を使ってみる</p>
+              </div>
+            </div>
+            <div id="generic-title-attributes" class="Title"></div>
+          </div>
+          <div style="height: 1px; line-height: 1px; " class="tinyText"> </div>
+          <div style="visibility: hidden;  margin-left: 34px; margin-top: 416px; position: relative; width: 633px; z-index: 1; " class="style_SkipStroke_2 shape-with-text flowDefining">
+            <div class="text-content style_External_633_1119" style="padding: 0px; ">
+              <div class="style">
+                <p style="padding-top: 0pt; " class="paragraph_style_3">F-Script.app を起動すると、自動的に「コンソール」が開いて入力待ちのプロンプトが出る。<br /></p>
+                <p class="paragraph_style_3">何らかの F-Script コードを実行するには、ここに直接、コードを入力して「return」キーを押せば良い。<br /></p>
+                <p class="paragraph_style_3">入力すべきコードが複数行に渡る場合には、「改行」のタイミングで「Ctrl」キーを押しながら「return」を押す。<br /></p>
+                <p class="paragraph_style_3">こうすることで、即実行されることなく、そこで「改行」され、継続して次の行を入力することができる。<br /></p>
+                <p class="paragraph_style_3">コンソールには、「↑」キーで過去の入力を呼び出せるヒストリー機能等、いくつか便利な機能があるが、詳細は、<a title="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html" href="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html">F-Script Guide</a> の <a title="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html#mozTocId188792" href="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html#mozTocId188792">３ F-Script の使い方</a> を見て欲しい。<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3">では、以下の様に入力して実行してみよう。次の行にその結果が表示され、次の入力を促すプロンプトが出る。<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3">    &gt; 2 + 3「return」<br /></p>
+                <p class="paragraph_style_3">    5<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3">    &gt;<br /></p>
+                <p class="paragraph_style_3"><br /></p>
+                <p class="paragraph_style_3">同様にして、以下の様に入力して、結果を確かめてみよう。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; a := 2 + 3<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; a<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4">    5<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; b := 'abc' ++ 'def'<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; b<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4">    'abcdef'<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; b at: 0<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4">    'a'<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; b at: 1<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4">    'b'<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; b at: 6<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    error: index of a a string must be a number less than the length of the string<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; c := { }<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; c addObject: 'a'<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; c<span class="style_1">「return」</span><br /></p>
+                <p class="paragraph_style_4">    {'a'}<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; c addObject: 'b'<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; c<br /></p>
+                <p class="paragraph_style_4">    {'a', 'b'}<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; c addObject: 100<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; c<br /></p>
+                <p class="paragraph_style_4">    {'a', 'b', 100}<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">    &gt; <br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">さあ、これで F-Script コンソールにも慣れたことと思う。後は、<a title="http://hid2718.github.io/FScript/Documents.html" href="http://hid2718.github.io/FScript/Documents.html">F-Script Guide</a> と、<a title="http://hid2718.github.io/FScript/Documents.html" href="http://hid2718.github.io/FScript/Documents.html">チュートリアル</a>を参考にしながら、どんどん実験してみて欲しい。 特に <a title="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html" href="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html">F-Script Guide</a> には、F-Script に関する基本的な知識が、系統立てて解説されている。例題も豊富なので、読むだけでなく、実際に実行してみることを強くお勧めしたい。<br /></p>
+              </div>
+              <div style="height: 31px; line-height: 31px; " class="tinyText"> </div>
+            </div>
+            <div id="generic-body-attributes" class="Body"></div>
+          </div>
+          
+
+
+          <div id="id3" style="visibility: hidden;  height: 24px; left: 33px; position: absolute; top: 389px; width: 635px; z-index: 1; " class="style_SkipStroke_3 shape-with-text">
+            <div class="text-content style_External_635_24" style="padding: 0px; ">
+              <div class="style">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_5">2013年2月5日火曜日</p>
+              </div>
+            </div>
+            <div id="generic-datefield-attributes" class="Date"></div>
+          </div>
+          
+
+
+          <div style="height: 299px; width: 628px;  height: 299px; left: 37px; position: absolute; top: 41px; width: 627px; z-index: 1; " class="tinyText">
+            <div style="position: relative; width: 627px; ">
+              <a href="http://www.fscript.org/documentation/index.htm" title="http://www.fscript.org/documentation/index.htm" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><img src="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/shapeimage_3.png" alt="" style="height: 299px; left: 0px; margin-left: -1px; margin-top: 1px; position: absolute; top: 0px; width: 628px; visibility: hidden; " id="generic-picture-attributes" /></a>
+            </div>
+          </div>
+          
+
+
+          <div id="id4" style="height: 631px; left: 329px; position: absolute; top: 738px; width: 332px; z-index: 1; " class="style_SkipStroke_2 shape-with-text">
+            <div class="text-content Normal_External_332_631" style="padding: 0px; ">
+              <div class="Normal">
+                <p style="padding-top: 0pt; " class="paragraph_style_4">・「:=」は、変数「a」への代入（束縛）を意味する。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・変数「a」には、演算結果の「5」が束縛されている。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・文字列リテラルは ‘文字列’ で表す。日本語もOK！<br /></p>
+                <p class="paragraph_style_4">・「++」は、文字列の連結を意味する。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・「at: 0」は、文字列先頭の文字を、文字列として返す。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・インデクスが「0」スタートなので、２番目が「at: 1」<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・「at: 6」即ち７番目の文字が存在しないため、エラー！<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・配列をリテラルで生成できる。「空」でも良い。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・配列に要素を追加する NSMutableArray のメソッド。<br /></p>
+                <p class="paragraph_style_4">　F-Script では、Cocoa のメソッドがそのまま使える。<br /></p>
+                <p class="paragraph_style_4">　※複数引数を取るキーワードメッセージ等例外はあり。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・配列に更に要素を追加する。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">・配列の要素は、同じ種類のオブジェクトでなくて良い。<br /></p>
+                <p style="padding-bottom: 0pt; " class="paragraph_style_4">　※これは F-Script ではなく、Cocoa の仕様だ。</p>
+              </div>
+            </div>
+          </div>
+          <div style="height: 0px; line-height: 0px; " class="spacer"> </div>
+        </div>
+        <div style="height: 150px; margin-left: 0px; position: relative; width: 700px; z-index: 15; " id="footer_layer">
+          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
+          <a href="http://apple.com/jp/mac" title="http://apple.com/jp/mac"><img src="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/mwmac.png" alt="Made on a Mac" style="border: none; height: 50px; left: 280px; opacity: 0.35; position: absolute; top: 80px; width: 139px; z-index: 1; " id="id5" />
+
+</a>
+          <div id="id6" style="height: 30px; left: 350px; position: absolute; top: 10px; width: 315px; z-index: 1; " class="style_SkipStroke_4 shape-with-text">
+            <div class="text-content graphic_textbox_layout_style_default_External_315_30" style="padding: 0px; ">
+              <div class="graphic_textbox_layout_style_default">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Next"><a class="iWebBlogNext" title="" href=""><span style="font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN'; font-size: 15px; font-stretch: normal; font-style: normal; font-weight: 300; line-height: 28px; ">次へ</span> &gt;</a></p>
+              </div>
+            </div>
+          </div>
+          
+
+
+          <div id="id7" style="height: 30px; left: 35px; position: absolute; top: 10px; width: 315px; z-index: 1; " class="style_SkipStroke_4 shape-with-text">
+            <div class="text-content graphic_textbox_layout_style_default_External_315_30" style="padding: 0px; ">
+              <div class="graphic_textbox_layout_style_default">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Previous"><a class="iWebBlogPrev" title="" href="">&lt; 前ヘ</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
