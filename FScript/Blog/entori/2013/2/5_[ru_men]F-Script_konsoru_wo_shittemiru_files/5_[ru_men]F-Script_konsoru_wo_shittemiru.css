@@ -117,6 +117,28 @@
     opacity: 1.00;
 }
 .paragraph_style_5 {
+    color: rgb(0, 0, 0);
+    font-family: 'HiraKakuProN-W3', 'Hiragino Kaku Gothic ProN';
+    font-size: 12px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 18px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    opacity: 1.00;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0px;
+    text-transform: none;
+}
+.paragraph_style_6 {
     color: rgb(88, 77, 77);
     font-family: 'Arial-BoldMT', 'Arial', sans-serif;
     font-size: 10px;
@@ -154,12 +176,12 @@
     background: transparent;
     opacity: 1.00;
 }
+.style_External_633_1191 {
+    position: relative;
+}
 .style_SkipStroke_4 {
     background: transparent;
     opacity: 1.00;
-}
-.style_External_633_1119 {
-    position: relative;
 }
 .style_External_635_24 {
     position: relative;
@@ -261,13 +283,13 @@
 .Normal_External_637_34 {
     position: relative;
 }
-.Normal_External_633_1119 {
-    position: relative;
-}
 .Normal_External_332_631 {
     position: relative;
 }
 .Normal_External_630_77 {
+    position: relative;
+}
+.Normal_External_633_1191 {
     position: relative;
 }
 .Previous {
