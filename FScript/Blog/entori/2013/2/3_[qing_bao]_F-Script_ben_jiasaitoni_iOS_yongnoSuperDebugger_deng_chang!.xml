@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
-  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:19:17 +0900"/>
+  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:21:40 +0900"/>
   <textBox id="generic-title-attributes" dynamic="no" visible="yes">
     <richText>&lt;b&gt;&#xFF3B;&#x60C5;&#x5831;&#xFF3D;&#x2606;iOS&#x7528;&#x306E;&#x300C;Super Debugger&#x300D;&#x767B;&#x5834;&#x2606;&#x2606;&lt;/b&gt;</richText>
   </textBox>
