@@ -152,7 +152,7 @@ new NavBar('widget0', '../../../../Scripts/Widgets/Navbar', '../../../../Scripts
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">F-Script.app は一つの Cocoa アプリケーションであり、起動時に４０個もの Cocoa フレームワークをリンクして、それぞれに必要なヘッダーファイルを既に #import している。 F-Script.app 内部の F-Script インタプリタは、これらのフレームワークとヘッダーファイルにある各種定義に常時アクセスできるのだ。<br /></p>
                 <p class="paragraph_style_4">従って、F-Script でコードを書く際は、これらフレームワークやヘッダーファイルを改めて読み込む必要はない。<br /></p>
-                <p class="paragraph_style_4">上記のコードに「 NSTitledWindowMask」や「NSClosableWindowMask」等の Cocoa 定数をそのまま使えるのも同じ理由からだ。これらの定数は、読み込み済みのフレームワークのヘッダーファイルの内部で定義されている。<br /></p>
+                <p class="paragraph_style_4">上記のコードに「 NSTitledWindowMask」や「NSClosableWindowMask」等の Cocoa 定数をそのまま使えるのはその為だ。これらの定数は、読み込み済みのフレームワークのヘッダーファイルの内部で定義されている。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">起動時に読み込まれるフレームワークにはどのようなものがあるのか、そのリストが チュートリアル <span class="style_3">7. </span><a title="http://hid2718.github.com/FScript/AccessingMacOSXFrameworksWithFScript-index-ja.html" href="http://hid2718.github.com/FScript/AccessingMacOSXFrameworksWithFScript-index-ja.html" class="style_4">F-Script で Mac OS X のフレームワーク群にアクセスする</a> に掲載されている。しかし、これらは Cocoa の提供する膨大なフレームワークのごく一部に過ぎない。これ以外のフレームワークを利用したい場合は、明示的にそのフレームワークを読み込む必要がある。同じチュートリアルに、その読み込み方法についての具体的な説明がある。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
