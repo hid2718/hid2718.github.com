@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
-  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:49:20 +0900"/>
+  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:51:23 +0900"/>
   <textBox id="generic-title-attributes" dynamic="no" visible="yes">
     <richText>&lt;b&gt;Mountain Lion &#x5BFE;&#x5FDC;: F-Script &#x4E0D;&#x5177;&#x5408;&#x306E;&#x539F;&#x56E0;&#x3068;&#x5BFE;&#x7B56;&lt;/b&gt;</richText>
   </textBox>
