@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
-  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:51:24 +0900"/>
+  <lastEdited clientType="local-build-20130619" date="2013-06-19 01:03:32 +0900"/>
   <textBox id="generic-title-attributes" dynamic="no" visible="yes">
     <richText>&lt;b&gt;&#xFF3B;&#x65E5;&#x8A8C;&#xFF3D;&#x672C;&#x5BB6;&#x30B5;&#x30A4;&#x30C8;&#x306B;&#x3082; F-Script-ja &#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x304C;&#x3067;&#x304D;&#x305F;&#x2606;&#xFF01;&lt;/b&gt;</richText>
   </textBox>
