@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
+  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:07:51 +0900"/>
+  <textBox id="generic-title-attributes" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;&#xFF3B;&#x65E5;&#x8A8C;&#xFF3D;Smalltalk-users-jp &#x306B; F-Script-ja &#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x2606;&#x6DF1;&#x8B1D;&#xFF01;&lt;/b&gt;</richText>
+  </textBox>
+  <textBox id="generic-body-attributes" dynamic="no" visible="yes">
+    <richText>&#x4E00;&#x6628;&#x65E5;&#x3001;Smalltalk-users-ja &#x3092;&#x4E3B;&#x5BB0;&#x3059;&#x308B;&#x6885;&#x6FA4;&#x3055;&#x3093;&#x306B;&#x3001;F-Script-ja &#x30B5;&#x30A4;&#x30C8;&#x306E;&#x6B63;&#x5F0F;&#x516C;&#x958B;&#x306E;&#x9023;&#x7D61;&#x30E1;&#x30FC;&#x30EB;&#x3092;&#x5DEE;&#x3057;&#x4E0A;&#x3052;&#x305F;&#x3002;&#x3059;&#x308B;&#x3068;&#x901F;&#x653B;&#x3067;&#x6628;&#x65E5;&#x306E;&#x5185;&#x306B;&#x3001;&lt;a href="http://www.smalltalk-users.jp/"&gt;Smalltalk-users-jp &#x306E;&#x30C8;&#x30C3;&#x30D7;&#x30DA;&#x30FC;&#x30B8;&lt;/a&gt;&#x3068;&lt;a href="http://www.smalltalk-users.jp/Home/docs"&gt;&#x6587;&#x66F8;&#x30DA;&#x30FC;&#x30B8;&lt;/a&gt;&#x306B;&#x3001;&#x3053;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x3068;&#x7D39;&#x4ECB;&#x6587;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x4E0B;&#x3055;&#x3063;&#x305F;&#xFF01;&#x6DF1;&#x8B1D;&#x2606;&#x3067;&#x3059;&#xFF01;&#xD;&#x6885;&#x6FA4;&#x3055;&#x3093;&#x306B;&#x306F;&#x3001;&#x3053;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x306E;&#x4F01;&#x753B;&#x6BB5;&#x968E;&#x304B;&#x3089;&#x305A;&#x3063;&#x3068;&#x3001;&#x4F55;&#x304B;&#x3089;&#x4F55;&#x307E;&#x3067;&#x304A;&#x4E16;&#x8A71;&#x306B;&#x306A;&#x308A;&#x3063;&#x3071;&#x306A;&#x3057;&#x3067;&#x3001;&#x6DF1;&#x304F;&#x5FA1;&#x793C;&#x7533;&#x3057;&#x4E0A;&#x3052;&#x307E;&#x3059;&#x3002;</richText>
+  </textBox>
+  <textBox id="generic-datefield-attributes" dynamic="no" visible="yes">
+    <richText>&lt;b&gt;2013&#x5E74;1&#x6708;23&#x65E5;&#x6C34;&#x66DC;&#x65E5;&lt;/b&gt;</richText>
+  </textBox>
+  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="23_%5Bri_zhi%5DSmalltalk-users-jp_ni_F-Script-ja_henorinku_files/shapeimage_3.png" left="0px" top="0px" width="452px" height="295px"/>
+</content>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
-  <lastEdited clientType="local-build-20130528" date="2013-05-28 01:05:37 +0900"/>
+  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:07:49 +0900"/>
   <textBox id="generic-title-attributes" dynamic="no" visible="yes">
     <richText>&lt;b&gt;F-Script &#x3092; Mac &#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&lt;/b&gt;</richText>
   </textBox>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <content collectionGUID="84341F66-B8FE-4E3D-8495-6E0E0E951A48">
-  <lastEdited clientType="local-build-20130528" date="2013-05-28 01:05:38 +0900"/>
+  <lastEdited clientType="local-build-20130619" date="2013-06-19 00:07:51 +0900"/>
   <textBox id="generic-title-attributes" dynamic="no" visible="yes">
     <richText>&lt;b&gt;&#xFF3B;&#x5165;&#x9580;&#xFF3D;F-Script &#x30B3;&#x30F3;&#x30BD;&#x30FC;&#x30EB; &#x3092;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x308B;&lt;/b&gt;</richText>
   </textBox>
@@ -10,5 +10,5 @@
   <textBox id="generic-datefield-attributes" dynamic="no" visible="yes">
     <richText>&lt;b&gt;2013&#x5E74;2&#x6708;5&#x65E5;&#x706B;&#x66DC;&#x65E5;&lt;/b&gt;</richText>
   </textBox>
-  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/shapeimage_3.png" left="0px" top="0px" width="628px" height="299px"/>
+  <image id="generic-picture-attributes" dynamic="no" visible="yes" src="5_%5Bru_men%5DF-Script_konsoru_wo_shittemiru_files/shapeimage_3.png" left="0px" top="0px" width="627px" height="298px"/>
 </content>
