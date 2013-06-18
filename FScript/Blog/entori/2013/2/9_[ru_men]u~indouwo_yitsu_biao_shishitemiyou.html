@@ -96,7 +96,7 @@ new NavBar('widget0', '../../../../Scripts/Widgets/Navbar', '../../../../Scripts
           </div>
           <div style="height: 1px; line-height: 1px; " class="tinyText"> </div>
           <div style="visibility: hidden;  margin-left: 34px; margin-top: 416px; position: relative; width: 633px; z-index: 1; " class="style_SkipStroke_2 shape-with-text flowDefining">
-            <div class="text-content style_External_633_2039" style="padding: 0px; ">
+            <div class="text-content style_External_633_2100" style="padding: 0px; ">
               <div class="style">
                 <p style="padding-top: 0pt; " class="paragraph_style_3">■ ウィンドウを一つ創って表示する<br /></p>
                 <p class="paragraph_style_4"><br /></p>
@@ -141,10 +141,10 @@ new NavBar('widget0', '../../../../Scripts/Widgets/Navbar', '../../../../Scripts
                 <p class="paragraph_style_4">Objective-C との対比で見た場合、文法上のポイントは次の通り。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">    ・#import &lt;Foundation/Foundation.h&gt; #import &lt;AppKit/AppKit.h&gt; 等の宣言は不要<br /></p>
+                <p class="paragraph_style_4">    ・各 Cocoa クラスで定義された各種 Cocoa 定数がそのまま使える<br /></p>
                 <p class="paragraph_style_4">    ・変数と代入<br /></p>
                 <p class="paragraph_style_4">    ・メッセージ式に［］は不要<br /></p>
                 <p class="paragraph_style_4">    ・全ての Cocoa クラスとそれらのメッセージは（ほぼ全て）そのまま使える<br /></p>
-                <p class="paragraph_style_4">    ・各 Cocoa クラスで定義された各種 Cocoa 定数がそのまま使える<br /></p>
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">以下に一つずつ説明しよう。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
@@ -152,23 +152,26 @@ new NavBar('widget0', '../../../../Scripts/Widgets/Navbar', '../../../../Scripts
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">F-Script.app は一つの Cocoa アプリケーションであり、起動時に４０個もの Cocoa フレームワークをリンクして、それぞれに必要なヘッダーファイルを既に #import している。 F-Script.app 内部の F-Script インタプリタは、これらのフレームワークとヘッダーファイルにある各種定義に常時アクセスできるのだ。<br /></p>
                 <p class="paragraph_style_4">従って、F-Script でコードを書く際は、これらフレームワークやヘッダーファイルを改めて読み込む必要はない。<br /></p>
-                <p class="paragraph_style_4">上記のコードに「 NSTitledWindowMask」や「NSClosableWindowMask」等の Cocoa 定数をそのまま使えるのはその為だ。これらの定数は、読み込み済みのフレームワークのヘッダーファイルの内部で定義されている。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">起動時に読み込まれるフレームワークにはどのようなものがあるのか、そのリストが チュートリアル <span class="style_3">7. </span><a title="http://hid2718.github.com/FScript/AccessingMacOSXFrameworksWithFScript-index-ja.html" href="http://hid2718.github.com/FScript/AccessingMacOSXFrameworksWithFScript-index-ja.html" class="style_4">F-Script で Mac OS X のフレームワーク群にアクセスする</a> に掲載されている。しかし、これらは Cocoa の提供する膨大なフレームワークのごく一部に過ぎない。これ以外のフレームワークを利用したい場合は、明示的にそのフレームワークを読み込む必要がある。同じチュートリアルに、その読み込み方法についての具体的な説明がある。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
-                <p class="paragraph_style_8">２）変数と代入： aWin := ...<br /></p>
+                <p class="paragraph_style_4"><span class="style_5">２）各 Cocoa クラスで定義された各種 Cocoa 定数が、そのまま使える</span><br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_4">上記のコードに「 NSTitledWindowMask」や「NSClosableWindowMask」等の Cocoa 定数をそのまま使えるのも同じ理由による。これらの定数は、読込済みフレームワークのヘッダーファイル内部で定義されている。<br /></p>
+                <p class="paragraph_style_4"><br /></p>
+                <p class="paragraph_style_8">３）変数と代入： aWin := ...<br /></p>
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">F-Script では、特別な型指定をしない限り、変数は全て「id 型」で、宣言無しでいきなり使える。また、代入は、「=」ではなく「:=」で表す。これらは Smalltalk と同じだ。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">ただし、F-Script は Objective-C と全く同様に「Objective-C ランタイム」を使って動いている為、Objective-C で書かれた各種フレームワークとの遣り取りが必要なメソッドを使用する際には、Objective-C とのマッピングの為に明示的な型指定が必要になる。例えば、NSView クラスを継承して独自クラスを作る場合がそうだ。その再描画を司るメソッドである「drawRect:」周りは、これが、Objective-C のフレームワークからコールバックされる為、引数、戻り値共に、明示的な型指定が必要となる。<br /></p>
                 <p class="paragraph_style_4">この点については、チュートリアル 4. <a onclick="window.open(this.href); return false;" title="http://hid2718.github.io/FScript/CreatingCocoaClassesWithFScript-index-ja.html" href="http://hid2718.github.io/FScript/CreatingCocoaClassesWithFScript-index-ja.html" onkeypress="window.open(this.href); return false;">F-Script で Cocoa クラスを創る</a> の「さらにメソッドについて」の節に詳しい解説がある。また、F-Script Guide の <a onclick="window.open(this.href); return false;" title="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html#mozTocId433866" href="http://hid2718.github.io/FScript/F-Script-Guide-ja/F-Script-Guide-1-16-ja.html#mozTocId433866" onkeypress="window.open(this.href); return false;">15 Objective-C マッピング の節</a> も合わせて参照するとよい。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
-                <p class="paragraph_style_8">３）メッセージ式に［］は不要： NSWindow alloc initWithContentRect: ...<br /></p>
+                <p class="paragraph_style_8">４）メッセージ式に［］は不要： NSWindow alloc initWithContentRect: ...<br /></p>
                 <p class="paragraph_style_4"><br /></p>
                 <p class="paragraph_style_4">Objective-C では「メッセージ式」は［］で括って表し、普通のCのコードとは分離して扱われるが、F-Script では、Smalltalk と同様「全てがメッセージ式」であり、メッセージ式に［］は使わない。<br /></p>
                 <p class="paragraph_style_4">Objective-C で [ [ Object message1 ] message2 ] という式は、単に Object message1 message2 となる。<br /></p>
                 <p class="paragraph_style_4"><br /></p>
-                <p class="paragraph_style_8">４）全ての Cocoa クラスとそれらのメッセージは（ほぼ全て）そのまま使える<br /></p>
+                <p class="paragraph_style_8">５）全ての Cocoa クラスとそれらのメッセージは（ほぼ全て）そのまま使える<br /></p>
                 <p class="paragraph_style_9"><br /></p>
                 <p class="paragraph_style_4">F-Script は、そのインタプリタを通して Objective-C のランタイムを使って Cocoa にアクセスする。その為、Cocoa から見ると、そのアクセスが Objective-C からのものなのか F-Script からのものなのか区別がつかない。<br /></p>
                 <p class="paragraph_style_4">つまり、F-Script は、Objective-C で利用可能な Cocoa の機能を（ほぼ全て）そのまま使えると考えて良い。<br /></p>
