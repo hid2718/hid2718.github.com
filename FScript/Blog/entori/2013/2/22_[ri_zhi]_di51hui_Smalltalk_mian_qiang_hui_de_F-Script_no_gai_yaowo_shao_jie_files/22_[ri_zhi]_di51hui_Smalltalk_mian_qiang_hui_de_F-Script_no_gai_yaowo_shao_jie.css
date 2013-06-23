@@ -1,5 +1,5 @@
 .paragraph_style {
-    color: rgb(78, 78, 78);
+    color: rgb(81, 81, 80);
     font-family: 'Meiryo';
     font-size: 28px;
     font-stretch: normal;
@@ -21,15 +21,15 @@
     text-transform: none;
 }
 .paragraph_style_1 {
-    color: rgb(78, 78, 78);
+    color: rgb(81, 81, 80);
     font-family: 'Meiryo';
-    font-size: 24px;
+    font-size: 18px;
     font-stretch: normal;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
     letter-spacing: 0;
-    line-height: 36px;
+    line-height: 27px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -43,6 +43,31 @@
     text-transform: none;
 }
 .paragraph_style_2 {
+    color: rgb(88, 77, 77);
+    font-family: 'Meiryo-Bold', 'Meiryo';
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 26px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    opacity: 1.00;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0px;
+    text-transform: none;
+}
+.style {
+    padding: 4px;
+}
+.paragraph_style_3 {
     color: rgb(88, 77, 77);
     font-family: 'ArialMT', 'Arial', sans-serif;
     font-size: 12px;
@@ -64,7 +89,7 @@
     text-indent: 0px;
     text-transform: none;
 }
-.style {
+.style_1 {
     font-family: 'ArialMT', 'Arial', sans-serif;
     font-size: 9px;
     font-stretch: normal;
@@ -72,16 +97,25 @@
     font-weight: 400;
     line-height: 12px;
 }
-.paragraph_style_3 {
+.style_2 {
+    font-family: 'ArialMT', 'Arial', sans-serif;
+    font-size: 9px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px;
+    text-decoration: underline;
+}
+.paragraph_style_4 {
     color: rgb(88, 77, 77);
-    font-family: 'HiraKakuPro-W3', 'Hiragino Kaku Gothic Pro', 'MS PGothic', sans-serif;
-    font-size: 14px;
+    font-family: 'Arial-BoldMT', 'Arial', sans-serif;
+    font-size: 13px;
     font-stretch: normal;
     font-style: normal;
     font-variant: normal;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 0;
-    line-height: 24px;
+    line-height: 18px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -89,21 +123,21 @@
     opacity: 1.00;
     padding-bottom: 0px;
     padding-top: 0px;
-    text-align: justify;
+    text-align: left;
     text-decoration: none;
     text-indent: 0px;
     text-transform: none;
 }
-.paragraph_style_4 {
+.paragraph_style_5 {
     color: rgb(88, 77, 77);
-    font-family: 'ArialMT', 'Arial', sans-serif;
-    font-size: 14px;
+    font-family: 'HiraKakuPro-W6', 'Hiragino Kaku Gothic Pro', 'MS PGothic', sans-serif;
+    font-size: 12px;
     font-stretch: normal;
     font-style: normal;
     font-variant: normal;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 0;
-    line-height: 19px;
+    line-height: 20px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -111,7 +145,29 @@
     opacity: 1.00;
     padding-bottom: 0px;
     padding-top: 0px;
-    text-align: justify;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0px;
+    text-transform: none;
+}
+.paragraph_style_6 {
+    color: rgb(88, 77, 77);
+    font-family: 'Arial-BoldMT', 'Arial', sans-serif;
+    font-size: 10px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 11px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    opacity: 1.00;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: left;
     text-decoration: none;
     text-indent: 0px;
     text-transform: none;
@@ -125,34 +181,26 @@
     opacity: 1.00;
 }
 .style_SkipStroke_1 {
-    background: transparent;
+    background: rgb(255, 255, 255);
     opacity: 1.00;
-}
-.paragraph_style_5 {
-    color: rgb(84, 79, 84);
-    font-family: 'ArialMT', 'Arial', sans-serif;
-    font-size: 10px;
-    font-stretch: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 13px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    opacity: 1.00;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    text-align: left;
-    text-decoration: none;
-    text-indent: 0px;
-    text-transform: none;
 }
 .style_SkipStroke_3 {
     background: transparent;
     opacity: 1.00;
+}
+.style_SkipStroke_4 {
+    background: transparent;
+    opacity: 1.00;
+}
+.style_SkipStroke_5 {
+    background: transparent;
+    opacity: 1.00;
+}
+.style_External_633_1472 {
+    position: relative;
+}
+.style_External_635_24 {
+    position: relative;
 }
 .Body {
     color: rgb(88, 77, 77);
@@ -176,14 +224,86 @@
     text-indent: 0px;
     text-transform: none;
 }
+.Date {
+    color: rgb(88, 77, 77);
+    font-family: 'Arial-BoldMT', 'Arial', sans-serif;
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 16px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    opacity: 1.00;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0px;
+    text-transform: none;
+}
+.Next {
+    color: rgb(88, 77, 77);
+    font-family: 'ArialMT', 'Arial', sans-serif;
+    font-size: 15px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    opacity: 1.00;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: right;
+    text-decoration: none;
+    text-indent: 0px;
+    text-transform: none;
+}
 .Normal {
     padding: 4px;
 }
-.Normal_External_355_138 {
+.Normal_External_635_24 {
     position: relative;
 }
-.Normal_External_355_86 {
+.Normal_External_637_34 {
     position: relative;
+}
+.Normal_External_633_1472 {
+    position: relative;
+}
+.Normal_External_630_77 {
+    position: relative;
+}
+.Previous {
+    color: rgb(88, 77, 77);
+    font-family: 'ArialMT', 'Arial', sans-serif;
+    font-size: 15px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    opacity: 1.00;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0px;
+    text-transform: none;
 }
 .Title {
     color: rgb(88, 77, 77);
@@ -207,7 +327,15 @@
     text-indent: 0px;
     text-transform: none;
 }
-.graphic_generic_description_textbox_style_default_SkipStroke {
+.graphic_generic_body_textbox_style_default_SkipStroke {
+    background: transparent;
+    opacity: 1.00;
+}
+.graphic_generic_datefield_textbox_style_default_SkipStroke {
+    background: transparent;
+    opacity: 1.00;
+}
+.graphic_generic_header_textbox_style_default_SkipStroke {
     background: transparent;
     opacity: 1.00;
 }
@@ -215,13 +343,20 @@
     background: transparent;
     opacity: 1.00;
 }
+.graphic_shape_layout_style_default {
+    padding: 4px;
+}
+.graphic_shape_layout_style_default_External_406_313 {
+    position: relative;
+}
+.graphic_shape_style_default_SkipStroke {
+    background: rgb(255, 255, 255);
+    opacity: 1.00;
+}
 .graphic_textbox_layout_style_default {
     padding: 4px;
 }
-.graphic_textbox_layout_style_default_External_628_39 {
-    position: relative;
-}
-.graphic_textbox_layout_style_default_External_629_1058 {
+.graphic_textbox_layout_style_default_External_315_30 {
     position: relative;
 }
 .graphic_textbox_style_default_SkipStroke {
@@ -240,15 +375,15 @@ a:hover {
     color: rgb(0, 0, 0);
     text-decoration: underline;
 }
-#widget1 a {
-    color: rgb(88, 77, 77);
-    text-decoration: underline;
+.bumper {
+    font-size: 1px;
+    line-height: 1px;
+}
+.tinyText {
+    font-size: 1px;
+    line-height: 1px;
 }
 #widget0 a:hover {
-    color: rgb(0, 0, 0);
-    text-decoration: underline;
-}
-#widget1 a:hover {
     color: rgb(0, 0, 0);
     text-decoration: underline;
 }
@@ -260,15 +395,7 @@ a:hover {
     color: rgb(88, 77, 77);
     text-decoration: underline;
 }
-#widget1 a:visited {
-    color: rgb(121, 121, 121);
-    text-decoration: underline;
-}
 .spacer {
-    font-size: 1px;
-    line-height: 1px;
-}
-.bumper {
     font-size: 1px;
     line-height: 1px;
 }
